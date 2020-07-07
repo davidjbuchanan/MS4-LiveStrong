@@ -1,39 +1,39 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+How I wrote the app:
 
-Welcome USER_NAME,
+Signed up for Github, Gitpod and Heroku accounts
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+Went to Code Institute's (CI) Gitpod template [repo.](https://github.com/Code-Institute-Org/gitpod-full-template) and clicked *Use this template*. The new repo. was named and openned in Gitpod, straight from Github.
 
-## Gitpod Reminders
+Add ons:
+Postgres: A server-based database that runs remotely from our Django app. Note: Django's db.sqlite3 is fine for local development but is not robust for long term storage of data. To install Postgres use `pip3 install psycopg2-binary` from the Git CLI.
+dj-database-url: Enables the connection to the Postgress remote database. To install use `pip3 install dj_database_url` from the Git CLI.
+Green Unicorn: A web browser for deployed browsing. To install Green Unicorn use `pip3 install gunicorn` from the Git CLI.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Generation of a requirements file for the purposes of informing Heroku which files to install using pip. Migration of installed files accomplished using `pip3 freeze --local > requirements.txt` from the Git CLI.
 
-`python3 -m http.server`
+Generation of a Procfile file for the purposes of informing Heroku that this is to be a web application with a web server called Green Unicorn.
+Generate from the Git CLI using `touch Procfile`. This should link to wsgi ang gunicorn
+( wsgi module: allows it to handle HTTP requests like run server does in our local development environment.)
 
-A blue button should appear to click: *Make Public*,
+From the CI template it is possible to access the Heroku CLI from the Git CLI (otherwise installation is required from [Heroku]( https://devcenter.heroku.com/articles/heroku-cli)). Using the Heroku CLI you can login using `heroku login`. 
 
-Another blue button should appear to click: *Open Browser*.
+Once authenticated it is possible to create an app in Heroku too:
+Using the CLI enter `heroku apps:create` followed by the app's name and region of creation e.g. `heroku apps:create name --region eu`. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+From the Heroku GUI goto the app; then the resources tab, and then the add-ons input fireld. From there add Postgress. 
 
-A blue button should appear to click: *Make Public*,
+To link the Postgress database (created in Heroku) to the Django app requires an update to the settings.py file with the relevant path information:
+To do this requires 5 actions: 
+1) Import dj_database_url
+2) Obtain the DATABASE_URL (From the Heroku GUI or CLI using `heroku config`).
+3) Paste the DATABASE_URL into the Database section to give: 
+4) Run migrations using `python3 manage.py migrate` from the CLI
+5) Add the Heroku host name to the ALLOWED_HOSTS section.
 
-Another blue button should appear to click: *Open Browser*.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+For security a .gitignore file should be created and in it `*.squlite3` and `__pycache__/` should be typed to ensure all cache and database data is hidden from the repo. 
 
-## Updates Since The Instructional Video
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+This will have to be "pushed" to both the Github repo. (for commit history) and Heroku app. (for deployment)  
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
