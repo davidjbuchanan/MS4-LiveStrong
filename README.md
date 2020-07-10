@@ -3,6 +3,19 @@ Signed up for Github and Gitpod.
 
 Went to Code Institute's (CI) Gitpod template [repo.](https://github.com/Code-Institute-Org/gitpod-full-template) and clicked *Use this template*. The new repo. was named and openned in Gitpod, straight from Github.
 
+followed the https://github.com/davidjbuchanan/boutique_ado_v1/blob/master/instructions.txt
+
+at line 25 put SECRET_KEY into the github settings and created an any var before initial commit
+
+
+
+
+
+
+
+
+The deployment process:
+
 To deploy the app remotely the additional list of add-ons and code are required:
 
 Signed up for a free Heroku accounts
