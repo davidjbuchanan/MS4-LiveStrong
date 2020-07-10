@@ -79,3 +79,7 @@ Now that the IDE contents can be commited and pushed to Github and Heroku the ap
 
 The Github repository can be connected to Heroku to minimise the number of dual commits required: Using the Heroku GUI's enter the Deploy tab and set the Deployment Method to Github masterfile. Direct to the appropriate repo and select auto deploy activated.
 
+
+AWS S33 was used to host the static files and product images.
+Created a group. Attached an access policy to the group that allows full S3 access to the S3 'bucket'.
+Created a user, that is part of the group, with a unique special access keys.
