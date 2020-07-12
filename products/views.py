@@ -1,7 +1,13 @@
 from django.shortcuts import render
+from .models import Product 
 
-# Create your views here.
 
-class Category(models.Model):
-    name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+def all_products(request):
+    """ A view show all_products, including sorting and search queries """
+
+    products = Product.objects.all()
+
+    context = {
+        'products': products,
+    }
+    return render(request, 'products/products.html', context)
