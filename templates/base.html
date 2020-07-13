@@ -106,21 +106,19 @@
                         <h1 class="mb-5">Build a landing page for your business or project and generate more leads!</h1>
                     </div>
                     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                        <form>
+                        <form method="GET" action="{% url 'products' %}">
                             <div class="form-row">
                                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                                    <form method="GET" action="">
-                                        <div class="input-group w-100">
-                                            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
-                                            <div class="input-group-append">
-                                                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                                                    <span class="icon">
-                                                        <i class="fas fa-search"></i>
-                                                    </span>
-                                                </button>
-                                            </div>
+                                    <div class="input-group w-100">
+                                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                                        <div class="input-group-append">
+                                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                                <span class="icon">
+                                                    <i class="fas fa-search"></i>
+                                                </span>
+                                            </button>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </form>

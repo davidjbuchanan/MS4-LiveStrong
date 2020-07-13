@@ -19,6 +19,7 @@
                             <div class="card h-100 border-0">
                                 {% if product.image %}
                                 <a href="{% url 'product_detail' product.id %}">
+                                <!--So this is the correct syntax to target the Django object id for a product. This is the pk fed in when you upload the fixtures file otherwise Django generates an id?-->
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
                                 {% else %}
