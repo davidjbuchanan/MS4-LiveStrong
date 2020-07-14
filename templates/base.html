@@ -93,9 +93,24 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                <a href="{% url 'products' %}?category=activewear,essentials" class="dropdown-item">Equipment</a>
-                                <a href="{% url 'products' %}?category=jeans" class="dropdown-item">Training</a>
-                                <a href="{% url 'products' %}?category=shirts" class="dropdown-item">Subscriptions</a>
+                                <a href="{% url 'products' %}?category=activewear,essentials" class="dropdown-item">
+                                <!--Equipment-->
+                                category search all clothes</a>
+                                <a href="{% url 'products' %}?category=jeans" class="dropdown-item">
+                                <!--Training-->
+                                category search jeans</a>
+                                <a href="{% url 'products' %}?category=shirts" class="dropdown-item">
+                                <!--Subscriptions-->
+                                category search shirts</a>
+                                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">
+                                <!--Equipment-->
+                                sort by price asc</a>
+                                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item">
+                                <!--Training-->
+                                sort by rating desc</a>
+                                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">
+                                <!--Subscriptions-->
+                                sort by category asc</a>
                             </div>
                         </li>
                         <!--<li class="nav-item dropdown">
