@@ -85,14 +85,27 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="list-inline-item dropdown">
+                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div><i class="far fa-eye fa-lg"></i></div>
+                                    <p class="my-0">Products</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                <a href="{% url 'products' %}?category=activewear,essentials" class="dropdown-item">Equipment</a>
+                                <a href="{% url 'products' %}?category=jeans" class="dropdown-item">Training</a>
+                                <a href="{% url 'products' %}?category=shirts" class="dropdown-item">Subscriptions</a>
+                            </div>
+                        </li>
+                        <!--<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRest" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Subscription
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownRest">
                                 <a class="dropdown-item" href="">zzzzzzzzzzzz</a>
                             </div>
-                        </li>         
+                        </li>       -->  
                     </ul>
                 </div>                
             </div> 
