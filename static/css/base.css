@@ -124,3 +124,25 @@ footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+
+
+
+
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999999999;
+}
+
+.allowOverflow {
+    overflow: visible;
+}
+
+/*.toast-capper {
+    height: 2px;
+}
+*/
+

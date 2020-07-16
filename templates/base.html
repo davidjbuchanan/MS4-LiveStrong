@@ -30,15 +30,13 @@
         {% endblock %}
 
         {% block extra_js %}
+            
         {% endblock %}
 
-        <title>Ml4! {% block extra_title %}{% endblock %}</title>
+            <title>Ml4! {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
         <!-- Navigation -->
-        {% if messages %}
-            <div class="message-container"></div>
-        {% endif %}
 
         {% block page_header %}
         {% endblock %}
@@ -113,19 +111,20 @@
                                 sort by category asc</a>
                             </div>
                         </li>
-                        <!--<li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRest" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Subscription
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownRest">
-                                <a class="dropdown-item" href="">zzzzzzzzzzzz</a>
-                            </div>
-                        </li>       -->  
                     </ul>
                 </div>                
             </div> 
         </nav>    
         
+        {% if messages %}
+            <div class="message-container">
+                {% for message in messages %}
+                    {% include 'includes/toasts/toast_success.html' %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+
         <header class="masthead text-white text-center">
             <div class="overlay"></div>
             <div class="container">
@@ -206,6 +205,10 @@
         </footer>
  
         {% block postloadjs %}
+            <script type="text/javascript">
+                $('.toast').toast({delay: 6000});
+                $('.toast').toast('show');
+            </script>
         {% endblock %}
     </body>
 </html>
