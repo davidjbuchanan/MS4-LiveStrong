@@ -36,19 +36,27 @@
             <title>Ml4! {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
-        <!-- Navigation -->
+        <!-- Navigation 
 
         {% block page_header %}
-        {% endblock %}
+        {% endblock %}-->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">    
             <div class="container" id="home">
-                <a class="navbar-brand" href="">
+                <a class="navbar-brand" href="{% url 'home' %}">
                     MS4
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
                 </button>    
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
+                        <li class="list-inline-item dropdown">
+                            <a class="text-black nav-link" href="{% url 'blog:post_list' %}" id="blog-options">
+                                <div class="text-center">
+                                    <div><i class="fas fa-blog fa-lg"></i></div>
+                                    <p class="my-0">Blog</p>
+                                </div>
+                            </a>
+                        </li>
                         <li class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
