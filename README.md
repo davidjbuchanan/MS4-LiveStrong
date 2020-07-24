@@ -10,7 +10,8 @@ at line 25 put SECRET_KEY into the github settings and created an any var before
 
 
 
-
+django-crispy-forms.
+which will let us format all our forms using bootstrap styling automatically.
 
 
 

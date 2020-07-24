@@ -25,4 +25,5 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('bag/', include('bag.urls')),
     path('blog/', include('blog.urls', namespace='blog')),  # use of namespace - to be reviewed i.e. extended to other paths or deleted
+    path('checkout/', include('checkout.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
