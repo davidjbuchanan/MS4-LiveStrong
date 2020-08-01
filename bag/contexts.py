@@ -15,6 +15,7 @@ def bag_contents(request):
     total = 0
     product_count = 0
     discount_total = 0  #
+    discount_percentage = 0  #
     bag = request.session.get('bag', {})
     coupon_id = request.session.get('coupon_id', int())  #
 
@@ -30,7 +31,8 @@ def bag_contents(request):
         sub_total += quantity * product.price  #
 
         if code is not None:
-            discount_total = (code.discount/Decimal('100'))*sub_total
+            discount_percentage = code.discount
+            discount_total = (discount_percentage/Decimal('100'))*sub_total
             total = sub_total - discount_total
         else:
             total = sub_total
@@ -56,6 +58,10 @@ def bag_contents(request):
 
     context = {
         'bag_items': bag_items,
+        'sub_total': sub_total,
+        'code': code,
+        'discount_total': discount_total,
+        'discount_percentage': discount_percentage,
         'total': total,
         'product_count': product_count,
         'delivery': delivery,

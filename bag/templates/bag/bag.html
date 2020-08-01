@@ -48,10 +48,33 @@
                                         <p class="my-0">${{ item.product.price }}</p>
                                     </td>
                                 </tr>
-                            {% endfor %}
+                            {% endfor %}                                                     
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
+                                    <h6><strong>Bag Subtotal: ${{ sub_total|floatformat:2 }}</strong></h6>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-8 text-left">
+                            <form action="{% url 'apply' %}" method="post">
+                                {% csrf_token %}
+                                {{ coupon_form|crispy }}
+                                <input type="submit" value="Coupon code">
+                            </form>
+                        </div>
+                    </div>
+                    <hr>            
+                    <div class="table-responsive rounded">
+                        <table class="table table-sm table-borderless">
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <h6><strong>Discount Coupon id: {% if code %} {{ code.code }} {% else %} Nill {% endif %}</strong></h6>
+                                    <h6><strong>Discount Applied: {% if code %} ({{ discount_percentage }}%) / ${{ discount_total|floatformat:2 }} {% else %} Nill {% endif %}</strong></h6>
                                     <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                                    
                                     <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
                                     <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_delivery_delta > 0 %}
@@ -90,14 +113,6 @@
                 {% endif %}
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <form action="{% url 'apply' %}" method="post">
-                    {% csrf_token %}
-                    {{ coupon_form|crispy }}
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
-        </div>
+        
     </div>
 {% endblock %}
