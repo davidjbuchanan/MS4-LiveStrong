@@ -1,13 +1,41 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from products.models import Product
+from django.views.decorators.http import require_http_methods
+from coupons.models import Coupon
+from coupons.forms import CouponApplyForm
+#  from django.views.decorators.http import require_POST
 
-# Create your views here.
+
+#  @require_POST
+@require_http_methods(["GET", "POST"])
+def coupon_apply(request):
+    if request.method == 'POST':
+        coupon_form = CouponApplyForm(request.POST)
+        if coupon_form.is_valid():
+            code = coupon_form.cleaned_data['code']
+            try:
+                coupon = Coupon.objects.get(code=code, active=True)
+                request.session['coupon_id'] = coupon.id
+                messages.success(request, 'Coupon applied')
+            except Coupon.DoesNotExist:
+                request.session['coupon_id'] = None
+                messages.warning(request, 'Coupon not accepted')
+                return redirect('view_bag')
+    else:
+        coupon_form = CouponApplyForm()
+
+    return render(request, 'bag/bag.html', {'coupon_form': coupon_form})
+
 
 def view_bag(request):
+
+    coupon_form = CouponApplyForm()  # added to view as you had noticed absence
+
     """ A view to return the bag contents page """
 
-    return render(request, 'bag/bag.html')
+    return render(request, 'bag/bag.html', {'coupon_form': coupon_form})
+
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
