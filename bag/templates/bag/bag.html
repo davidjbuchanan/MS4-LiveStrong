@@ -90,5 +90,14 @@
                 {% endif %}
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <form action="{% url 'apply' %}" method="post">
+                    {% csrf_token %}
+                    {{ coupon_form|crispy }}
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}
