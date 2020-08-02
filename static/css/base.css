@@ -125,7 +125,10 @@ footer.footer {
   padding-bottom: 4rem;
 }
 
-
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
 
 
 /* ------------------------------- bootstrap toasts */
