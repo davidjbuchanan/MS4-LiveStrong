@@ -3,6 +3,10 @@ import uuid
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
+from decimal import Decimal
+from django.core.validators import MinValueValidator, \
+                                   MaxValueValidator
+from coupons.models import Coupon
 
 from products.models import Product
 
@@ -58,16 +62,25 @@ class Order(models.Model):
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    # product_size = models.CharField(max_length=2, null=True, blank=True) # XS, S, M, L, XL
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    coupon = models.ForeignKey(Coupon, null=True, blank=True, on_delete=models.SET_NULL, related_name='orders')
+    discount = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    discount_percentage = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        self.lineitem_total = self.product.price * self.quantity
+        self.lineitem_subtotal = self.product.price * self.quantity
+        if self.discount_percentage is not None:
+            self.line_discount = self.lineitem_subtotal * (Decimal(self.discount_percentage) / Decimal(100))
+            self.discount = self.line_discount
+            self.lineitem_total = self.lineitem_subtotal - self.line_discount
+        else:
+            self.lineitem_total = self.lineitem_subtotal
+
         super().save(*args, **kwargs)
 
     def __str__(self):

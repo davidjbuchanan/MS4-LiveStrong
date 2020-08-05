@@ -6,6 +6,7 @@ from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
 from bag.contexts import bag_contents
+from coupons.models import Coupon
 
 import stripe
 
@@ -16,6 +17,15 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
+        current_bag = bag_contents(request)
+        print(current_bag)
+        discount_percentage = current_bag['discount_percentage']
+        code = current_bag['code']
+        try:
+            code = Coupon.objects.get(code=code)
+
+        except Coupon.DoesNotExist:
+            code = None
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -34,12 +44,23 @@ def checkout(request):
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    order_line_item = OrderLineItem(
-                        order=order,
-                        product=product,
-                        quantity=item_data,
-                    )
-                    order_line_item.save()
+                    if code is not None:
+                        print(code)
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                            discount_percentage=discount_percentage,
+                            coupon=code
+                        )
+                        order_line_item.save()
+                    else:
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                        order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
@@ -47,13 +68,11 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
-
     else:  # it's a GET
         bag = request.session.get('bag', {})
         if not bag:
