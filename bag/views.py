@@ -17,6 +17,8 @@ def coupon_apply(request):
             try:
                 coupon = Coupon.objects.get(code=code, active=True)
                 request.session['coupon_id'] = coupon.id
+                request.session['discount'] = coupon.discount  #
+                request.session['code'] = coupon.code  #
                 messages.success(request, 'Coupon applied')
             except Coupon.DoesNotExist:
                 request.session['coupon_id'] = None
@@ -25,7 +27,8 @@ def coupon_apply(request):
     else:
         coupon_form = CouponApplyForm()
 
-    return render(request, 'bag/bag.html', {'coupon_form': coupon_form})
+    #  return render(request, 'bag/bag.html', {'coupon_form': coupon_form})
+    return render(request, 'bag/bag.html', {'code': code, 'coupon_id': coupon.id, 'coupon_discount': coupon.discount, 'coupon_form': coupon_form})
 
 
 def view_bag(request):
