@@ -12,8 +12,8 @@ import stripe
 
 
 def checkout(request):
-    stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    stripe_secret_key = settings.STRIPE_SECRET_KEY
+    #  stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    #  stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -81,26 +81,26 @@ def checkout(request):
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
-        stripe_total = round(total * 100)
-        stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-        )
+        #  stripe_total = round(total * 100)
+        #  stripe.api_key = stripe_secret_key
+        #  intent = stripe.PaymentIntent.create(
+            #  amount=stripe_total,
+            #  currency=settings.STRIPE_CURRENCY,
+        #  )
 
-        print(intent)
+        #  print(intent)
 
         order_form = OrderForm()
 
-    if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
-            Did you forget to set it in your environment?')
+    #  if not stripe_public_key:
+        #  messages.warning(request, 'Stripe public key is missing. \
+            #  Did you forget to set it in your environment?')
 
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
+        #  'stripe_public_key': stripe_public_key,
+        #  'client_secret': intent.client_secret,
     }
 
     return render(request, template, context)
@@ -116,12 +116,25 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
+    #  orderLineItem = get_object_or_404(OrderLineItem, order=order)  #
+    #  bag = request.session.get('bag', {})  #
+    current_bag = bag_contents(request)  #
+    discount_percentage = current_bag['discount_percentage']  #
+    code = current_bag['code']  #
+
     if 'bag' in request.session:
         del request.session['bag']
+
+    if 'coupon_id' in request.session:  #
+        del request.session['coupon_id']  #
 
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'discount_percentage': discount_percentage,  #
+        'code': code,  #
+        #'orderLineItem': orderLineItem,  #
+
     }
 
     return render(request, template, context)
