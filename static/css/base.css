@@ -7,7 +7,6 @@
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
 h1,
 h2,
 h3,
@@ -21,13 +20,13 @@ h6 {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background: url("/media/bg-masthead.jpg") no-repeat center center;
+  background: url("/media/Lesmills-masthead(3).jpg") no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
 }
 
-header.masthead .overlay {
+/*header.masthead .overlay {
   position: absolute;
   background-color: #212529;
   height: 100%;
@@ -35,7 +34,7 @@ header.masthead .overlay {
   top: 0;
   left: 0;
   opacity: 0.3;
-}
+}*/
 
 header.masthead h1 {
   font-size: 2rem;
@@ -51,8 +50,35 @@ header.masthead h1 {
   }
 }
 
+@media (min-width: 1000px) {
+  section.masthead {
+  position: relative;
+  background-color: #343a40;
+  background: url("/media/Lesmills-masthead(2).jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  }
+  .overlay {
+  position: relative;
+  background-color: #212529;
+  opacity: 0.75;
+  }
+  .message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999999999;
+}
+}
+
 .showcase .showcase-text {
   padding: 3rem;
+  background-color: #f8f9fa;
 }
 
 .showcase .showcase-img {
@@ -63,6 +89,7 @@ header.masthead h1 {
 @media (min-width: 768px) {
   .showcase .showcase-text {
     padding: 7rem;
+    background-color: #f8f9fa;
   }
 }
 

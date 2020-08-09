@@ -42,28 +42,29 @@
 
         {% block page_header %}
         {% endblock %}-->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">    
+        <!--<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">-->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">    
             <div class="container" id="home">
-                <a class="navbar-brand" href="{% url 'home' %}">
+                <a id="alpha" style="color:#ff0000; opacity:0.6;" class="navbar-brand" href="{% url 'home' %}">
                     MS4
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
                 </button>    
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="list-inline-item dropdown">
+                        <li id="one" class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="{% url 'blog:post_list' %}" id="blog-options">
                                 <div class="text-center">
-                                    <div><i class="fas fa-blog fa-lg"></i></div>
-                                    <p class="my-0">Blog</p>
+                                    <div><i id="blog-options_1" class="fas fa-blog fa-lg" style="color:#ff0000; opacity:0.6;"></i></div>
+                                    <p id="blog-options_2" class="my-0" style="color:#ff0000; opacity:0.6;">Blog</p>
                                 </div>
                             </a>
                         </li>
-                        <li class="list-inline-item dropdown">
+                        <li id="two" class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
-                                    <div><i class="fas fa-user fa-lg"></i></div>
-                                    <p class="my-0">My Account</p>
+                                    <div><i id="user-options_1" class="fas fa-user fa-lg" style="color:#ff0000; opacity:0.6;"></i></div>
+                                    <p id="user-options_2" class="my-0" style="color:#ff0000; opacity:0.6;">My Account</p>
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -79,11 +80,11 @@
                                 {% endif %}
                             </div>
                         </li>
-                        <li class="list-inline-item">
+                        <li id="three" class="list-inline-item">
                             <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
                                 <div class="text-center">
-                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                    <p class="my-0">
+                                    <div><i id="three_1" style="color:#ff0000; opacity:0.6;" class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <p id="three_2" class="my-0" style="color:#ff0000; opacity:0.6;">
                                         {% if grand_total %}
                                             ${{ grand_total|floatformat:2 }}
                                         {% else %}
@@ -93,11 +94,11 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="list-inline-item dropdown">
+                        <li id="four" class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="product-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
-                                    <div><i class="far fa-eye fa-lg"></i></div>
-                                    <p class="my-0">Products</p>
+                                    <div><i id="product-options_1" style="color:#ff0000; opacity:0.6;" class="far fa-eye fa-lg"></i></div>
+                                    <p id="product-options_2" class="my-0" style="color:#ff0000; opacity:0.6;">Products</p>
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -121,6 +122,88 @@
                                 sort by category asc</a>
                             </div>
                         </li>
+                        <script>
+                            $(document).ready(function() {
+                                $("#alpha").mouseenter(function() {               
+                                    $("#alpha").css("opacity", "1").css("background-color", "rgba(0,0,0,0.5)");
+                                    $("#one").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#two").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#three").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#four").css("background-color", "rgba(0,0,0,0.2)");
+                                });
+                                $("#alpha").mouseleave(function() {
+                                    $("#alpha").css("opacity", "0.6").css("background-color", "transparent");
+                                    $("#one").css("background-color", "transparent");
+                                    $("#two").css("background-color", "transparent");
+                                    $("#three").css("background-color", "transparent");
+                                    $("#four").css("background-color", "transparent");
+                                });
+                                $("#one").mouseenter(function() {
+                                    $("#blog-options_1").css("opacity", "1");
+                                    $("#blog-options_2").css("opacity", "1");
+                                    $("#one").css("background-color", "rgba(0,0,0,0.5)");
+                                    $("#two").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#three").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#four").css("background-color", "rgba(0,0,0,0.2)");
+                                });
+                                $("#one").mouseleave(function() {
+                                    $("#blog-options_1").css("opacity", "0.6");
+                                    $("#blog-options_2").css("opacity", "0.6");
+                                    $("#one").css("background-color", "transparent");
+                                    $("#two").css("background-color", "transparent");
+                                    $("#three").css("background-color", "transparent");
+                                    $("#four").css("background-color", "transparent");
+                                });
+                                $("#two").mouseenter(function() {
+                                    $("#user-options_1").css("opacity", "1");
+                                    $("#user-options_2").css("opacity", "1");
+                                    $("#two").css("background-color", "rgba(0,0,0,0.5)");
+                                    $("#one").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#three").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#four").css("background-color", "rgba(0,0,0,0.2)");
+                                });
+                                $("#two").mouseleave(function() {
+                                    $("#user-options_1").css("opacity", "0.6");
+                                    $("#user-options_2").css("opacity", "0.6");
+                                    $("#two").css("background-color", "transparent");
+                                    $("#one").css("background-color", "transparent");
+                                    $("#three").css("background-color", "transparent");
+                                    $("#four").css("background-color", "transparent");
+                                });
+                                $("#three").mouseenter(function() {
+                                    $("#three_1").css("opacity", "1");
+                                    $("#three_2").css("opacity", "1");
+                                    $("#three").css("background-color", "rgba(0,0,0,0.5)");
+                                    $("#one").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#two").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#four").css("background-color", "rgba(0,0,0,0.2)");
+                                });
+                                $("#three").mouseleave(function() {
+                                    $("#three_1").css("opacity", "0.6");
+                                    $("#three_2").css("opacity", "0.6");
+                                    $("#three").css("background-color", "transparent");
+                                    $("#one").css("background-color", "transparent");
+                                    $("#two").css("background-color", "transparent");
+                                    $("#four").css("background-color", "transparent");
+                                });
+                                $("#four").mouseenter(function() {
+                                    $("#product-options_1").css("opacity", "1");
+                                    $("#product-options_2").css("opacity", "1");
+                                    $("#four").css("background-color", "rgba(0,0,0,0.5)");
+                                    $("#one").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#two").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#three").css("background-color", "rgba(0,0,0,0.2)");
+                                });
+                                $("#four").mouseleave(function() {
+                                    $("#product-options_1").css("opacity", "0.6");
+                                    $("#product-options_2").css("opacity", "0.6");
+                                    $("#four").css("background-color", "transparent");
+                                    $("#one").css("background-color", "transparent");
+                                    $("#two").css("background-color", "transparent");
+                                    $("#three").css("background-color", "transparent");
+                                });
+                            });
+                        </script>
                     </ul>
                 </div>                
             </div> 
@@ -136,16 +219,16 @@
 
 
         <header class="masthead text-white text-center">
-            <div class="overlay"></div>
+           <!-- <div class="overlay"></div>-->
             <div class="container">
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
-                        <h1 class="mb-5">Build a landing page for your business or project and generate more leads!</h1>
+                        <h1 class="mb-5">Come join us on our quest to a healther life!</h1>
                     </div>
                     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                         <form method="GET" action="{% url 'products' %}">
                             <div class="form-row">
-                                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                                <div class="col-md-12 mb-2 mb-md-0">
                                     <div class="input-group w-100">
                                         <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
                                         <div class="input-group-append">

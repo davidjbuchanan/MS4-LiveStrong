@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
-    <h1 class="display-4 text-success">It works!</h1>
     <!-- Icons Grid -->
-    <section class="features-icons bg-light text-center">
+    <!--
+        <section class="features-icons bg-light text-center">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
@@ -37,27 +37,126 @@
             </div>
         </div>
     </section>
-         
+    -->
+    <section class="masthead features-icons bg-light text-center text-center">    
+        <!--<section class="features-icons bg-light text-center">-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4" id="overlay_1">
+                        <div id="overlay_1a" class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex">
+                                <i id="overlay_1b" class="fas fa-running fa-sm m-auto" style="color:#ff0000; opacity:0.6;"></i>
+                            </div>
+                            <h3><a id="overlay_1c" href="{% url 'products' %}" style="text-decoration: none; color: #ff0000; opacity:0.6;">Get the gear</a></h3>
+                            <!--<p class="lead mb-0" style="color: #ff0000;">This theme will look great on any device, no matter the size!</p>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-4" id="overlay_2">
+                        <div id="overlay_2a" class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex">
+                                <i id="overlay_2b" class="fas fa-dumbbell fa-sm m-auto" style="color:#ff0000; opacity:0.6;"></i>
+                            </div>
+                            <h3><a id="overlay_2c" href="{% url 'products' %}" style="text-decoration: none; color: #ff0000; opacity:0.6;">Access classes</a></h3>
+                            <!--<p class="lead mb-0" style="color: #ff0000;">Featuring the latest build of the new Bootstrap 4 framework!</p>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-4" id="overlay_3">
+                        <div id="overlay_3a" class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex">
+                                <i id="overlay_3b" class="fas fa-blog fa-sm m-auto" style="color:#ff0000; opacity:0.6;"></i>
+                            </div>
+                             <h3><a id="overlay_3c" href="{% url 'blog:post_list' %}" style="text-decoration: none; color: #ff0000; opacity:0.6;">Get involved</a></h3>
+                            <!--<p class="lead mb-0" style="color: #ff0000;">Ready to use with your own content, or customize the source files!</p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--</section>-->
+    </section>
+    <script>
+        $(document).ready(function() {
+            $("#overlay_1").mouseenter(function() {               
+                $("#overlay_1b").css("opacity", "1");
+                $("#overlay_1c").css("opacity", "1");
+                $("#overlay_1a").css("background-color", "rgba(0,0,0,0.5)");
+                /*$("#overlay_2a").css("opacity", "0.6");
+                $("#overlay_2b").css("opacity", "0.6");
+                $("#overlay_2c").css("background-color", "transparent");
+                $("#overlay_3a").css("opacity", "0.6");
+                $("#overlay_3b").css("opacity", "0.6");
+                $("#overlay_3c").css("background-color", "transparent");*/
+            });
+            $("#overlay_1").mouseleave(function() {
+                $("#overlay_1b").css("opacity", "0.6");
+                $("#overlay_1c").css("opacity", "0.6");
+                $("#overlay_1a").css("background-color", "transparent");
+                /*$("#overlay_2a").css("opacity", "0.6");
+                $("#overlay_2b").css("opacity", "0.6");
+                $("#overlay_3a").css("opacity", "0.6");
+                $("#overlay_3b").css("opacity", "0.6");*/
+            });
+            $("#overlay_2").mouseenter(function() {               
+                $("#overlay_2b").css("opacity", "1");
+                $("#overlay_2c").css("opacity", "1");
+                $("#overlay_2a").css("background-color", "rgba(0,0,0,0.5)");
+                /*$("#overlay_1a").css("opacity", "0.6");
+                $("#overlay_1b").css("opacity", "0.6");
+                $("#overlay_1c").css("background-color", "transparent");
+                $("#overlay_3a").css("opacity", "0.6");
+                $("#overlay_3b").css("opacity", "0.6");
+                $("#overlay_3c").css("background-color", "transparent");*/
+            });
+            $("#overlay_2").mouseleave(function() {
+                $("#overlay_2a").css("background-color", "transparent");
+                $("#overlay_2b").css("opacity", "0.6");
+                $("#overlay_2c").css("opacity", "0.6");
+                /*$("#overlay_1a").css("opacity", "0.6");
+                $("#overlay_1b").css("opacity", "0.6");
+                $("#overlay_3a").css("opacity", "0.6");
+                $("#overlay_3b").css("opacity", "0.6");*/
+            });
+            $("#overlay_3").mouseenter(function() {               
+                $("#overlay_3b").css("opacity", "1");
+                $("#overlay_3c").css("opacity", "1");
+                $("#overlay_3a").css("background-color", "rgba(0,0,0,0.5)");
+                /*$("#overlay_2a").css("opacity", "0.6");
+                $("#overlay_2b").css("opacity", "0.6");
+                $("#overlay_2c").css("background-color", "transparent");
+                $("#overlay_1a").css("opacity", "0.6");
+                $("#overlay_1b").css("opacity", "0.6");
+                $("#overlay_1c").css("background-color", "transparent");*/
+            });
+            $("#overlay_3").mouseleave(function() {
+                $("#overlay_3a").css("background-color", "transparent");
+                $("#overlay_3b").css("opacity", "0.6");
+                $("#overlay_3c").css("opacity", "0.6");
+                /*$("#overlay_2a").css("opacity", "0.6");
+                $("#overlay_2b").css("opacity", "0.6");
+                $("#overlay_1a").css("opacity", "0.6");
+                $("#overlay_1b").css("opacity", "0.6");*/
+            });
+        });
+    </script>
     <!-- Image Showcases -->
     <section class="showcase">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
-                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('../media/bg-showcase-1.jpg');"></div>
-                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background: url('../media/Argos-girl-lunge.jpg') center center;"></div>
+                <div class="col-lg-6 order-lg-1 showcase-text">
                     <h2>Fully Responsive Design</h2>
                     <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
                 </div>
             </div>
             <div class="row no-gutters">
-                <div class="col-lg-6 text-white showcase-img" style="background-image: url('../media/bg-showcase-2.jpg');"></div>
-                <div class="col-lg-6 my-auto showcase-text">
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url('../media/Argos-wellbeing.jpg');"></div>
+                <div class="col-lg-6 showcase-text">
                     <h2>Updated For Bootstrap 4</h2>
                     <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
                 </div>
             </div>
             <div class="row no-gutters">
-                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('../media/bg-showcase-3.jpg');"></div>
-                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('../media/Argos-girl-treadmill.jpg');"></div>
+                <div class="col-lg-6 order-lg-1 00owcase-text">
                     <h2>Easy to Use &amp; Customize</h2>
                     <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
                 </div>
