@@ -38,15 +38,11 @@
             <title>Ml4! {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
-        <!-- Navigation 
-
-        {% block page_header %}
-        {% endblock %}-->
-        <!--<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">-->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">    
+        <!-- Navigation -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">    
             <div class="container" id="home">
-                <a id="alpha" style="color:#ff0000; opacity:0.6;" class="navbar-brand" href="{% url 'home' %}">
-                    MS4
+                <a id="alpha" class="navbar-brand" href="{% url 'home' %}">
+                    <strong>Live Strong</strong>
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
                 </button>    
@@ -55,16 +51,16 @@
                         <li id="one" class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="{% url 'blog:post_list' %}" id="blog-options">
                                 <div class="text-center">
-                                    <div><i id="blog-options_1" class="fas fa-blog fa-lg" style="color:#ff0000; opacity:0.6;"></i></div>
-                                    <p id="blog-options_2" class="my-0" style="color:#ff0000; opacity:0.6;">Blog</p>
+                                    <div><i id="blog-options_1" class="fas fa-blog fa-lg"></i></div>
+                                    <p id="blog-options_2" class="my-0"><strong>Blog</strong></p>
                                 </div>
                             </a>
                         </li>
                         <li id="two" class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
-                                    <div><i id="user-options_1" class="fas fa-user fa-lg" style="color:#ff0000; opacity:0.6;"></i></div>
-                                    <p id="user-options_2" class="my-0" style="color:#ff0000; opacity:0.6;">My Account</p>
+                                    <div><i id="user-options_1" class="fas fa-user fa-lg"></i></div>
+                                    <p id="user-options_2" class="my-0"><strong>My Account</strong></p>
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -83,8 +79,8 @@
                         <li id="three" class="list-inline-item">
                             <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
                                 <div class="text-center">
-                                    <div><i id="three_1" style="color:#ff0000; opacity:0.6;" class="fas fa-shopping-bag fa-lg"></i></div>
-                                    <p id="three_2" class="my-0" style="color:#ff0000; opacity:0.6;">
+                                    <div><i id="three_1" class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <p id="three_2" class="my-0">
                                         {% if grand_total %}
                                             ${{ grand_total|floatformat:2 }}
                                         {% else %}
@@ -97,8 +93,8 @@
                         <li id="four" class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="product-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
-                                    <div><i id="product-options_1" style="color:#ff0000; opacity:0.6;" class="far fa-eye fa-lg"></i></div>
-                                    <p id="product-options_2" class="my-0" style="color:#ff0000; opacity:0.6;">Products</p>
+                                    <div><i id="product-options_1" class="far fa-eye fa-lg"></i></div>
+                                    <p id="product-options_2" class="my-0"><strong>Products</strong></p>
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -125,11 +121,11 @@
                         <script>
                             $(document).ready(function() {
                                 $("#alpha").mouseenter(function() {               
-                                    $("#alpha").css("opacity", "1").css("background-color", "rgba(0,0,0,0.5)");
-                                    $("#one").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#two").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#three").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#four").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#alpha").css("opacity", "1").css("background-color", "rgba(0,0,0,0.6)");
+                                    $("#one").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#two").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#three").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#four").css("background-color", "rgba(0,0,0,0.3)");
                                 });
                                 $("#alpha").mouseleave(function() {
                                     $("#alpha").css("opacity", "0.6").css("background-color", "transparent");
@@ -141,10 +137,10 @@
                                 $("#one").mouseenter(function() {
                                     $("#blog-options_1").css("opacity", "1");
                                     $("#blog-options_2").css("opacity", "1");
-                                    $("#one").css("background-color", "rgba(0,0,0,0.5)");
-                                    $("#two").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#three").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#four").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#one").css("background-color", "rgba(0,0,0,0.6)");
+                                    $("#two").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#three").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#four").css("background-color", "rgba(0,0,0,0.3)");
                                 });
                                 $("#one").mouseleave(function() {
                                     $("#blog-options_1").css("opacity", "0.6");
@@ -157,10 +153,10 @@
                                 $("#two").mouseenter(function() {
                                     $("#user-options_1").css("opacity", "1");
                                     $("#user-options_2").css("opacity", "1");
-                                    $("#two").css("background-color", "rgba(0,0,0,0.5)");
-                                    $("#one").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#three").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#four").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#two").css("background-color", "rgba(0,0,0,0.6)");
+                                    $("#one").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#three").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#four").css("background-color", "rgba(0,0,0,0.3)");
                                 });
                                 $("#two").mouseleave(function() {
                                     $("#user-options_1").css("opacity", "0.6");
@@ -173,10 +169,10 @@
                                 $("#three").mouseenter(function() {
                                     $("#three_1").css("opacity", "1");
                                     $("#three_2").css("opacity", "1");
-                                    $("#three").css("background-color", "rgba(0,0,0,0.5)");
-                                    $("#one").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#two").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#four").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#three").css("background-color", "rgba(0,0,0,0.6)");
+                                    $("#one").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#two").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#four").css("background-color", "rgba(0,0,0,0.3)");
                                 });
                                 $("#three").mouseleave(function() {
                                     $("#three_1").css("opacity", "0.6");
@@ -189,10 +185,10 @@
                                 $("#four").mouseenter(function() {
                                     $("#product-options_1").css("opacity", "1");
                                     $("#product-options_2").css("opacity", "1");
-                                    $("#four").css("background-color", "rgba(0,0,0,0.5)");
-                                    $("#one").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#two").css("background-color", "rgba(0,0,0,0.2)");
-                                    $("#three").css("background-color", "rgba(0,0,0,0.2)");
+                                    $("#four").css("background-color", "rgba(0,0,0,0.6)");
+                                    $("#one").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#two").css("background-color", "rgba(0,0,0,0.3)");
+                                    $("#three").css("background-color", "rgba(0,0,0,0.3)");
                                 });
                                 $("#four").mouseleave(function() {
                                     $("#product-options_1").css("opacity", "0.6");
@@ -207,7 +203,7 @@
                     </ul>
                 </div>                
             </div> 
-        </nav>    
+        </nav>
         
         {% if messages %}
             <div class="message-container">
@@ -219,11 +215,10 @@
 
 
         <header class="masthead text-white text-center">
-           <!-- <div class="overlay"></div>-->
-            <div class="container">
+            <div class="container_search">
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
-                        <h1 class="mb-5">Come join us on our quest to a healther life!</h1>
+                        <h1 class="mb-5">Come join us on online for group exercise!</h1>
                     </div>
                     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                         <form method="GET" action="{% url 'products' %}">
@@ -272,22 +267,22 @@
                                 <a href="#">Privacy Policy</a>
                             </li>
                         </ul>
-                    <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2020. All Rights Reserved.</p>
+                    <p class="text-muted small mb-4 mb-lg-0">&copy; DJB 2020. All Rights Reserved.</p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item mr-3">
-                            <a href="#">
+                            <a href="https://en-gb.facebook.com/" target="_blank">
                                 <i class="fab fa-facebook fa-2x fa-fw"></i>
                             </a>
                             </li>
                             <li class="list-inline-item mr-3">
-                            <a href="#">
+                            <a href="https://twitter.com/?lang=en-gb " target="_blank">
                                 <i class="fab fa-twitter-square fa-2x fa-fw"></i>
                             </a>
                             </li>
                             <li class="list-inline-item">
-                            <a href="#">
+                            <a href="https://www.instagram.com/?hl=en" target="_blank">
                                 <i class="fab fa-instagram fa-2x fa-fw"></i>
                             </a>
                             </li>

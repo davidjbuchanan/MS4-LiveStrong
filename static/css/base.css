@@ -1,155 +1,269 @@
-/*!
- * Start Bootstrap - Landing Page v5.0.8 (https://startbootstrap.com/themes/landing-page)
- * Copyright 2013-2020 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-landing-page/blob/master/LICENSE)
- */
-
 body {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
 }
 
+/*  navigation  */
+#alpha {
+    padding: 8px;
+}
+
+#alpha,
+#blog-options_1,
+#blog-options_2,
+#user-options_1,
+#user-options_2,
+#three_1,
+#three_2,
+#product-options_1, 
+#product-options_2 {
+    color: #ff0000; 
+    opacity: 0.6;
+}
+
+.navbar-toggler {
+    border: 0;
+}
+
+.bg-dark {
+    background-color: rgba(0,0,0,0.3)!important;
+}
+
+@media (max-width: 1023px) {
+    .bg-dark {
+        background-color: rgba(0,0,0,0.8)!important;
+    }
+    #alpha,
+    #blog-options_1,
+    #blog-options_2,
+    #user-options_1,
+    #user-options_2,
+    #three_1,
+    #three_2,
+    #product-options_1, 
+    #product-options_2 {
+        color: #ff0000; 
+        opacity: 1;
+    }
+}
+
+/*  masthead  */
 header.masthead {
-  position: relative;
-  background-color: #343a40;
-  background: url("/media/Lesmills-masthead(3).jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+    position: relative;
+    background-color: #343a40;
+    background: url("/media/Lesmills-masthead(1).jpg") no-repeat center center;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
 }
 
-/*header.masthead .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
-}*/
+.container_search {
+    position: relative;
+    padding: 2em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+}
 
 header.masthead h1 {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 @media (min-width: 768px) {
-  header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-  }
-  header.masthead h1 {
-    font-size: 3rem;
-  }
+    header.masthead {
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+    header.masthead h1 {
+        font-size: 3rem;
+    }
 }
 
 @media (min-width: 1000px) {
-  section.masthead {
-  position: relative;
-  background-color: #343a40;
-  background: url("/media/Lesmills-masthead(2).jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  }
-  .overlay {
-  position: relative;
-  background-color: #212529;
-  opacity: 0.75;
-  }
-  .message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999999999;
-}
+    section.masthead {
+        position: relative;
+        background-color: #343a40;
+        background: url("/media/Lesmills-masthead(2).jpg") no-repeat center center;
+        background-size: cover;
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    /*.overlay {
+        position: relative;
+        background-color: #212529;
+        opacity: 0.75;
+    }*/
+    .message-container {
+        position: fixed;
+        top: 72px;
+        right: 15px;
+        z-index: 99999999999999999;
+    }
 }
 
+.fa-search {
+    color: #ff0000; 
+}
+
+.btn-black {
+    background-color: black;
+    opacity: 0.8;
+    border-color: black;
+}
+
+.btn-black:hover {
+    background-color: black;
+    opacity: 1;
+    border-color: black;
+}
+
+#overlay_1b,
+#overlay_2b,
+#overlay_3b {
+    color: #ff0000; 
+    opacity: 0.6;
+} 
+
+#overlay_1c,
+#overlay_2c,
+#overlay_3c {
+    text-decoration: none; 
+    color: #ff0000;
+    opacity: 0.6;
+}
+
+@media (max-width: 1023px) {
+    #overlay_1b,
+    #overlay_2b,
+    #overlay_3b {
+        color: #ff0000; 
+    opacity: 1;
+    } 
+
+    #overlay_1c,
+    #overlay_2c,
+    #overlay_3c {
+        text-decoration: none; 
+        color: #ff0000;
+    opacity: 1;
+    }
+}
+
+/*  showcase  */
 .showcase .showcase-text {
-  padding: 3rem;
-  background-color: #f8f9fa;
+    padding: 3rem;
+    background-color: #f8f9fa;
 }
 
 .showcase .showcase-img {
-  min-height: 30rem;
-  background-size: cover;
+    min-height: 30rem;
+    background-size: cover;
 }
 
 @media (min-width: 768px) {
-  .showcase .showcase-text {
-    padding: 7rem;
-    background-color: #f8f9fa;
-  }
+    .showcase .showcase-text {
+        padding: 7rem;
+        background-color: #f8f9fa;
+    }
 }
 
 .features-icons {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
 }
 
 .features-icons .features-icons-item {
-  max-width: 20rem;
+    max-width: 20rem;
 }
 
 .features-icons .features-icons-item .features-icons-icon {
-  height: 7rem;
+    height: 7rem;
 }
 
 .features-icons .features-icons-item .features-icons-icon i {
-  font-size: 4.5rem;
+    font-size: 4.5rem;
 }
 
 .features-icons .features-icons-item:hover .features-icons-icon i {
-  font-size: 5rem;
+    font-size: 5rem;
 }
 
+/*  testimonials  */
 .testimonials {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
 }
 
 .testimonials .testimonial-item {
-  max-width: 18rem;
+    max-width: 18rem;
 }
 
 .testimonials .testimonial-item img {
-  max-width: 12rem;
-  box-shadow: 0px 5px 5px 0px #adb5bd;
+    max-width: 12rem;
+    box-shadow: 0px 5px 5px 0px #adb5bd;
 }
 
+/*  newsletter  */
 .call-to-action {
-  position: relative;
-  background-color: #343a40;
-  background: url("/media/bg-masthead.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+    position: relative;
+    background-color: #343a40;
+    background: url("/media/bg-masthead.jpg") no-repeat center center;
+    background-size: cover;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
 }
 
 .call-to-action .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
+    position: absolute;
+    background-color: #212529;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    background-color: rgba(0,0,0,0.5);
+    border-color: rgba(0,0,0,0.5);
+}
+
+.btn-primary:hover {
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
+
+/*  footer  */
+footer.bg-light {
+    background-color: rgba(0,0,0,0.2)!important;
+}
+
+footer a,
+footer p {
+    color: #ff0000; 
+}
+
+footer a:hover {
+    color: black;
+    text-decoration: none;
 }
 
 footer.footer {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 .update-link,
@@ -157,8 +271,7 @@ footer.footer {
     cursor: pointer;
 }
 
-
-/* ------------------------------- bootstrap toasts */
+/*  bootstrap toasts  */
 
 .message-container {
     position: fixed;
@@ -170,8 +283,3 @@ footer.footer {
 .allowOverflow {
     overflow: visible;
 }
-
-/*.toast-capper {
-    height: 2px;
-}
-*/
