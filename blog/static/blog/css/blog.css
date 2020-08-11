@@ -1,26 +1,33 @@
 /* ------------------------------- blog */
 
-/*body { 
+body { 
     margin:0;
     padding:0;
     font-family:helvetica, sans-serif; 
-}*/
-
-a { 
-    color:#00abff;
-    text-decoration:none; 
 }
 
-/*h1 { 
+a, .post_title_detail { 
+    color: #ff0000;
+    text-decoration:none!important; 
+}
+
+a:hover { 
+        color: #ff0000;
+        opacity: 0.5;
+}
+
+.blog { 
     font-weight:normal;
     border-bottom:1px solid #bbb;
     padding:0 0 10px 0;
 }
 
+h1,
 h2 {
-    font-weight:normal;
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
     margin:30px 0 0;
-}*/
+}
 
 #content { 
     float:left;
@@ -67,8 +74,8 @@ input, textarea {
 }
 input[type=submit] {
     font-weight:bold;
-    background:#00abff;
-    color:#fff;
+    background: black;
+    color: #ff0000;
     padding:10px 20px;
     font-size:14px;
     text-transform:uppercase; 

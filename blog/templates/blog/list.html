@@ -6,8 +6,8 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-8">
-                <h1>My Blog</h1>
+            <div class="col-12 col-lg-9">
+                <h1 class="blog">Live Strong Blog</h1>
                 {% for post in posts %}
                     <h2>
                         <a href="{{ post.get_absolute_url }}">
@@ -20,10 +20,17 @@
                     {{ post.body|truncatewords:30|linebreaks }}
                 {% endfor %}
             </div>
-            <div class="col-4">
+            <div class="d-none d-lg-block col-lg-3">
                 <div id="sidebar">
-                    <h2>My blog</h2>
+                    <h2>Fitness</h2>
                     <p>This is my blog.</p>
+                    <a href=""><img class="img-fluid" src="../media/Lesmills-fitness.jpg" alt=""></a>
+                    <h2>Health</h2>
+                    <p>This is my blog.</p>
+                    <a href=""><img class="img-fluid" src="../media/Lesmills-health.jpg" alt=""></a>
+                    <h2>Nutrition</h2>
+                    <p>This is my blog.</p>
+                    <a href=""><img class="img-fluid" src="../media/Lesmills-nutrition.jpg" alt=""></a>
                 </div>
             </div>
         </div>

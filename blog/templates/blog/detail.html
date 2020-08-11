@@ -6,15 +6,15 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-8">
-                <h1>{{ post.title }}</h1>
+            <div class="col-12">
+                <h1 class="post_title_detail">{{ post.title }}</h1>
                 <p class="date">
                     Published {{ post.publish }} by {{ post.author }}
                     {{ post.body|linebreaks }}
                 </p>
                 {% with comments.count as total_comments %}
                     <h2>
-                        {{ total_comments }} comment{{ total_comments|pluralize }}
+                        {{ total_comments }} comment{{ total_comments|pluralize }}:
                     </h2>
                 {% endwith %}
                 {% for comment in comments %}
@@ -39,13 +39,6 @@
                     </form>
                 {% endif %}
             </div>
-            <div class="col-4">
-                <div id="sidebar">
-                    <h2>My blog</h2>
-                    <p>This is my blog.</p>
-                </div>
-            </div>
         </div>
     </div>
 {% endblock %}
-
