@@ -26,6 +26,8 @@ class Order(models.Model):
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    original_bag = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """
@@ -63,10 +65,11 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
+    lineitem_subtotal = models.DecimalField(default=0, max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
     coupon = models.ForeignKey(Coupon, null=True, blank=True, on_delete=models.SET_NULL, related_name='orders')
-    discount = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
-    discount_percentage = models.IntegerField(default=0)
+    discount = models.DecimalField(default=0, max_digits=6, decimal_places=2, validators=[MinValueValidator(0), MaxValueValidator(lineitem_total)])
+    discount_percentage = models.DecimalField(default=0, max_digits=2, decimal_places=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
 
     def save(self, *args, **kwargs):
         """
@@ -75,7 +78,7 @@ class OrderLineItem(models.Model):
         """
         self.lineitem_subtotal = self.product.price * self.quantity
         if self.discount_percentage is not None:
-            self.line_discount = self.lineitem_subtotal * (Decimal(self.discount_percentage) / Decimal(100))
+            self.line_discount = Decimal(self.lineitem_subtotal) * (Decimal(self.discount_percentage) / Decimal(100))
             self.discount = self.line_discount
             self.lineitem_total = self.lineitem_subtotal - self.line_discount
         else:
