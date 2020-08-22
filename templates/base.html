@@ -39,7 +39,7 @@
     </head>
     <body>
         <!-- Navigation -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">    
+        <nav class="navbar border-bottom fixed-top navbar-expand-lg navbar-dark bg-dark">    
             <div class="container" id="home">
                 <a id="alpha" class="navbar-brand" href="{% url 'home' %}">
                     <strong>Live Strong</strong>
@@ -120,15 +120,28 @@
                         </li>
                         <script>
                             $(document).ready(function() {
+                                $(".navbar").mouseenter(function() {               
+                                    this.style.setProperty( "border-bottom", "thin solid red", "important");
+                                });
+                                $(".navbar").mouseleave(function() {               
+                                    this.style.setProperty( "border-bottom", "thin solid white", "important");
+                                });
+
+                                $(".jumbotron").mouseenter(function() {               
+                                    this.style.setProperty( "border", "thin solid red", "important");
+                                });
+                                $(".jumbotron").mouseleave(function() {               
+                                    this.style.setProperty( "border", "thin solid white", "important");
+                                });
                                 $("#alpha").mouseenter(function() {               
-                                    $("#alpha").css("opacity", "1").css("background-color", "rgba(0,0,0,0.6)");
+                                    $("#alpha").css("opacity", "1").css("background-color", "rgba(0,0,0,1)").css("border", "thin solid red");
                                     $("#one").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#two").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#three").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#four").css("background-color", "rgba(0,0,0,0.3)");
                                 });
                                 $("#alpha").mouseleave(function() {
-                                    $("#alpha").css("opacity", "0.6").css("background-color", "transparent");
+                                    $("#alpha").css("opacity", "0.6").css("background-color", "transparent").css("border", "thin solid transparent");
                                     $("#one").css("background-color", "transparent");
                                     $("#two").css("background-color", "transparent");
                                     $("#three").css("background-color", "transparent");
@@ -137,7 +150,8 @@
                                 $("#one").mouseenter(function() {
                                     $("#blog-options_1").css("opacity", "1");
                                     $("#blog-options_2").css("opacity", "1");
-                                    $("#one").css("background-color", "rgba(0,0,0,0.6)");
+                                    $("#one").css("background-color", "rgba(0,0,0,1)").css("border", "thin solid red");
+                                    $("#alpha").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#two").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#three").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#four").css("background-color", "rgba(0,0,0,0.3)");
@@ -145,7 +159,8 @@
                                 $("#one").mouseleave(function() {
                                     $("#blog-options_1").css("opacity", "0.6");
                                     $("#blog-options_2").css("opacity", "0.6");
-                                    $("#one").css("background-color", "transparent");
+                                    $("#one").css("background-color", "transparent").css("border", "thin solid transparent");
+                                    $("#alpha").css("background-color", "transparent");
                                     $("#two").css("background-color", "transparent");
                                     $("#three").css("background-color", "transparent");
                                     $("#four").css("background-color", "transparent");
@@ -153,7 +168,8 @@
                                 $("#two").mouseenter(function() {
                                     $("#user-options_1").css("opacity", "1");
                                     $("#user-options_2").css("opacity", "1");
-                                    $("#two").css("background-color", "rgba(0,0,0,0.6)");
+                                    $("#two").css("background-color", "rgba(0,0,0,1)").css("border", "thin solid red");
+                                    $("#alpha").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#one").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#three").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#four").css("background-color", "rgba(0,0,0,0.3)");
@@ -161,7 +177,8 @@
                                 $("#two").mouseleave(function() {
                                     $("#user-options_1").css("opacity", "0.6");
                                     $("#user-options_2").css("opacity", "0.6");
-                                    $("#two").css("background-color", "transparent");
+                                    $("#two").css("background-color", "transparent").css("border", "thin solid transparent");
+                                    $("#alpha").css("background-color", "transparent");
                                     $("#one").css("background-color", "transparent");
                                     $("#three").css("background-color", "transparent");
                                     $("#four").css("background-color", "transparent");
@@ -169,7 +186,8 @@
                                 $("#three").mouseenter(function() {
                                     $("#three_1").css("opacity", "1");
                                     $("#three_2").css("opacity", "1");
-                                    $("#three").css("background-color", "rgba(0,0,0,0.6)");
+                                    $("#three").css("background-color", "rgba(0,0,0,1)").css("border", "thin solid red");
+                                    $("#alpha").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#one").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#two").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#four").css("background-color", "rgba(0,0,0,0.3)");
@@ -177,7 +195,8 @@
                                 $("#three").mouseleave(function() {
                                     $("#three_1").css("opacity", "0.6");
                                     $("#three_2").css("opacity", "0.6");
-                                    $("#three").css("background-color", "transparent");
+                                    $("#three").css("background-color", "transparent").css("border", "thin solid transparent");
+                                    $("#alpha").css("background-color", "transparent");
                                     $("#one").css("background-color", "transparent");
                                     $("#two").css("background-color", "transparent");
                                     $("#four").css("background-color", "transparent");
@@ -185,7 +204,8 @@
                                 $("#four").mouseenter(function() {
                                     $("#product-options_1").css("opacity", "1");
                                     $("#product-options_2").css("opacity", "1");
-                                    $("#four").css("background-color", "rgba(0,0,0,0.6)");
+                                    $("#four").css("background-color", "rgba(0,0,0,1)").css("border", "thin solid red");
+                                    $("#alpha").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#one").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#two").css("background-color", "rgba(0,0,0,0.3)");
                                     $("#three").css("background-color", "rgba(0,0,0,0.3)");
@@ -193,7 +213,8 @@
                                 $("#four").mouseleave(function() {
                                     $("#product-options_1").css("opacity", "0.6");
                                     $("#product-options_2").css("opacity", "0.6");
-                                    $("#four").css("background-color", "transparent");
+                                    $("#four").css("background-color", "transparent").css("border", "thin solid transparent");
+                                    $("#alpha").css("background-color", "transparent");
                                     $("#one").css("background-color", "transparent");
                                     $("#two").css("background-color", "transparent");
                                     $("#three").css("background-color", "transparent");
@@ -217,10 +238,31 @@
         <header class="masthead text-white text-center">
             <div class="container_search">
                 <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <h1 class="mb-5">Come join us on online for group exercise!</h1>
+                    <div class="col-md-8 col-lg-6 col-xl-4 mx-auto">
+                        <div class="jumbotron border">
+                            <h1 class="mb-5">Join us online!</h1>
+                            <hr style="color: white;">
+                            <form method="GET" action="{% url 'products' %}">
+                                <div class="form-row">
+                                    <div class="col-md-12 mb-2 mb-md-0">
+                                        <div class="input-group w-100">
+                                            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                                            <div class="input-group-append">
+                                                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                                    <span class="icon">
+                                                        <i class="fas fa-search"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                </div>
+                <!-- <div class="row">
+                    <div class="col-md-8 col-lg-6 col-xl-4 mx-auto">
                         <form method="GET" action="{% url 'products' %}">
                             <div class="form-row">
                                 <div class="col-md-12 mb-2 mb-md-0">
@@ -238,7 +280,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
         </header>
         

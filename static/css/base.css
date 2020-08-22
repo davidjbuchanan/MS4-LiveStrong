@@ -13,8 +13,12 @@ h6 {
 }
 
 /*  navigation  */
+.navbar {
+    padding: 0;
+}
+
 #alpha {
-    padding: 8px;
+    padding: 16px;
 }
 
 #alpha,
@@ -35,12 +39,12 @@ h6 {
 }
 
 .bg-dark {
-    background-color: rgba(0,0,0,0.3)!important;
+    background-color: rgba(0,0,0,0.8)!important;
 }
 
 @media (max-width: 1023px) {
     .bg-dark {
-        background-color: rgba(0,0,0,0.8)!important;
+        background-color: rgba(0,0,0,0.7)!important;
     }
     #alpha,
     #blog-options_1,
@@ -60,7 +64,7 @@ h6 {
 header.masthead {
     position: relative;
     background-color: #343a40;
-    background: url("/media/Lesmills-masthead(1).jpg") no-repeat center center;
+    background: url("/media/Lesmills-masthead(4).jpg") no-repeat center center;
     background-size: cover;
     padding-top: 8rem;
     padding-bottom: 8rem;
@@ -72,6 +76,22 @@ header.masthead {
     left: 50%;
     top: 50%;
     transform: translate(-50%, 50%);
+}
+
+.jumbotron {
+    background-color: rgba(0,0,0,0.7);
+    margin-bottom: 25%;
+    padding: 32px;
+    border-radius: 0 !important;
+}
+
+
+.container_search h1 {
+    /*background-color: rgba(0,0,0,0.8);*/
+    /*padding-top: 1rem;*/
+    /*padding-bottom: 1rem;*/
+    color: #ff0000; 
+    opacity: 1;
 }
 
 header.masthead h1 {
@@ -129,6 +149,15 @@ header.masthead h1 {
     opacity: 1;
     border-color: black;
 }
+
+
+
+#overlay_2a {
+    border: thin solid transparent;
+}
+
+
+
 
 #overlay_1b,
 #overlay_2b,
