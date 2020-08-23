@@ -135,7 +135,7 @@ header.masthead h1 {
 }
 
 .fa-search {
-    color: #ff0000; 
+    color: white; 
 }
 
 /*.btn-black {
@@ -154,13 +154,24 @@ header.masthead h1 {
     margin-bottom: 14px;
 }
 
+.btn-outline-secondary {
+    font-weight:bold;
+    background: black;
+    opacity: 1;
+    color: white;
+    border: thin solid transparent;
+}
+
 /*.btn-black:hover {
     background-color: black;
     opacity: 1;
     border-color: black;
 }*/
 
+header .form-control {
+    border: thin solid #ff0000;
 
+}
 
 #overlay_2a {
     border: thin solid transparent;
@@ -275,7 +286,7 @@ header.masthead h1 {
     opacity: 0.9;
 }
 
-.btn-primary {
+/*.btn-primary {
     background-color: rgba(0,0,0,0.5);
     border-color: rgba(0,0,0,0.5);
 }
@@ -283,7 +294,7 @@ header.masthead h1 {
 .btn-primary:hover {
     background-color: #ff0000;
     border-color: #ff0000;
-}
+}*/
 
 /*  footer  */
 footer.bg-light {

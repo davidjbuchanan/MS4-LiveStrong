@@ -73,11 +73,11 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-md-4 offset-md-8 text-left">
+                        <div class="col-md-4 offset-md-8 text-right">
                             <form action="{% url 'apply' %}" method="post">
                                 {% csrf_token %}
                                 {{ coupon_form|crispy }}
-                                <input type="submit" value="Coupon code">
+                                <input type="submit" class="btn btn-black rounded-0 btn-lg text-uppercase" value="Submit  code">
                             </form>
                         </div>
                     </div>
@@ -134,6 +134,10 @@
 
 {% block postloadjs %}
 {{ block.super }}
+    <script type="text/javascript" src="{% static 'bag/js/bag.js' %}"></script>
+
+
+
 
 <script type="text/javascript">
     // Update quantity on click

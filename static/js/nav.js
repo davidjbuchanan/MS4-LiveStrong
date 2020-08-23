@@ -98,4 +98,13 @@ $(document).ready(function() {
         $("#two").css("background-color", "transparent");
         $("#three").css("background-color", "transparent");
     });
+    $(".btn-outline-secondary").mouseenter(function() {
+        $(".fa-search").css("color", "#ff0000");
+        $(".btn-outline-secondary").css("background-color", "rgba(0,0,0,1)");
+        $(".btn-outline-secondary").css("border", "thin solid red");
+    });
+    $(".btn-outline-secondary").mouseleave(function() {
+        $(".fa-search").css("color", "white");
+        $(".btn-outline-secondary").css("border", "thin solid transparent");
+    });
 });
