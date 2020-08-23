@@ -138,17 +138,27 @@ header.masthead h1 {
     color: #ff0000; 
 }
 
-.btn-black {
+/*.btn-black {
     background-color: black;
     opacity: 0.8;
     border-color: black;
+}*/
+.btn-black {
+    font-weight:bold;
+    background: black;
+    opacity: 1;
+    color: white;
+    border: thin solid transparent;
+    padding:10px 20px;
+    font-size:14px;
+    margin-bottom: 14px;
 }
 
-.btn-black:hover {
+/*.btn-black:hover {
     background-color: black;
     opacity: 1;
     border-color: black;
-}
+}*/
 
 
 

@@ -16,10 +16,16 @@ a:hover {
         opacity: 0.5;
 }
 
-.blog { 
+.blog_header { 
     font-weight:normal;
     border-bottom:1px solid #bbb;
     padding:0 0 10px 0;
+}
+
+.blog_list_body {
+    border-bottom:1px solid #bbb;
+    opacity: 0.6;
+    width: 80%;
 }
 
 h1,
@@ -44,7 +50,7 @@ h2 {
 }
 
 p.date { 
-    color:#ccc;
+    color:rgb(116, 111, 111);
     font-family: georgia, serif;
     font-size: 12px;
     font-style: italic; 
@@ -75,7 +81,8 @@ input, textarea {
 input[type=submit] {
     font-weight:bold;
     background: black;
-    color: #ff0000;
+    color: white;
+    border: thin solid transparent;
     padding:10px 20px;
     font-size:14px;
     text-transform:uppercase; 

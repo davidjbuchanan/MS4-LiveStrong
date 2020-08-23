@@ -118,7 +118,7 @@
                                 sort by category asc</a>
                             </div>
                         </li>
-                        <script>
+                        <!--<script>
                             $(document).ready(function() {
                                 $(".navbar").mouseenter(function() {               
                                     this.style.setProperty( "border-bottom", "thin solid red", "important");
@@ -220,7 +220,7 @@
                                     $("#three").css("background-color", "transparent");
                                 });
                             });
-                        </script>
+                        </script>-->
                     </ul>
                 </div>                
             </div> 
@@ -335,10 +335,8 @@
         </footer>
  
         {% block postloadjs %}
-            <script type="text/javascript">
-                $('.toast').toast({delay: 6000});
-                $('.toast').toast('show');
-            </script>
+            <script type="text/javascript" src="{% static 'js/toasts.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/nav.js' %}"></script>
         {% endblock %}
     </body>
 </html>

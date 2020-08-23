@@ -35,10 +35,14 @@
                     <form method="post">
                         {{ comment_form.as_p }}
                         {% csrf_token %}
-                        <p><input type="submit" value="Add comment"></p>
+                        <p id="add_comm"><input type="submit" value="Add comment"></p>
                     </form>
                 {% endif %}
             </div>
         </div>
     </div>
+{% endblock %}
+{% block  postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'blog/js/blog.js' %}"></script>
 {% endblock %}

@@ -1,12 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+{% block extra_css %}
+    <!--<link rel="stylesheet" href="{% static 'products/css/products.css' %}">-->
 {% endblock %}
 
 {% block content %}
@@ -26,11 +21,15 @@
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                        <a class="btn btn-black rounded-0" href="{% url 'products' %}">Cancel</a>
                         <button class="btn btn-black rounded-0" type="submit">Add Product</button>
                     </div>
                 </form>
             </div>            
         </div>
     </div>
+{% endblock %}
+{% block  postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}
