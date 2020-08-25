@@ -2,6 +2,10 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'bag/css/bag.css' %}">
+{% endblock %}
+
 {% block content %}
     <h1>{{ free_delivery_threshold }}</h1>
     <h1>{{ bag_items }}</h1>
@@ -74,14 +78,31 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-right">
-                            <form action="{% url 'apply' %}" method="post">
+                            <!-- new -->
+                            <button id="submit_code" class="btn btn-black rounded-0 btn-lg text-uppercase">Enter  Discount  Code</button>
+                            
+                            <!-- new -->
+                            <form id="coupon_form" action="{% url 'apply' %}" method="post">
                                 {% csrf_token %}
                                 {{ coupon_form|crispy }}
                                 <input type="submit" class="btn btn-black rounded-0 btn-lg text-uppercase" value="Submit  code">
+                                <button id="cancel" class="btn btn-black rounded-0 btn-lg text-uppercase">cancel</button>
                             </form>
                         </div>
                     </div>
-                    <hr>            
+                    <hr>
+                    <!--<script>
+                        $(document).ready(function() {
+                            $("#submit_code").on("click",function() {           
+                                 $("#submit_code").hide();
+                                 $("#coupon_form").show();
+                            });
+                            $("#cancel").on("click",function() {        
+                                 $("#coupon_form").hide();
+                                 $("#submit_code").show();
+                            });
+                        });
+                    </script>-->
                     <div class="table-responsive rounded">
                         <table class="table table-sm table-borderless">
                             <tr>
