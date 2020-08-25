@@ -80,13 +80,14 @@
                         <div class="col-md-4 offset-md-8 text-right">
                             <!-- new -->
                             <button id="submit_code" class="btn btn-black rounded-0 btn-lg text-uppercase">Enter  Discount  Code</button>
-                            
-                            <!-- new -->
+                            <!-- /new -->
                             <form id="coupon_form" action="{% url 'apply' %}" method="post">
                                 {% csrf_token %}
                                 {{ coupon_form|crispy }}
                                 <input type="submit" class="btn btn-black rounded-0 btn-lg text-uppercase" value="Submit  code">
+                                <!-- new -->
                                 <button id="cancel" class="btn btn-black rounded-0 btn-lg text-uppercase">cancel</button>
+                                <!-- /new -->
                             </form>
                         </div>
                     </div>
@@ -157,10 +158,7 @@
 {{ block.super }}
     <script type="text/javascript" src="{% static 'bag/js/bag.js' %}"></script>
 
-
-
-
-<script type="text/javascript">
+<!--<script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function(e) {
         var form = $(this).prev('.update-form');
@@ -179,5 +177,5 @@
              location.reload();
          });
     })
-</script>
+</script>-->
 {% endblock %}
