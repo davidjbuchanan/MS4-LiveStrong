@@ -10,9 +10,6 @@ from checkout.models import Order
 @login_required
 def profile(request):
     """ Display the user's profile. """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
     profile = get_object_or_404(UserProfile, user=request.user)
     print("a")
     print(request.user)
