@@ -1,13 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Post, Comment
-from .forms import CommentForm
+from .models import Post
+from .forms import CommentForm, UserBlogForm
 
 
 def post_list(request):
     # posts = Post.published.all()
     object_list = Post.published.all()
-    paginator = Paginator(object_list, 3)  # 3 posts in each page
+    paginator = Paginator(object_list, 6)  # 6 posts in each page
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
@@ -42,9 +43,37 @@ def post_detail(request, year, month, day, post):
             new_comment.save()
     else:
         comment_form = CommentForm()
-    return render(request,
-                  'blog/detail.html',
-                  {'post': post,
-                   'comments': comments,
-                   'new_comment': new_comment,
-                   'comment_form': comment_form})
+
+    template = 'blog/detail.html',
+    context = {
+        'post': post,
+        'comments': comments,
+        'new_comment': new_comment,
+        'comment_form': comment_form
+        }
+
+    return render(request, template, context)
+
+
+def add_blog_entry(request):
+    """ Add a blog  """
+    if request.method == 'POST':
+        form = UserBlogForm(request.POST)
+
+        if form.is_valid():
+            blog_entry = form.save(commit=False)
+            blog_entry.author = request.user
+            blog_entry.save()
+            messages.success(request, 'Successfully added BLOG!')
+            return redirect(reverse('blog:add_blog_entry'))
+        else:
+            messages.error(request, 'Failed to add blog. Please ensure the form is valid.')
+    else:  # it is a GET request
+        form = UserBlogForm()
+
+    template = 'blog/add_blog.html'
+    context = {
+        'form': form,
+    }
+    return render(request, template, context)
+

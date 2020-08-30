@@ -49,12 +49,24 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li id="one" class="list-inline-item dropdown">
-                            <a class="text-black nav-link" href="{% url 'blog:post_list' %}" id="blog-options">
+                            <a class="text-black nav-link" href="#" id="blog-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
                                     <div><i id="blog-options_1" class="fas fa-blog fa-lg"></i></div>
                                     <p id="blog-options_2" class="my-0"><strong>Blog</strong></p>
                                 </div>
                             </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_staff %}
+                                        <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Blog Entry</a>
+                                        <a href="{% url 'blog:post_list' %}" class="dropdown-item">Blog</a>
+                                    {% else %}
+                                        <a href="{% url 'blog:post_list' %}" class="dropdown-item">Blog</a>
+                                    {% endif %}      
+                                {% else %}
+                                    <a href="{% url 'blog:post_list' %}" class="dropdown-item">Blog</a>
+                                {% endif %}
+                            </div>
                         </li>
                         <li id="two" class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,6 +79,7 @@
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                         <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                                        <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Add Entry</a>
                                     {% endif %}
                                     <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
