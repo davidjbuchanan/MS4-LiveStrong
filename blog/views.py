@@ -71,10 +71,28 @@ def add_blog_entry(request):
     else:  # it is a GET request
         form = UserBlogForm(initial={'author': request.user})  # new
 
-
     template = 'blog/add_blog.html'
     context = {
         'form': form,
     }
     return render(request, template, context)
 
+
+# new beneath this line
+def draft_list(request):
+    object_list = Post.draft.all()
+    paginator = Paginator(object_list, 6)  # 6 posts in each page
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:  # If page is not an integer deliver the 1st page
+        posts = paginator.page(1)
+    except EmptyPage:  # If page is out of range deliver last page of results
+        posts = paginator.page(paginator.num_pages)
+
+    template = 'blog/drafts.html'
+    context = {
+        'page': page,
+        'posts': posts
+    }
+    return render(request, template, context)

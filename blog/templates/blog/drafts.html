@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="blog_header">Draft Entries</h1>
+                {% for post in posts %}
+                    <h2>
+                        <a href="{{ post.get_absolute_url }}">
+                            {{ post.title }}
+                        </a>
+                    </h2>
+                    <p class="date">
+                        Drafted {{ post.publish }} by {{ post.author }}
+                    </p>
+                    {{ post.body }}
+                    <hr class="blog_list_body">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% include 'pagination.html' with page=posts %}
+{% endblock %}

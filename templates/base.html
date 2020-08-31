@@ -57,7 +57,11 @@
                             </a>
                             <div class="dropdown-menu border border-danger text-center" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
-                                    {% if request.user.is_staff %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Blog Entry</a>
+                                        <a href="{% url 'blog:post_list' %}" class="dropdown-item">Blog</a>
+                                        <a href="{% url 'blog:draft_list' %}" class="dropdown-item">Drafts</a>
+                                    {% elif request.user.is_staff %}
                                         <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Blog Entry</a>
                                         <a href="{% url 'blog:post_list' %}" class="dropdown-item">Blog</a>
                                     {% else %}

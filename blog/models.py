@@ -11,6 +11,12 @@ class PublishedManager(models.Manager):  # Generation of a custom manager.
                           .filter(status='published')
 
 
+class DraftManager(models.Manager):  # Generation of a custom manager.
+    def get_queryset(self):
+        return super(DraftManager,
+                     self).get_queryset()\
+                          .filter(status='draft')
+
 class Post(models.Model):
     STATUS_CHOICES = (
         ('draft', 'Draft'),
@@ -45,6 +51,7 @@ class Post(models.Model):
 
     objects = models.Manager()  # The default manager.
     published = PublishedManager()  # The custom manager.
+    draft = DraftManager()  # The custom manager.
 
 
 class Comment(models.Model):
