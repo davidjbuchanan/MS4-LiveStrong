@@ -69,7 +69,8 @@ def add_blog_entry(request):
         else:
             messages.error(request, 'Failed to add blog. Please ensure the form is valid.')
     else:  # it is a GET request
-        form = UserBlogForm()
+        form = UserBlogForm(initial={'author': request.user})  # new
+
 
     template = 'blog/add_blog.html'
     context = {
