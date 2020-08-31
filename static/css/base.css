@@ -42,6 +42,26 @@ h6 {
     background-color: rgba(0,0,0,0.8)!important;
 }
 
+.dropdown-menu {
+    background-color: #000000;
+}
+
+.border-danger {
+    color: #ff0000;
+}
+
+.dropdown-item {
+    background-color:  #000000;
+    color: #ff0000;
+    font-weight: 400;
+}
+
+.dropdown-item:hover {
+    background-color:  #000000;
+    color: #ff0000;
+    font-weight: 600;
+}
+
 @media (max-width: 1023px) {
     .bg-dark {
         background-color: rgba(0,0,0,0.7)!important;

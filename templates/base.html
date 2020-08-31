@@ -55,7 +55,7 @@
                                     <p id="blog-options_2" class="my-0"><strong>Blog</strong></p>
                                 </div>
                             </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            <div class="dropdown-menu border border-danger text-center" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_staff %}
                                         <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Blog Entry</a>
@@ -75,7 +75,7 @@
                                     <p id="user-options_2" class="my-0"><strong>My Account</strong></p>
                                 </div>
                             </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            <div class="dropdown-menu border border-danger text-center" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                         <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
@@ -110,7 +110,7 @@
                                     <p id="product-options_2" class="my-0"><strong>Products</strong></p>
                                 </div>
                             </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            <div class="dropdown-menu border border-danger text-center" aria-labelledby="user-options">
                                 <a href="{% url 'products' %}?category=activewear,essentials" class="dropdown-item">
                                 <!--Equipment-->
                                 category search all clothes</a>
