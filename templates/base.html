@@ -115,24 +115,38 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu border border-danger text-center" aria-labelledby="user-options">
+                                <a href="{% url 'products' %}?category=yoga" class="dropdown-item">
+                                    Yoga
+                                </a>
+                                <a href="{% url 'products' %}?category=bike" class="dropdown-item">
+                                    Bike
+                                </a>
+                                <a href="{% url 'products' %}?category=run_indoor" class="dropdown-item">
+                                    Run Indoor
+                                </a>
+                                <a href="{% url 'products' %}?category=run_outdoor" class="dropdown-item">
+                                    Run Outdoor
+                                </a>
+
+
                                 <a href="{% url 'products' %}?category=activewear,essentials" class="dropdown-item">
-                                <!--Equipment-->
-                                category search all clothes</a>
+                                    category search all clothes
+                                </a>
                                 <a href="{% url 'products' %}?category=jeans" class="dropdown-item">
-                                <!--Training-->
-                                category search jeans</a>
+                                    category search jeans
+                                </a>
                                 <a href="{% url 'products' %}?category=shirts" class="dropdown-item">
-                                <!--Subscriptions-->
-                                category search shirts</a>
+                                    category search shirts
+                                </a>
                                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">
-                                <!--Equipment-->
-                                sort by price asc</a>
+                                    sort by price asc
+                                </a>
                                 <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item">
-                                <!--Training-->
-                                sort by rating desc</a>
+                                    sort by rating desc
+                                </a>
                                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">
-                                <!--Subscriptions-->
-                                sort by category asc</a>
+                                    sort by category asc
+                                </a>
                             </div>
                         </li>
                         <!--<script>
