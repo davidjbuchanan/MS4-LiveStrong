@@ -44,10 +44,11 @@
                 <a id="alpha" class="navbar-brand" href="{% url 'home' %}">
                     <strong>Live Strong</strong>
                 </a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler navbar-toggler-right mr-3" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
                 </button>    
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
+                    <!-- added styling specific for large viewport dropdown -->
+                    <ul class="navbar-nav ml-auto d-none d-lg-block">
                         <li id="one" class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="blog-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
@@ -55,7 +56,7 @@
                                     <p id="blog-options_2" class="my-0"><strong>Blog</strong></p>
                                 </div>
                             </a>
-                            <div class="dropdown-menu border border-danger text-center" aria-labelledby="user-options">
+                            <div class="dropdown-menu rounded-0 border border-danger text-center" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                         <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Blog Entry</a>
@@ -79,7 +80,7 @@
                                     <p id="user-options_2" class="my-0"><strong>My Account</strong></p>
                                 </div>
                             </a>
-                            <div class="dropdown-menu border border-danger text-center" aria-labelledby="user-options">
+                            <div class="dropdown-menu rounded-0 border border-danger text-center" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                         <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
@@ -110,11 +111,11 @@
                         <li id="four" class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="product-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
-                                    <div><i id="product-options_1" class="far fa-eye fa-lg"></i></div>
+                                    <div><i id="product-options_1" class="fas fa-eye fa-lg"></i></div>
                                     <p id="product-options_2" class="my-0"><strong>Products</strong></p>
                                 </div>
                             </a>
-                            <div class="dropdown-menu border border-danger text-center" aria-labelledby="user-options">
+                            <div class="dropdown-menu rounded-0 border border-danger text-center" aria-labelledby="user-options">
                                 <a href="{% url 'products' %}?category=yoga" class="dropdown-item">
                                     Yoga
                                 </a>
@@ -133,6 +134,126 @@
                             </div>
                         </li>
                     </ul>
+                    <!-- added styling specific for small viewport dropdown -->            
+                    <ul class="navbar-nav d-block d-lg-none nav-fill w-100"  id="testytest">
+                        <li id="one_prime" class="dropdown nav-item">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser or request.user.is_staff %}
+                                    <a class="text-black nav-link" href="#" id="blog-options_small_su_s" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="text-center">
+                                            <div><i id="blog-options_1_small_su_s" class="fas fa-blog fa-lg"></i></div>
+                                            <p id="blog-options_2_small_su_s" class="my-0"><strong>Blog</strong></p>
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu rounded-0 border border-danger text-center" aria-labelledby="user-options">
+                                        {% if request.user.is_superuser %}
+                                            <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Blog Entry</a>
+                                            <a href="{% url 'blog:post_list' %}" class="dropdown-item">Read Blog</a>
+                                            <a href="{% url 'blog:draft_list' %}" class="dropdown-item">Drafts</a>
+                                        {% else %}
+                                            <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Blog Entry</a>
+                                            <a href="{% url 'blog:post_list' %}" class="dropdown-item">Read Blog</a>
+                                        {% endif %}
+                                    </div>
+                                {% else %}
+                                    <a class="text-black nav-link" href="{% url 'blog:post_list' %}" id="blog-options_small_au">
+                                        <div class="text-center">
+                                            <div><i id="blog-options_1_small_au" class="fas fa-blog fa-lg"></i></div>
+                                            <p id="blog-options_2_small_au" class="my-0"><strong>Read Blog</strong></p>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                            {% else %}
+                                <a class="text-black nav-link" href="{% url 'account_login' %}" id="blog-options_small_u">
+                                    <div class="text-center">
+                                        <div><i id="blog-options_1_small_u" class="fas fa-blog fa-lg"></i></div>
+                                        <p id="blog-options_2_small_u" class="my-0"><strong>Read Blog</strong></p>
+                                    </div>
+                                </a>
+                            {% endif %}
+                        </li>
+                        <li id="two_prime" class="dropdown nav-item">
+                            <a class="text-black nav-link" href="#" id="user-options_prime" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div><i id="user-options_1_prime" class="fas fa-user fa-lg"></i></div>
+                                    <p id="user-options_2_prime" class="my-0"><strong>My Account</strong></p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu rounded-0 border border-danger text-center" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                                    {% endif %}
+                                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li id="three_prime" class="nav-item">
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+                                <div class="text-center">
+                                    <div><i id="three_1_prime" class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <p id="three_2_prime" class="my-0">
+                                        {% if grand_total %}
+                                            ${{ grand_total|floatformat:2 }}
+                                        {% else %}
+                                            $0.00
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li id="four_prime" class="dropdown nav-item">
+                            <a class="text-black nav-link" href="#" id="product-options_prime" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div><i id="product-options_1_prime" class="fas fa-eye fa-lg"></i></div>
+                                    <p id="product-options_2_prime" class="my-0"><strong>Products</strong></p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu rounded-0 border border-danger text-center" aria-labelledby="user-options">
+                                <a href="{% url 'products' %}?category=yoga" class="dropdown-item">
+                                    Yoga
+                                </a>
+                                <a href="{% url 'products' %}?category=bike" class="dropdown-item">
+                                    Bike
+                                </a>
+                                <a href="{% url 'products' %}?category=run_indoor" class="dropdown-item">
+                                    Run Indoor
+                                </a>
+                                <a href="{% url 'products' %}?category=run_outdoor" class="dropdown-item">
+                                    Run Outdoor
+                                </a>
+                                <a href="{% url 'products' %}?category=essentials" class="dropdown-item">
+                                    Essentials
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--<script type="text/javascript">
+                        $(document).ready(function() {
+                            $("#blog-options_small_su_s").on("click",function() {
+                                $(".dropdown-item").css("padding-top", "28px");
+                                $(".dropdown-item").css("padding-bottom", "28px");
+                                $(".dropdown-item").css("font-weight", "600");
+                                $("#one_prime").after($("#four_prime")).after($("#three_prime")).after($("#two_prime"));
+                            });
+                            $("#user-options_prime").on("click",function() {
+                                $(".dropdown-item").css("padding-top", "28px");
+                                $(".dropdown-item").css("padding-bottom", "28px");
+                                $(".dropdown-item").css("font-weight", "600");
+                                $("#two_prime").after($("#four_prime")).after($("#three_prime")).after($("#one_prime"));
+                            });
+                            $("#product-options_prime").on("click",function() {
+                                $(".dropdown-item").css("padding-top", "28px");
+                                $(".dropdown-item").css("padding-bottom", "28px");
+                                $(".dropdown-item").css("font-weight", "600");
+                                $("#four_prime").after($("#three_prime")).after($("#two_prime")).after($("#one_prime"));
+                            });
+                        });
+                    </script>-->
                 </div>                
             </div> 
         </nav>

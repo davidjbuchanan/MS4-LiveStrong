@@ -38,6 +38,14 @@ h6 {
     border: 0;
 }
 
+/* hamburger border styling from Mitra @ https://stackoverflow.com/questions/50668594/remove-border-color-for-navbar-toggler-hamburger-icon-bootstrap-4 */
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 .bg-dark {
     background-color: rgba(0,0,0,0.8)!important;
 }
@@ -62,23 +70,141 @@ h6 {
     font-weight: 600;
 }
 
-@media (max-width: 1023px) {
+/*  navigation small */
+
+
+
+@media (max-width: 1024px) {
     .bg-dark {
-        background-color: rgba(0,0,0,0.7)!important;
+        background-color: rgba(0,0,0,1)!important;
     }
-    #alpha,
-    #blog-options_1,
-    #blog-options_2,
-    #user-options_1,
-    #user-options_2,
-    #three_1,
-    #three_2,
-    #product-options_1, 
-    #product-options_2 {
+    .dropdown-menu {
+    background-color: #000000;
+    }
+    #blog-options_1_small_su_s,
+    #blog-options_2_small_su_s,
+    #blog-options_1_small_au,
+    #blog-options_2_small_au,
+    #blog-options_1_small_u,
+    #blog-options_2_small_u,
+    #user-options_1_prime,
+    #user-options_2_prime,
+    #three_1_prime,
+    #three_2_prime,
+    #product-options_1_prime, 
+    #product-options_2_prime {
         color: #ff0000; 
         opacity: 1;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*  masthead  */
 header.masthead {
@@ -141,11 +267,7 @@ header.masthead h1 {
         margin-left: 1rem;
         margin-right: 1rem;
     }
-    /*.overlay {
-        position: relative;
-        background-color: #212529;
-        opacity: 0.75;
-    }*/
+  
     .message-container {
         position: fixed;
         top: 72px;
@@ -158,11 +280,6 @@ header.masthead h1 {
     color: white; 
 }
 
-/*.btn-black {
-    background-color: black;
-    opacity: 0.8;
-    border-color: black;
-}*/
 .btn-black {
     font-weight:bold;
     background: black;
@@ -182,12 +299,6 @@ header.masthead h1 {
     border: thin solid transparent;
 }
 
-/*.btn-black:hover {
-    background-color: black;
-    opacity: 1;
-    border-color: black;
-}*/
-
 header .form-control {
     border: thin solid #ff0000;
 
@@ -196,9 +307,6 @@ header .form-control {
 #overlay_2a {
     border: thin solid transparent;
 }
-
-
-
 
 #overlay_1b,
 #overlay_2b,
@@ -220,7 +328,7 @@ header .form-control {
     #overlay_2b,
     #overlay_3b {
         color: #ff0000; 
-    opacity: 1;
+        opacity: 1;
     } 
 
     #overlay_1c,
@@ -228,7 +336,7 @@ header .form-control {
     #overlay_3c {
         text-decoration: none; 
         color: #ff0000;
-    opacity: 1;
+        opacity: 1;
     }
 }
 
