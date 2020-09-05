@@ -108,20 +108,20 @@ $(document).ready(function() {
         $(".btn-outline-secondary").css("border", "thin solid transparent");
     });
     $("#blog-options_small_su_s").on("click",function() {
-        $(".dropdown-item").css("padding-top", "14px");
-        $(".dropdown-item").css("padding-bottom", "14px");
+        $(".dropdown-item").css("padding-top", "7px");
+        $(".dropdown-item").css("padding-bottom", "7px");
         $(".dropdown-item").css("font-weight", "600");
         $("#one_prime").after($("#four_prime")).after($("#three_prime")).after($("#two_prime"));
     });
     $("#user-options_prime").on("click",function() {
-        $(".dropdown-item").css("padding-top", "14px");
-        $(".dropdown-item").css("padding-bottom", "14px");
+        $(".dropdown-item").css("padding-top", "7px");
+        $(".dropdown-item").css("padding-bottom", "7px");
         $(".dropdown-item").css("font-weight", "600");
         $("#two_prime").after($("#four_prime")).after($("#three_prime")).after($("#one_prime"));
     });
     $("#product-options_prime").on("click",function() {
-        $(".dropdown-item").css("padding-top", "14px");
-        $(".dropdown-item").css("padding-bottom", "14px");
+        $(".dropdown-item").css("padding-top", "7px");
+        $(".dropdown-item").css("padding-bottom", "7px");
         $(".dropdown-item").css("font-weight", "600");
         $("#four_prime").after($("#three_prime")).after($("#two_prime")).after($("#one_prime"));
     });

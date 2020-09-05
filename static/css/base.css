@@ -98,7 +98,7 @@ h6 {
     }
 }
 
-@media only screen and (max-height: 400px) and (orientation: landscape) {
+/*@media only screen and (max-height: 400px) and (orientation: landscape) {
     body {
         transform: rotate(-90deg);
         transform-origin: left top;
@@ -110,7 +110,7 @@ h6 {
     .jumbotron {
         visibility: hidden;
     }
-}
+}*/
 
 
 
