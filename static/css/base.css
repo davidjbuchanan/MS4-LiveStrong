@@ -1,5 +1,6 @@
-body {
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+body
+.jumbotron h1 {
+    font-family: 'Lato', sans-serif;
 }
 
 h1,
