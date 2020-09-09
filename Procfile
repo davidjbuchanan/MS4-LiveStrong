@@ -1,1 +1,1 @@
-web: gunicorn live-strong.wsgi:application
+web: gunicorn ml4_djb.wsgi:application
