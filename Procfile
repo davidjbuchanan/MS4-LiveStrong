@@ -1,0 +1,1 @@
+web: gunicorn live-strong.wsgi:application
