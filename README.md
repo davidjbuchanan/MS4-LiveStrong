@@ -308,7 +308,6 @@ The complete set of wireframes for this project can be found [here](https://gith
 
 requests-oauthlib 1.3.0
 
-<!-- Note: to check for which version of Jinja you are using type 'pip3 show jinja2; into cli -->
 - **Heroku**
     - [Heroku](https://www.heroku.com) - Used for app hosting.
     - [Heroku Postgress](https://www.heroku.com/postgres) - Used as relational SQL database plugin via Heroku.
@@ -637,11 +636,11 @@ This site is currently deployed on [Heroku](https://www.heroku.com/) using the *
         and for ```AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')```set a config variable of *AWS_ACCESS_KEY_ID* with a value of the *Secret access key* from IAM
     - the *DISABLE_COLLECTSTATIC* config. var. witha value of *1* can now be deleted as the site should now pull the static files from through the AWS bucket.
 
-7. we want to use s3 to store our static files whenever someone runs collect static.
+            7. we want to use s3 to store our static files whenever someone runs collect static.
 
-    
-And that we want any uploaded product images to go there also.
-To do that let's create a file called custom storages.
+                
+            And that we want any uploaded product images to go there also.
+            To do that let's create a file called custom storages.
 
 
 5. Push the code from your IDE to Heroku via Github. In Heroku click the **Deploy** tab, at which point you can *Connect GitHub* as the *Deployment Method*, and select *Enable Automatic Deployment*.
