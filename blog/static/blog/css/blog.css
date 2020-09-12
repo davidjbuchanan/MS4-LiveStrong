@@ -1,10 +1,8 @@
-/* ------------------------------- blog */
-
+/*  blog  */
 body { 
     margin:0;
     padding:0;
-    font-family:'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    /*font-family:helvetica, sans-serif;*/ 
+    font-family:'Lato', sans-serif;
 }
 
 a, .post_title_detail { 
@@ -42,6 +40,14 @@ h2 {
     padding:0 0 0 30px; 
 }
 
+p.date { 
+    color:rgb(116, 111, 111);
+    font-family: georgia, serif;
+    font-size: 12px;
+    font-style: italic; 
+}
+
+/*  sidebar  */
 #sidebar { 
     float:right;
     width:100%;
@@ -50,20 +56,41 @@ h2 {
     height:auto;
 }
 
-p.date { 
-    color:rgb(116, 111, 111);
-    font-family: georgia, serif;
-    font-size: 12px;
-    font-style: italic; 
+.blog-list-img1 {
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+    background-image: url('/media/Lesmills-fitness.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-/* pagination */
+.blog-list-img2 {
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+    background-image: url('/media/Lesmills-health.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.blog-list-img3 {
+    height: 0;
+    padding-top: 50%;
+    background-size: cover;
+    background-image: url('/media/Lesmills-nutrition.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/*  pagination  */
 .pagination { 
     margin:40px 0; 
     font-weight:bold;
 }
 
-/* forms */
+/*  forms  */
 label { 
     float:left;
     clear:both;
@@ -95,7 +122,7 @@ input[type=submit] {
     padding-left:10px; 
 }
 
-/* comments */
+/*  comments  */
 .comment {
     padding:10px;
 }
