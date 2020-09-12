@@ -573,9 +573,9 @@ Note: that even after adding these fields they will not be populated with any re
 
 ### Remote Deployment
 
-This site is currently deployed on [Heroku](https://www.heroku.com/) using the **master** branch on GitHub. To implement this project on Heroku, the following steps were taken:
+This site is currently deployed on [Heroku](https://www.heroku.com/) using the **master** branch on GitHub. To implement this project on Heroku,the following steps were taken:
 
-1. Created a **requirements.txt** file so Heroku can install the required dependencies to run the app.
+1. Create a **requirements.txt** file so Heroku can install the required dependencies to run the app.
     - `pip3 freeze --local > requirements.txt` add a `sudo` prefix if you do not have admin. rights to your IDE
     - My file can be found [here](https://github.com/davidjbuchanan/lockdownagain/blob/master/requirements.txt).
 
@@ -585,7 +585,7 @@ This site is currently deployed on [Heroku](https://www.heroku.com/) using the *
         - Note: Django's db.sqlite3 is fine for local development but is not robust for long term storage of data as it is ephemeral.
     - Install dj-database-url and psycopg2-binary and then add them to the requirements.txt file if not already done.
     - Now you need to replicate the steps performed for the setup of the db.sqlite3 development server but now for the Postgress server: Establish a link to the external database; make migrations; upload products to the db; and setup superuser access on Postgress db. 
-        - Step 1) update databases by commenting out the if/else block and adding the unique URL found in Heroku under config vars where it says *ENTER_URL_HERE* below:
+        - Step 1) update databases section in setings.py by commenting out the if/else block and adding the unique URL found in Heroku under a config. vars. where it says *ENTER_URL_HERE* below:
         ```
         # if 'DATABASE_URL' in os.environ:
         #     DATABASES = {
@@ -604,52 +604,98 @@ This site is currently deployed on [Heroku](https://www.heroku.com/) using the *
         }
         # Note: there is a security issue with the potential divulging of config. vars. on Github so this change to code should be reverted prior to commiting. 
         ```
-        - Step 2) Make migrations using ```python3 manage.py migrate```
-        - Step 3) Within the products/fixtures/categories.json and products.json files input the details relevant to your business. Upload the products and categories to the Postgress db using 
-        ```python3 manage.py loaddata categories``` then ```python3 manage.py loaddata products```
-        - Step 4) Setup a superuser using ```python3 manage.py createsuperuser```
+        - Step 2) Make migrations using `python3 manage.py migrate`
+        - Step 3) Within the products/fixtures/categories.json and products.json files input the details relevant to your business. Upload the products and categories to the Postgress db using cli commands `python3 manage.py loaddata categories` then `python3 manage.py loaddata products`. 
+        - Step 4) Setup a superuser using `python3 manage.py createsuperuser`
         - Step 5) Install gunicorn and add it to the requirements.txt file if not already done.
         - Step 6) Create a **Procfile** to tell Heroku what type of application is being deployed. This will create a web dyno which will run unicorn and serve our django app.
             - My file can be found [here](https://github.com/davidjbuchanan/lockdownagain/blob/master/Procfile).
-        - Step 7) Disable collect static using ```heroku config:set DISABLE_COLLECTSTATIC=1 --app live-strong```, this can be done after logging into Heroku on the cli, i.e. ```heroku login -i```. The static files will be used for development purposes but we will use a cloud based system for the deployed site. 
+        - Step 7) Disable collect static using `heroku config:set DISABLE_COLLECTSTATIC=1 --app live-strong`, this can be done after logging into Heroku on the cli, i.e. using the command `heroku login -i`. Note: The static files will be used for development purposes but we will use a cloud based system for the deployed site. 
             
-        - Step 8) In settings.py update ```ALLOWED_HOSTS = []``` to ```ALLOWED_HOSTS = ['live-strong.herokuapp.com', 'localhost']```
-        - Step 9) Set up a git remote link from your IDE if you haven't already i.e. ```heroku git:remote -a live-strong``` or set automatic deploys from Github using the deploy tab in Heroku's GUI.
-        - Step 10) Set a SECRET_KEY in the Heroku cofig. vars. and Gitpod config. vars. (or use an env.py in .gitignore file) that secures the app as per code in settings.py: ```SECRET_KEY = os.environ.get('SECRET_KEY', '')```
+        - Step 8) In settings.py update `ALLOWED_HOSTS = ['live-strong.herokuapp.com', 'localhost']` to reflect the name of your app if different
+        - Step 9) Set up a git remote link from your IDE if you haven't already i.e. `heroku git:remote -a live-strong` or set automatic deploys from Github using the deploy tab in Heroku's GUI.
+            - This allows you to push the code from your IDE to Heroku via Github. In Heroku click the **Deploy** tab, at which point you can *Connect GitHub* as the *Deployment Method*, and select *Enable Automatic Deployment*.
+        - Step 10) Set a SECRET_KEY in the Heroku cofig. vars. and Gitpod config. vars. (or use an env.py in .gitignore file) that secures the app as per code in settings.py: `SECRET_KEY = os.environ.get('SECRET_KEY', '')`
         
-        more development setup than deployment    - Step 11) Found that altering : ```DEBUG = True``` to ```DEBUG = 'DEVELOPMENT' in os.environ``` resulted in the development server being unable to access static files. a CLI command ```export DEVELOPMENT="1"``` to update the terminal and allow the development server to render the site as intended. A permanent solution, in Gitpod, was to add to 'Setttings': name = DEVELOPMENT and value = "1".  
-    
+        more development setup than deployment    - Step 11) Found that altering : `DEBUG = True` to `DEBUG = 'DEVELOPMENT' in os.environ` resulted in the development server being unable to access static files. The cli command `export DEVELOPMENT="1"` updates the terminal and allows the development server to render the site as intended; the drawbacks to this method are that this is a temporary fix and won't extend to a new workspace: A permanent solution, in Gitpod, was to add to 'Setttings': name = DEVELOPMENT and value = "1".  
 
-5. Setup an AWS account to access S3 (safe storage services) for the purposes of storing our static files in the S3 cloud-based storage system.
-    - created a bucket.
+At this point you should be able to inititiate a *Build* on Heroku by performing a 'git push' on your IDE's cli as this 'push' will go through to Heroku. The rendered Heroku app will contain HTML content but none of the static content; that comes from the AWS systems that have yet to be set-up.
+
+
+5. Setup an AWS account.
+    - Access S3 (safe storage services) for the purposes of storing our static files in the S3 cloud-based storage system.
+        - create a bucket.
     - Access IAM (Identity and Access Management) for the purposes of creating users capable of accessing the bucket for management purposes.
         - create a group with an access policy attached to it that allows full (public) s3 access to the bucket.
         - create a user that's part of the group and who has their own special access keys.
             - Obtain an *Access key ID* and *Secret access key* 
 
 
-6. Configure Django to connect to s3 using the IAM keys And upload static files to s3.
+6. Configure Django to connect to s3 using the IAM keys and upload static files to s3.
     - Install boto3 and django-storages and add them to the requirements.txt file if not already done.
     - Update the app's config. vars. on Heroku to sinc with the settings.py code snippets below:
-        - So for ```if 'USE_AWS' in os.environ:``` set a config variable of *USE_AWS* with a value of *True*;
-        for ```AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')``` set a config variable of *AWS_ACCESS_KEY_ID* with a value of the *Access key ID* from IAM;
-        and for ```AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')```set a config variable of *AWS_ACCESS_KEY_ID* with a value of the *Secret access key* from IAM
-    - the *DISABLE_COLLECTSTATIC* config. var. witha value of *1* can now be deleted as the site should now pull the static files from through the AWS bucket.
+        - So for `if 'USE_AWS' in os.environ:` set a config variable of *USE_AWS* with a value of *True*;
+        - for `AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')` set a config variable of *AWS_ACCESS_KEY_ID* with a value of the *Access key ID* generated from IAM;
+        - and for `AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')`set a config variable of *AWS_ACCESS_KEY_ID* with a value of the *Secret access key* from IAM
+    - the *DISABLE_COLLECTSTATIC* config. var. with a value of *1* can now be deleted as the site should now pull the static files from the Github repo. through to the AWS bucket.
 
-            7. we want to use s3 to store our static files whenever someone runs collect static.
+At this point you should be able to inititiate a *Build* on Heroku by performing a 'git push' on your IDE's cli as this 'push' will go through to Heroku. The rendered Heroku app will contain HTML, CSS and JQuery content but none of the media content; that comes from further addition to the AWS bucket.
+7. we want to use s3 to store our media files too:
+    - Access the S3 bucket, create a folder and call it 'media'.
+    - Select the desired photos with filenames corresponding to those in the CSS.
+    - Grant public read access to these files.
+    - Upload files
 
-                
-            And that we want any uploaded product images to go there also.
-            To do that let's create a file called custom storages.
+At this point you should be able to inititiate a *Build* on Heroku by performing a 'git push' on your IDE's cli as this 'push' will go through to Heroku. The rendered Heroku app will contain HTML, CSS, JQuery and media content.
+
+8. Verify superuser 
+    - open the heroku app and goto the /admin url
+    - goto *accounts* and click on your address (the one you entered when you created the superuser from your IDE's cli) and clich *Primary* and *Verified*.
+
+At this point you should be able to login to the app website and have full superuser access.
+
+9. Add Stripe keys to the config vars section in your Heroku app. Goto the 'settings' tab and add:
+    - STRIPE_PUBLIC_KEY
+    - STRIPE_SECRET_KEY
+    - you can get the values for these from your Stripe account. Goto the 'Developers' section and look on 'API keys'. Alternatively get them from wherever you stored them for local deployment as they are the same keys.
+
+10. Add a Stripe webhook endpoint and generate a Signing secret for the Heroku deployed site. Remember previous webhooks would have been for the local site only.
+    - Goto the 'Developers' section:
+        - Click 'Webhooks' then 'Add endpoint'
+        - Enter Endpoint URL: e.g. 'https://live-strong.herokuapp.com/checkout/wh/'
+        - Select 'receive all events' and then click 'Add Endpoint'
+        - collect the 'Signing secret' and add it to the config. vars. (as you did previously in the section above) under a name of STRIPE_WH_SECRET. Note: this will be a different key to the one used in the local site.
+
+The site is now deployed and anyone on the internet can browse products, create a profile, and even check out using a test credit card number.
+If a user makes a purchase there order is created in the django admin. And if they authenticate their login their order will be attached to their profile and displayed in their order history.
+
+11. Linking emails to site using Gmail:
+    - Goto 'settings'; then 'Accounts and Imports'; then 'Other Google Accounts Settings'; and then 'security' to access the security page:
+        - Then go into 2-step verification and complete the steps. Once complete return to the security page.
+        - Then go into App passwords and from the 2 dropdown menus 'select app' 'select device' choose *mail* and *other* and call it Django.
+            - obtain a 16 digit code
+    - Go to the Heroku app's settings and generate two new config. vars.
+        - EMAIL_HOST_PASS
+        - EMAIL_HOST_USER
+        - the values for these will be the 16 digit code and the Gmail email address used to set up the verification.
+
+Once all that is done you need to run a commit on your IDE and force a build on Heroku; then the updated app will be able to send real emails. 
+
+        
+so to recap in the Heroku **Settings** tab, click on the *Reveal Config Vars* button to configure environmental variables as follows:
+- **AWS_ACCESS_KEY_ID** : `<capitalised alphanumeric>`
+- **AWS_SECRET_ACCESS_KEY** : `<upper and lowercase alphanumeric with symbols>` 
+- **DATABASE_URL** : starts `postgress://` then `<alphanumeric>` 
+- **EMAIL_HOST_PASS** : `<lowercase alphanumeric>` 
+- **EMAIL_HOST_USER** : `<the Gmail address>` 
+- **SECRET_KEY** : `<lower case alpha numeric with symbols>` 
+- **STRIPE_PUBLIC_KEY** : `<upper and lowercase alphanumeric with symbols>` 
+- **STRIPE_SECRET_KEY** : `<upper and lowercase alphanumeric with symbols>` 
+- **STRIPE_WH_SECRET** : `<upper and lowercase alphanumeric with symbols>` 
+- **USE_AWS** : `true`
 
 
-5. Push the code from your IDE to Heroku via Github. In Heroku click the **Deploy** tab, at which point you can *Connect GitHub* as the *Deployment Method*, and select *Enable Automatic Deployment*.
-6. In the Heroku **Settings** tab, click on the *Reveal Config Vars* button to configure environmental variables as follows:
-    - **IP** : `0.0.0.0`
-    - **PORT** : `5000`
-    - **MONGO_URI** : `<link to your Mongo DB>`
-    - **SECRET_KEY** : `<your own secret key>`
-    - **MONGO_DBNAME** : `<your Mongo DB's name>`
+
 7. Your app should be successfully deployed to Heroku at this point.
 
 ##### back to [top](#table-of-contents)
