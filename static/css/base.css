@@ -97,13 +97,29 @@ h6 {
 }
 
 /*  masthead  */
-header.masthead {
-    position: relative;
-    background-color: #343a40;
-    background: url("/media/Lesmills-masthead(4).jpg") no-repeat center center;
-    background-size: cover;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+@media (max-width: 767px) {
+    header.masthead {
+        position: relative;
+        background-color: #343a40;
+        background: url("/media/Lesmills-masthead(4).jpg") no-repeat center center;
+        background-size: cover;
+        /*height: 0; new*/
+        /*padding-top: 50%; new*/
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+        margin-top: 60px;
+    }
+}
+
+@media (min-width: 768px) {
+    header.masthead {
+        position: relative;
+        background-color: #343a40;
+        background: url("/media/Lesmills-masthead(4).jpg") no-repeat center center;
+        background-size: cover;
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
 }
 
 .container_search {
@@ -116,7 +132,7 @@ header.masthead {
 
 .jumbotron {
     background-color: rgba(0,0,0,0.7);
-    margin-bottom: 25%;
+    margin-bottom: 15%;
     padding: 32px;
     border-radius: 0 !important;
 }
@@ -140,7 +156,27 @@ header.masthead h1 {
     }
 }
 
-@media (min-width: 1000px) {
+/*  Icons Grid from index.html  */
+@media (max-width: 991px) {
+    .features-icons {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    }
+
+    .features-icons .features-icons-item {
+        max-width: 20rem;
+    }
+
+    .features-icons .features-icons-item .features-icons-icon {
+        height: 5rem;
+    }
+
+    .features-icons .features-icons-item .features-icons-icon i {
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 992px) {
     section.masthead {
         position: relative;
         background-color: #343a40;
@@ -154,12 +190,40 @@ header.masthead h1 {
         margin-right: 1rem;
     }
   
-    .message-container {
+    /*.message-container {
         position: fixed;
         top: 72px;
         right: 15px;
         z-index: 99999999999999999;
+    }*/
+
+    .features-icons {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
     }
+
+    .features-icons .features-icons-item {
+        max-width: 20rem;
+    }
+
+    .features-icons .features-icons-item .features-icons-icon {
+        height: 7rem;
+    }
+
+    .features-icons .features-icons-item .features-icons-icon i {
+        font-size: 4.5rem;
+    }
+
+    .features-icons .features-icons-item:hover .features-icons-icon i {
+        font-size: 5rem;
+    }
+}
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999999999;
 }
 
 .fa-search {
@@ -237,18 +301,29 @@ header .form-control {
     background: url("/media/Argos-girl-lunge.jpg") center center;
 }
 
-.showcase .showcase-img2 {
+@media (max-width: 767px) {
+    .showcase .showcase-img2 {
+    min-height: 30rem;
+    background-size: cover;
+    background-image: url("/media/Argos-wellbeing.jpg");
+    background-position: right;
+    }
+}
+
+@media (min-width: 768px) {
+    .showcase .showcase-img2 {
     min-height: 30rem;
     background-size: cover;
     background-image: url("/media/Argos-wellbeing.jpg");
     background-position: center;
+    }
 }
 
 .showcase .showcase-img3 {
     min-height: 30rem;
     background-size: cover;
     background-image: url("/media/Argos-girl-treadmill.jpg");
-    background-position: center;
+    background-position: center top;
 }
 
 @media (min-width: 768px) {
@@ -256,27 +331,6 @@ header .form-control {
         padding: 7rem;
         background-color: #f8f9fa;
     }
-}
-
-.features-icons {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-}
-
-.features-icons .features-icons-item {
-    max-width: 20rem;
-}
-
-.features-icons .features-icons-item .features-icons-icon {
-    height: 7rem;
-}
-
-.features-icons .features-icons-item .features-icons-icon i {
-    font-size: 4.5rem;
-}
-
-.features-icons .features-icons-item:hover .features-icons-icon i {
-    font-size: 5rem;
 }
 
 /*  testimonials  */
