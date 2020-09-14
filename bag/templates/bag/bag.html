@@ -7,9 +7,6 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ free_delivery_threshold }}</h1>
-    <h1>{{ bag_items }}</h1>
- 
     <div class="container mb-2">
         <div class="row">
             <div class="col">
@@ -21,18 +18,17 @@
         <div class="row">
             <div class="col">
                 {% if bag_items %}
-                    <div class="table-responsive rounded">
+                    <div class="table-responsive rounded d-none d-md-block">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
                                 <tr>
-                                    <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Product Image</th>
+                                    <th scope="col">Product Name</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Subtotal</th>
                                 </tr>
                             </thead>
-
                             {% for item in bag_items %}
                                 <tr>
                                     <td class="p-3 w-25">
@@ -44,7 +40,6 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price }}</p>
@@ -73,42 +68,79 @@
                                     <h6><strong>Bag Subtotal: ${{ sub_total|floatformat:2 }}</strong></h6>
                                 </td>
                             </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <a href="{% url 'products' %}" class="btn btn-black rounded-0 btn-lg">
+                                        <span class="text-uppercase">Back to shop</span>
+                                    </a>
+                                </td>
+                            </tr>
                         </table>
                     </div>
+                    <div class="table-responsive rounded d-md-none">
+                        <table class="table table-sm table-borderless">
+                            <thead class="text-black underline">
+                                <tr>
+                                    <th scope="col" class="text-danger mx-auto">Product Name</th>
+                                    <th scope="col" class="text-danger mx-auto">Price</th>
+                                    <th scope="col" class="text-danger mx-auto">Qty</th>
+                                </tr>
+                            </thead>
+                            {% for item in bag_items %}
+                                <tr>
+                                    <td class="py-3">
+                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">${{ item.product.price }}</p>
+                                    </td>
+                                    <td class="py-3 w-25">
+                                        <form class="form update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
+                                            {% csrf_token %}
+                                            <div class="form-row">
+                                                <div class="col-12">
+                                                    <div class="form-group w-75">
+                                                        <input class="form-control qty_input text-center" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="new_id_qty_{{ item.item_id }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <a class="update-link text-info"><small>Update</small></a>
+                                        <a class="remove-item text-danger" id="new_remove_{{ item.item_id }}"><small>Remove</small></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}                                                     
+                            <tr>
+                                <td colspan="5" class="pt-5 text-right">
+                                    <h6><strong>Bag Subtotal: ${{ sub_total|floatformat:2 }}</strong></h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <a href="{% url 'products' %}" class="btn btn-black rounded-0 btn-lg">
+                                        <span class="text-uppercase">Back to shop</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>                    
                     <hr>
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-right">
-                            <!-- new -->
                             <button id="submit_code" class="btn btn-black rounded-0 btn-lg text-uppercase">Enter  Discount  Code</button>
-                            <!-- /new -->
                             <form id="coupon_form" action="{% url 'apply' %}" method="post">
                                 {% csrf_token %}
                                 {{ coupon_form|crispy }}
                                 <input type="submit" class="btn btn-black rounded-0 btn-lg text-uppercase" value="Submit  code">
-                                <!-- new -->
-                                <button id="cancel" class="btn btn-black rounded-0 btn-lg text-uppercase">cancel</button>
-                                <!-- /new -->
                             </form>
                         </div>
                     </div>
                     <hr>
-                    <!--<script>
-                        $(document).ready(function() {
-                            $("#submit_code").on("click",function() {           
-                                 $("#submit_code").hide();
-                                 $("#coupon_form").show();
-                            });
-                            $("#cancel").on("click",function() {        
-                                 $("#coupon_form").hide();
-                                 $("#submit_code").show();
-                            });
-                        });
-                    </script>-->
                     <div class="table-responsive rounded">
                         <table class="table table-sm table-borderless">
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <h6><strong>Discount Coupon id: {% if code %} {{ code.code }} {% else %} Nill {% endif %}</strong></h6>
+                                    <h6><strong>Discount Coupon id: {% if code %} {{ code }} {% else %} Nill {% endif %}</strong></h6>
                                     <h6><strong>Discount Applied: {% if code %} ({{ discount_percentage }}%) / ${{ discount_total|floatformat:2 }} {% else %} Nill {% endif %}</strong></h6>
                                     <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
                                     
@@ -123,12 +155,6 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
                                     <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
@@ -157,25 +183,4 @@
 {% block postloadjs %}
 {{ block.super }}
     <script type="text/javascript" src="{% static 'bag/js/bag.js' %}"></script>
-
-<!--<script type="text/javascript">
-    // Update quantity on click
-    $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
-
-    // Remove item and reload on click
-    $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken};
-
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
-</script>-->
 {% endblock %}
