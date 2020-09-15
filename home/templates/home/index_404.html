@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- 404 re-route -->
+    <section class="bg-dark">    
+        <div class="container">
+            <div class="row"> 
+                <div class="col-lg-12 py-5 text-danger">
+                    <h2>We are sorry but the page you wanted is under construction. So we have redirected you back to the site's homepage.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Icons Grid -->
+    <section class="masthead features-icons bg-light text-center text-center">    
+        <div class="container">
+            <div class="row"> 
+                <div class="col-lg-4" id="overlay_1">
+                    <a id="overlay_1c" href="{% url 'products' %}?category=essentials">
+                        <div id="overlay_1a" class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex">
+                                <i id="overlay_1b" class="fas fa-running fa-sm m-auto"></i>
+                            </div>
+                            <h3>
+                                Get the gear
+                            </h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4" id="overlay_2">
+                    <a id="overlay_2c" href="{% url 'products' %}?category=yoga,bike,run_indoor,run_outdoor">
+                        <div id="overlay_2a" class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex">
+                                <i id="overlay_2b" class="fas fa-dumbbell fa-sm m-auto"></i>
+                            </div>
+                            <h3>
+                                Access classes
+                            </h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4" id="overlay_3">
+                    <a id="overlay_3c" href="{% url 'blog:post_list' %}">
+                        <div id="overlay_3a" class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex">
+                                <i id="overlay_3b" class="fas fa-blog fa-sm m-auto"></i>
+                            </div>
+                            <h3>
+                                Get involved
+                            </h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Image Showcases -->
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row no-gutters">
+                <div class="col-lg-6 order-lg-2 showcase-img1"></div>
+                <div class="col-lg-6 order-lg-1 showcase-text">
+                    <h2>
+                        Workout with weights
+                    </h2>
+                    <p class="lead mb-0">
+                        Using the Live Strong app you can join classes performing weight classes!
+                    </p>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg-6 showcase-img2 img-responsive"></div>
+                <div class="col-lg-6 showcase-text">
+                    <h2>
+                        Run with Live Strong
+                    </h2>
+                    <p class="lead mb-0">
+                        Use our app to go on virtual group runs. Our instructor led runs will help motivate you to run faster and for longer
+                    </p>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg-6 order-lg-2 showcase-img3"></div>
+                <div class="col-lg-6 order-lg-1 showcase-text">
+                    <h2>
+                        Use indoor and out
+                    </h2>
+                    <p class="lead mb-0">
+                        As part of our offering you can join us indoors or out!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="testimonials text-center bg-light">
+        <div class="container">
+            <h2 class="mb-5">What people are saying...</h2>
+            <!--<div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="../media/testimonials-1.jpg" alt="">
+                        <h5>Margaret E.</h5>
+                        <p class="font-weight-light mb-0">"Fantastic! Thanks so much guys!"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="../media/testimonials-2.jpg" alt="">
+                        <h5>Fred S.</h5>
+                        <p class="font-weight-light mb-0">"Amazing. I've been using it to make lots of gains."</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="../media/testimonials-3.jpg" alt="">
+                        <h5>Sarah W.</h5>
+                        <p class="font-weight-light mb-0">"Thanks so much, you guys are the best!"</p>
+                    </div>
+                </div>
+            </div>-->
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <div class="col-12 test-img1 rounded-circle mb-3"></div>
+                        <!--<img class="img-fluid rounded-circle mb-3" src="../media/testimonials-1.jpg" alt="">-->
+                        <h5>Margaret E.</h5>
+                        <p class="font-weight-light mb-0">"Fantastic! Thanks so much guys!"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <div class="col-12 test-img2 rounded-circle mb-3"></div>
+                        <!--<img class="img-fluid rounded-circle mb-3" src="../media/testimonials-2.jpg" alt="">-->
+                        <h5>Fred S.</h5>
+                        <p class="font-weight-light mb-0">"Amazing. I've been using it to make lots of gains."</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <div class="col-12 test-img3 rounded-circle mb-3"></div>
+                        <!--<img class="img-fluid rounded-circle mb-3" src="../media/testimonials-3.jpg" alt="">-->
+                        <h5>Sarah W.</h5>
+                        <p class="font-weight-light mb-0">"Thanks so much, you guys are the best!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block  postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'home/js/icons_grid.js' %}"></script>
+{% endblock %}
