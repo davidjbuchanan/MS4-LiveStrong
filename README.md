@@ -509,17 +509,19 @@ During development, I discovered two issues after committing to GitHub.
     - [PIP](https://pip.pypa.io/en/stable/installing) to install all app requirements.
     - An IDE such as [Gitpod](https://www.gitpod.io/) or [Microsoft Visual Studio Code](https://code.visualstudio.com).
     - [GIT](https://www.atlassian.com/git/tutorials/install-git) for cloning and version control.
+    - [Github account]() for saving repositories
+    - [Stripe account]() for managing payment system 
 
 Now, there is a series of steps to take in order to proceed with local deployment:
 
 - Here are three options for downloading this repo to your IDE: 
-    - 1) If you have added the Chrome/Firefox Gitpod extension you can clone by clicking the green *Gitpod* button at the top right of this repo. to open a workspace within the Gitpod IDE; 
-    - 2) download the project as a zip-file (remember to unzip it first); 
-    - and 3) by entering the following into the Git cli terminal: `git clone https://github.com/davidjbuchanan/lockdownagain.git'.
-    - Note: when using Gitpod IDE it may be advantageous to goto the Code Instute's Github page and clone their [template](https://github.com/Code-Institute-Org/gitpod-full-template). This will give the developer admin rights 
+    - (1) If you have added the Chrome/Firefox Gitpod extension you can clone by clicking the green *Gitpod* button at the top right of this repo. to open a workspace within the Gitpod IDE; 
+    - (2) download the project as a zip-file (remember to unzip it first); and then upload/drag it into your workspace.
+    - (3) by entering the following into the Git cli terminal: `git clone https://github.com/davidjbuchanan/lockdownagain.git'.
+    - Note: when using Gitpod IDE it may be advantageous to goto the Code Instute's Github page and clone their [template](https://github.com/Code-Institute-Org/gitpod-full-template). This will give the developer administration rights.
 - Navigate to the correct file location after unpacking the files.
     - `cd <path to folder>`
-- the `requirements.txt` will list the required packages required to successfully launch the site for local and remote deployment; the list should look like the following: 
+- the `requirements.txt` will list the required packages required to successfully launch the site for local and remote deployment; the list should look like the following (Note: many of these packages are required for remote deployment - see section below): 
 ```
 asgiref==3.2.10
 boto3==1.14.58
@@ -559,13 +561,27 @@ To install these packages onto your IDE'S workspace you can enter the following 
         - 2) Using Gitpod's IDE place the config. vars. in **Settings** using the settings option from the drop-down menu.
         - Note: It is important that these do not get uploaded during a Github commit/push and that they do not appear in your repository for security reasons
 
-- Make migrations using the following command in the IDE's cli: `python3 manage.py migrate`    
+- Make migrations using the following command in the IDE's cli: `python3 manage.py migrate`
+
+- Set yourself as a superuser using `python3 manage.py createsuperuser`
+    - add a usernmame and passwords
 
 - The site should now render, on the development server, using the following command in the IDE's cli: `python3 manage.py runserver`
     - However there will be no products rendered to the site and the checkout app will error if openned.
+    - you will be able to access the Django admin at HTTPS ending `/admin`
+    - In order to access the GUI as a superuser you can login through `/admin`
+        - Go to the *Accounts* app
+        - select *Add Email Addresses*
+        - as you are the only user you are *user* 1
+        - add your *email address*
+        - check the *verified* and *primary* box and then press *save*
+        - **You can now login as a superuser using the GUI's navbar (my accounts) dropdown menu option** 
+    - Alternatively you can register through the GUI like a normal user would. The steps for that are the following:
+        - Navigate to the login page and login with your superuser username and passwords
+        - return to the development terminal and follow the link, thus verifying your email address.
 
 - To add products you will need to define product categories as well as products themselves.
-    - Create them using the examples in products/fixtures/categories.json and products.json files from the repo. Input the details relevant to your business and thenpload the products and categories to the db.sglite3 database using cli commands `python3 manage.py loaddata categories` then `python3 manage.py loaddata products`. Alternatively you could add them all individually through the django admin app.
+    - Create them using the examples in products/fixtures/categories.json and products.json files as a template; input the details relevant to your business and then upload the products and categories to the db.sglite3 database using cli commands `python3 manage.py loaddata categories` then `python3 manage.py loaddata products`. Alternatively you could add them all individually through the django admin app at `/admin`.
 
 - Set up a payment system through [Stripe](https://github.com/Code-Institute-Org/gitpod-full-template) and obtain values for the following config. vars.:
     - **STRIPE_PUBLIC_KEY** : `<upper and lowercase alphanumeric with symbols>`
@@ -579,14 +595,12 @@ To install these packages onto your IDE'S workspace you can enter the following 
     os.environ['STRIPE_PUBLIC_KEY'] = '<upper and lowercase alphanumeric with symbols>'
     os.environ['STRIPE_SECRET_KEY'] = '<upper and lowercase alphanumeric with symbols>'
     ``` 
-    - you can get the values for these from your Stripe account. Goto the 'Developers' section and look on 'API keys'. Alternatively get them from wherever you stored them for local deployment as they are the same keys.
+    - you can get the values for these from your Stripe account. Goto the 'Developers' section and look on 'API keys' where they referred to as the 'Publishable key' and 'Secret key'.
 
 - With this all in place the app should render and accept payments. 
     - `python3 manage.py runserver`. This may require a prefix of `sudo` if you do not have administration rights on your IDE.
     - The app should now be running on *localhost* and, when using Gitpod IDE, render an address similar to `https://8080-bce9ad25-9922-4648-b249-d83204aa0bf4.ws-eu01.gitpod.io/`.
     - All emails (e.g. authentications, transaction details) will now be sent to the development terminal.
-
-
 
 
 ### Remote Deployment
@@ -597,7 +611,7 @@ This site is currently deployed on [Heroku](https://www.heroku.com/) using the *
     - `pip3 freeze --local > requirements.txt` add a `sudo` prefix if you do not have admin. rights to your IDE
     - My file can be found [here](https://github.com/davidjbuchanan/lockdownagain/blob/master/requirements.txt).
 
-4. Sign up for a free Github account and create your project repository. From your IDE commit and push to your Github repository.
+4. Sign up for a free Github account and create your project repository. So you can commit and push to your Github repository from your IDE. 
 4. Sign up for a free Heroku account and create your project app.
     - Once done, use the *'resource'* tab to search for an add-on called *Heroku Postgress*
         - Note: Django's db.sqlite3 is fine for local development but is not robust for long term storage of data as it is ephemeral.
