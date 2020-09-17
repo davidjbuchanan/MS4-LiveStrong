@@ -607,71 +607,77 @@ To install these packages onto your IDE'S workspace you can enter the following 
 
 This site is currently deployed on [Heroku](https://www.heroku.com/) using the **master** branch on GitHub. To implement this project on Heroku,the following steps were taken:
 
-1. Create a **requirements.txt** file so Heroku can install the required dependencies to run the app.
-    - `pip3 freeze --local > requirements.txt` add a `sudo` prefix if you do not have admin. rights to your IDE
-    - My file can be found [here](https://github.com/davidjbuchanan/lockdownagain/blob/master/requirements.txt).
-
-4. Sign up for a free Github account and create your project repository. So you can commit and push to your Github repository from your IDE. 
-4. Sign up for a free Heroku account and create your project app.
+1. Perform the steps required, as described above, for local deployment.
+2. Sign up for a free Heroku account and create your project app.
     - Once done, use the *'resource'* tab to search for an add-on called *Heroku Postgress*
         - Note: Django's db.sqlite3 is fine for local development but is not robust for long term storage of data as it is ephemeral.
-    - Install dj-database-url and psycopg2-binary and then add them to the requirements.txt file if not already done.
-    - Now you need to replicate the steps performed for the setup of the db.sqlite3 development server but now for the Postgress server: Establish a link to the external database; make migrations; upload products to the db; and setup superuser access on Postgress db. 
-        - Step 1) update databases section in setings.py by commenting out the if/else block and adding the unique URL found in Heroku under a config. vars. where it says *ENTER_URL_HERE* below:
-        ```
-        # if 'DATABASE_URL' in os.environ:
-        #     DATABASES = {
-        #         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-        #     }
-        # else:
-        #     DATABASES = {
-        #         'default': {
-        #             'ENGINE': 'django.db.backends.sqlite3',
-        #             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        #         }
-        #     }
+3. Install dj-database-url and psycopg2-binary packages and then add them to the requirements.txt file if not already done so.
+4. Now you need to replicate the steps performed previously for the setup of the db.sqlite3 development server but this time it is for the Postgress server. These steps will consist of establishing a link to the external database; make migrations; upload products to the db; and setup superuser access on Postgress db. 
+    - (1) update databases section in setings.py by 'commenting-out' the if/else block and adding some temporary code beneath it as shown below. Where you see *ENTER_URL_HERE* you should enter the **DATABASE_URL** configuration variable supplied by Heroku (you can find config. vars. under the 'settings' tab of your Heroku app.'s dashboard):
+    ```
+    # if 'DATABASE_URL' in os.environ:
+    #     DATABASES = {
+    #         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    #     }
+    # else:
+    #     DATABASES = {
+    #         'default': {
+    #             'ENGINE': 'django.db.backends.sqlite3',
+    #             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #         }
+    #     }
+    
+    DATABASES = {
+        'default': dj_database_url.parse('ENTER_URL_HERE')
+    }
+    ```
+    - **Note: there is a security issue with this activity!** You could divulge config. vars. on Github if you commit and push to Github at this stage. Therefore this change to code should be reverted prior to commiting. 
+    - (2) Make migrations using `python3 manage.py migrate`
+    - (3) Add categories and products as previously described in the *Local Deployment* section above. This time you will upload this data to the Postgress db using the same cli commands as before: `python3 manage.py loaddata categories` then `python3 manage.py loaddata products`. 
+    - (4) Create a superuser using `python3 manage.py createsuperuser`
+        - add a usernmame and password
+    - (5) Install gunicorn and add it to the requirements.txt file if not already done so.
+    - (6) Update the **Procfile** to tell Heroku what type of application is being deployed. This will create a web dyno which will run unicorn and serve our django app.
+        - My file can be found [here](https://github.com/davidjbuchanan/lockdownagain/blob/master/Procfile).
+    - (7) Disable 'collect static' in the Heroku cofig. vars. using the Heroku GUI, see the 'Settings' tab on your app.'s dashboard. Or use the IDE's cli: `heroku config:set DISABLE_COLLECTSTATIC=1 --app live-strong`.
+        - this can be done after logging into Heroku on the cli, i.e. using the command `heroku login -i`. 
+        - Note: The static files will be used for development purposes but we will use a cloud based system for the deployed site. 
+    - (8) In settings.py update `ALLOWED_HOSTS = ['live-strong.herokuapp.com', 'localhost']` to reflect the name of your app., if different.
+    - (9) Set up a git remote link from your IDE to Heroku if you haven't already i.e. `heroku git:remote -a live-strong` or set automatic deploys from Github using the deploy tab in Heroku's GUI.
+        - This allows you to push the code from your IDE to Heroku via Github. In Heroku click the **Deploy** tab, which is where you can *Connect GitHub* as the *Deployment Method*, and select *Enable Automatic Deployment*.
+    - (10) Set a SECRET_KEY in the Heroku cofig. vars. and Gitpod config. vars. (or use an env.py in the .gitignore file you may have created during Loca; Deployment). This secures the app as per code in settings.py: `SECRET_KEY = os.environ.get('SECRET_KEY', '')`
         
-        DATABASES = {
-            'default': dj_database_url.parse('ENTER_URL_HERE')
-        }
-        # Note: there is a security issue with the potential divulging of config. vars. on Github so this change to code should be reverted prior to commiting. 
-        ```
-        - Step 2) Make migrations using `python3 manage.py migrate`
-        - Step 3) Within the products/fixtures/categories.json and products.json files input the details relevant to your business. Upload the products and categories to the Postgress db using cli commands `python3 manage.py loaddata categories` then `python3 manage.py loaddata products`. 
-        - Step 4) Setup a superuser using `python3 manage.py createsuperuser`
-        - Step 5) Install gunicorn and add it to the requirements.txt file if not already done.
-        - Step 6) Create a **Procfile** to tell Heroku what type of application is being deployed. This will create a web dyno which will run unicorn and serve our django app.
-            - My file can be found [here](https://github.com/davidjbuchanan/lockdownagain/blob/master/Procfile).
-        - Step 7) Disable collect static using `heroku config:set DISABLE_COLLECTSTATIC=1 --app live-strong`, this can be done after logging into Heroku on the cli, i.e. using the command `heroku login -i`. Note: The static files will be used for development purposes but we will use a cloud based system for the deployed site. 
-            
-        - Step 8) In settings.py update `ALLOWED_HOSTS = ['live-strong.herokuapp.com', 'localhost']` to reflect the name of your app if different
-        - Step 9) Set up a git remote link from your IDE if you haven't already i.e. `heroku git:remote -a live-strong` or set automatic deploys from Github using the deploy tab in Heroku's GUI.
-            - This allows you to push the code from your IDE to Heroku via Github. In Heroku click the **Deploy** tab, at which point you can *Connect GitHub* as the *Deployment Method*, and select *Enable Automatic Deployment*.
-        - Step 10) Set a SECRET_KEY in the Heroku cofig. vars. and Gitpod config. vars. (or use an env.py in .gitignore file) that secures the app as per code in settings.py: `SECRET_KEY = os.environ.get('SECRET_KEY', '')`
-        
-        more development setup than deployment    - Step 11) Found that altering : `DEBUG = True` to `DEBUG = 'DEVELOPMENT' in os.environ` resulted in the development server being unable to access static files. The cli command `export DEVELOPMENT="1"` updates the terminal and allows the development server to render the site as intended; the drawbacks to this method are that this is a temporary fix and won't extend to a new workspace: A permanent solution, in Gitpod, was to add to 'Setttings': name = DEVELOPMENT and value = "1".  
 
-At this point you should be able to inititiate a *Build* on Heroku by performing a 'git push' on your IDE's cli as this 'push' will go through to Heroku. The rendered Heroku app will contain HTML content but none of the static content; that comes from the AWS systems that have yet to be set-up.
-
+At this point you should be able to inititiate a *Build* on Heroku by performing a 'git push' on your IDE's cli as this 'push' will go through to Heroku. The rendered Heroku app will contain HTML content but none of the static content; that comes from the AWS systems that have yet to set-up.
 
 5. Setup an AWS account.
-    - Access S3 (safe storage services) for the purposes of storing our static files in the S3 cloud-based storage system.
+    - Access S3 (safe storage services) for the purposes of storing your static files in the S3 cloud-based storage system.
         - create a bucket.
     - Access IAM (Identity and Access Management) for the purposes of creating users capable of accessing the bucket for management purposes.
         - create a group with an access policy attached to it that allows full (public) s3 access to the bucket.
-        - create a user that's part of the group and who has their own special access keys.
-            - Obtain an *Access key ID* and *Secret access key* 
-
-
+        - create a user that's part of that group who has their own special access keys:
+            - an *Access key ID* 
+            - and a *Secret access key*
+            
 6. Configure Django to connect to s3 using the IAM keys and upload static files to s3.
-    - Install boto3 and django-storages and add them to the requirements.txt file if not already done.
-    - Update the app's config. vars. on Heroku to sinc with the settings.py code snippets below:
+    - Install boto3 and django-storages and add them to the requirements.txt file if not already done so.
+    - Update the Heroku app.'s configuration variables to sinc with the settings.py code snippets below:
         - So for `if 'USE_AWS' in os.environ:` set a config variable of *USE_AWS* with a value of *True*;
         - for `AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')` set a config variable of *AWS_ACCESS_KEY_ID* with a value of the *Access key ID* generated from IAM;
         - and for `AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')`set a config variable of *AWS_ACCESS_KEY_ID* with a value of the *Secret access key* from IAM
-    - the *DISABLE_COLLECTSTATIC* config. var. with a value of *1* can now be deleted as the site should now pull the static files from the Github repo. through to the AWS bucket.
+        - Your Heroku app's configuration variables should now look like the following: 
+                - **AWS_ACCESS_KEY_ID** : `<capitalised alphanumeric>`
+                - **AWS_SECRET_ACCESS_KEY** : `<upper and lowercase alphanumeric with symbols>` 
+                - **DATABASE_URL** : starts `postgress://` then `<alphanumeric>` (this was set-up during local deployment)
+                - **DISABLE_COLLECTSTATIC** : `1`
+                - **SECRET_KEY** : `<lower case alpha numeric with symbols>` (this was set-up during local deployment)
+                - **STRIPE_PUBLIC_KEY** : `<upper and lowercase alphanumeric with symbols>` (this was set-up during local deployment)
+                - **STRIPE_SECRET_KEY** : `<upper and lowercase alphanumeric with symbols>` (this was set-up during local deployment)
+                - **USE_AWS** : `true`
+    - the *DISABLE_COLLECTSTATIC* config. var. can now be deleted as the site should now pull the static files from the Github repo. through to the AWS bucket.
 
 At this point you should be able to inititiate a *Build* on Heroku by performing a 'git push' on your IDE's cli as this 'push' will go through to Heroku. The rendered Heroku app will contain HTML, CSS and JQuery content but none of the media content; that comes from further addition to the AWS bucket.
+
 7. we want to use s3 to store our media files too:
     - Access the S3 bucket, create a folder and call it 'media'.
     - Select the desired photos with filenames corresponding to those in the CSS.
@@ -682,21 +688,16 @@ At this point you should be able to inititiate a *Build* on Heroku by performing
 
 8. Verify superuser 
     - open the heroku app and goto the /admin url
-    - goto *accounts* and click on your address (the one you entered when you created the superuser from your IDE's cli) and clich *Primary* and *Verified*.
+    - goto *Accounts* app. and click on your address (the one you entered when you created the superuser from your IDE's cli) and click *Primary* and *Verified*. If it is not there you should create it now. You are user number 1.
 
 At this point you should be able to login to the app website and have full superuser access.
 
-9. Add Stripe keys to the config vars section in your Heroku app. Goto the 'settings' tab and add:
-    - STRIPE_PUBLIC_KEY
-    - STRIPE_SECRET_KEY
-    - you can get the values for these from your Stripe account. Goto the 'Developers' section and look on 'API keys'. Alternatively get them from wherever you stored them for local deployment as they are the same keys.
-
-10. Add a Stripe webhook endpoint and generate a Signing secret for the Heroku deployed site. Remember previous webhooks would have been for the local site only.
+9. Add a Stripe webhook endpoint and generate a 'Signing secret' for the Heroku deployed site. Remember previous webhooks would have been for the local site only.
     - Goto the 'Developers' section:
         - Click 'Webhooks' then 'Add endpoint'
         - Enter Endpoint URL: e.g. 'https://live-strong.herokuapp.com/checkout/wh/'
         - Select 'receive all events' and then click 'Add Endpoint'
-        - collect the 'Signing secret' and add it to the config. vars. (as you did previously in the section above) under a name of STRIPE_WH_SECRET. Note: this will be a different key to the one used in the local site.
+        - collect the 'Signing secret' and add it to the config. vars. (as you did previously in the section above) under a name of 'STRIPE_WH_SECRET'. Note: this will be a different key to the one used in the local site.
 
 The site is now deployed and anyone on the internet can browse products, create a profile, and even check out using a test credit card number.
 If a user makes a purchase there order is created in the django admin. And if they authenticate their login their order will be attached to their profile and displayed in their order history.
@@ -731,112 +732,6 @@ so to recap in the Heroku **Settings** tab, click on the *Reveal Config Vars* bu
 7. Your app should be successfully deployed to Heroku at this point.
 
 ##### back to [top](#table-of-contents)
-
-
-
-
-
-
-
-
-The app building process:
-Signed up for Github and Gitpod.
-
-Went to Code Institute's (CI) Gitpod template [repo.](https://github.com/Code-Institute-Org/gitpod-full-template) and clicked *Use this template*. The new repo. was named and openned in Gitpod, straight from Github.
-
-followed the https://github.com/davidjbuchanan/boutique_ado_v1/blob/master/instructions.txt
-
-at line 25 put SECRET_KEY into the github settings and created an any var before initial commit
-
-
-
-
-
-
-
-The deployment process:
-
-To deploy the app remotely the additional list of add-ons and code are required:
-
-Signed up for a free Heroku accounts
-
-Postgres: A server-based database that runs remotely from the Django app. Note: Django's db.sqlite3 is fine for local development but is not robust for long term storage of data. To install Postgres use `pip3 install psycopg2-binary` from the Git CLI.
-dj-database-url: Enables the connection to the Postgress remote database. To install use `pip3 install dj_database_url` from the Git CLI.
-Green Unicorn (gunicorn): A web browser for deployed browsing. To install Green Unicorn use `pip3 install gunicorn` from the Git CLI.
-
-Generation of a requirements file for the purposes of informing Heroku which files to install using pip. Migration of installed files accomplished using `pip3 freeze --local > requirements.txt` from the Git CLI.
-
-Generation of a Procfile file for the purposes of informing Heroku that this is to be a web application with a web server called Green Unicorn.
-Generate from the Git CLI using `touch Procfile`.
-Input `web: gunicorn boutique_ado.wsgi:application` to make Horoku start a web dyno (Note: wsgi allows the handling of HTTP requests like run server does in our local development environment.)
-
-From the CI template it is possible to access the Heroku CLI from the Git CLI (otherwise installation is required from [Heroku]( https://devcenter.heroku.com/articles/heroku-cli)). Using the Heroku CLI you can login using `heroku login`. 
-
-Once authenticated it is necessary to create an app in Heroku too:
-Using the CLI enter `heroku apps:create` followed by the app's name and region of creation e.g. `heroku apps:create name --region eu` or region otherwise dependant on your location. 
-
-From the Heroku GUI goto the app; then the resources tab, and then the add-ons input field. From there add Postgress. 
-
-To link the Postgress database in Heroku to the Django app requires an update to the settings.py file with the relevant path information ([see example of settings.py]()): 
-1) `Import dj_database_url`
-2) Obtain the DATABASE_URL (From the Heroku GUI or CLI using `heroku config`) and save it as an environment variable. CAUTION: see deployment security section below.
-3) Add to the existing Database section in settings.py to give: 
-    `DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}`
-4) Run migrations using `python3 manage.py migrate` from the CLI if safe to do so.
-5) Add the Heroku host name to the ALLOWED_HOSTS section.
-
-Upload data using `python3 manage.py loaddata categories` and then `python3 manage.py loaddata products`
-
-Temporarily disable the collection of static files to Heroku by using `heroku config:set DISABLE_COLLECTSTATIC=1 --app app name`. This is due to the Heroku's security system not accepting them. 
-
-Before commiting and pushing to Github ensure secret keys are hidden in environment variables. 
-
-Deployment security:
-`.gitignore`: Create a file and add to it the following files: `*.sqlite3` ,`*.pyc` and `__pycache__/`. This prevents missuse of the development database.
-
-Create and facilitate the use of environment variables within the settings.py file for the purposes hidding the Django SECRET_KEY; hidding the ALLOWED_HOSTS;hidding the DATABASE_URL; and the setting of debug to `true` for development and `false` for deployed app.
-
-For the setting of debug to `true` for development mode and `false` for deployed mode:
-1) Create a variable called development that obtains its value from the operating system level or returns `False`: `development = os.environ.get('DEVELOPMENT', False)`
-2) Set DEVELEOPMENT to True in Gitpod's IDE settings section or create a hidden file with this data in a `.gitignore` file
-3) Set debug to this variable's value i.e. `DEBUG = development`. This prevents internal source code being displayed on the Heroku hosted site if there are errors.
-
-
-For the purpose of hidding the Django SECRET_KEY:
-1) Set the SECRET_KEY value to one supplied in an environment variable in the operating system level or returns a fail: `SECRET_KEY = os.environ.get('SECRET_KEY', '')`
-2) Set SECRET_KEY to a unique and secret string in Gitpod's IDE settings section (or create a hidden file with this data in a `.gitignore` file) to allow development database. Similarly create a second SECRET_KEY environment variable and deposit it in Heroku's GUI using the environment variables section; this will allow external deployment of the site.
-
-
-For the purpose of hidding the ALLOWED_HOSTS:
-1) Set the ALLOWED_HOSTS value to one supplied in an environment variable in the operating system level or returns a development host only: 
-`if development:`
-    `ALLOWED_HOSTS = ['localhost']`
-`else:`
-    `ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]`
-2) Set the `HEROKU_HOSTNAME` in Heroku's GUI using the environment variables section. This is the url address of the deployed app less the protocol.
-
-
-For the purpose of hidding the DATABASE_URL:
-1) Use an `if` statement to determine if the user is in developer mode or using it as a deployed app. Once that is determined allow access to the local database `db.sqlite3` or the Postgres database that was eluded to earlier. In the event of the latter an environment variable in Heroku will be required for security:
-`if development:`
-    `DATABASES = {`
-        `'default': {`
-            `'ENGINE': 'django.db.backends.sqlite3',`
-            `'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),}}`
-`else:`
-    `DATABASES = {`
-        `'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}`
-2) Set the `DATABASE_URL` in Heroku's GUI using the environment variables section.
-
-Now that the IDE contents can be commited and pushed to Github and Heroku the app can be tested for deployment, albeit without the base.css file due to the `DISABLE_COLLECTSTATIC` command previously executed.
-
-The Github repository can be connected to Heroku to minimise the number of dual commits required: Using the Heroku GUI's enter the Deploy tab and set the Deployment Method to Github masterfile. Direct to the appropriate repo and select auto deploy activated.
-
-
-AWS S33 was used to host the static files and product images.
-Created a group. Attached an access policy to the group that allows full S3 access to the S3 'bucket'.
-Created a user, that is part of the group, with a unique special access keys.
-
 
 
 ---
