@@ -1,6 +1,6 @@
-# [Live Strong](https://lockdown-data-centric.herokuapp.com/)
+# [Live Strong](https://live-strong.herokuapp.com/)
 
-<img src="https://github.com/davidjbuchanan/lockdownagain/blob/master/static/images/mockups/Lockdown-Multi-Device-Website-Mockup.png" alt="lockdown multidevice views" width="100%">
+<img src="https://github.com/davidjbuchanan/ML4/blob/master/media/mockups/multidevice_showcase.png" alt="lockdown multidevice views" width="100%">
 
 Whilst we are enduring Covid-10 let us look after ourselves and our loved ones with this helpful app! [Lockdown and Thrive](https://lockdown-data-centric.herokuapp.com/) is a place to find simple recipes; find ways to entertain younger ones and how to look after oneselves mental wellbeing. You can access the resources and contribute any number of resources to share with the world! 
 
@@ -135,15 +135,15 @@ In keeping with the overall *simple/clean* theme, I have opted for a muted color
 
 [Lucid Chart](https://www.lucidchart.com/pages/) have been used due to their eases of use:
 
-The index page was designed to show 3 main sections. On top a callout/searchbar superimposed upon a background image; in the middle an icon grid to allow user likns to products and services; and in the lower part a showreel. The lower, features, section is disproportionately larger due to the desire to advertise the full range of the business' services. As you can see as the viewport narrows the detail and number of features is reduced:
+The index page was designed to show 3 main sections. On top a callout/searchbar superimposed upon a background image; in the middle an icon grid to allow user links to products and services; and in the lower part a showreel. The lower, features, section is disproportionately larger due to the desire to advertise the full range of the business' services. As you can see as the viewport narrows the detail and number of features is reduced:
 
-<img src="https://github.com/davidjbuchanan/lockdownagain/blob/master/static/images/mockups/Lockdown_Data_Centric_Development_Project_Index_page.png" alt="lockdown index page views" width="100%">
+<img src="https://github.com/davidjbuchanan/ML4/blob/master/media/Live_Strong_Index_page.png" alt="Live Strong index page views" width="100%">
 
 The page most populated with elements is for the products' page. This required a simple clear display that was responsive as the width of the viewport decreases; this was resolved by stacking the elements. 
 
-<img src="https://github.com/davidjbuchanan/lockdownagain/blob/master/static/images/mockups/Lockdown_Data_Centric_Development_Project_add_recipe_page.png" alt="lockdown add recipe page views" width="100%">
+<img src="https://github.com/davidjbuchanan/ML4/blob/master/media/Live_Strong_Bag_page.png" alt="Live Strong bag views" width="100%">
 
-The complete set of wireframes for this project can be found [here](https://github.com/davidjbuchanan/lockdownagain/blob/master/static/images/mockups) in the *mockups* sub-directory.
+The complete set of wireframes for this project can be found [here](https://github.com/davidjbuchanan/ML4/blob/master/media/mockups) in the *mockups* sub-directory.
 
 ##### back to [top](#table-of-contents)
 
@@ -785,7 +785,7 @@ At this point you should be able to login to the app website and have full super
         - Click 'Webhooks' then 'Add endpoint'
         - Enter Endpoint URL: e.g. 'https://live-strong.herokuapp.com/checkout/wh/'
         - Select 'receive all events' and then click 'Add Endpoint'
-        - collect the 'Signing secret' and add it to the config var. (as you did previously in the section above) under a name of 'STRIPE_WH_SECRET'. Note: this will be a different key to the one used in the local site.
+        - collect the 'Signing secret' and add it to the Heroku apps config vars under a name of 'STRIPE_WH_SECRET'. Note: this will be a different key to the one used in the local site's 'env.py' file or Gitpod settings.
 
 The site is now deployed and anyone on the internet can browse products, create a profile, and even check out using a test credit card number.
 If a user makes a purchase there order is created in the django admin. And if they authenticate their login their order will be attached to their profile and displayed in their order history.
