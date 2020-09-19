@@ -1,1 +1,1 @@
-Boutique Ado Confirmation for Order Number {{ order.order_number }}
+Live Strong Confirmation for Order Number {{ order.order_number }}
