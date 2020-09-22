@@ -137,11 +137,11 @@ In keeping with the overall *simple/clean* theme, I have opted for a muted color
 
 The index page was designed to show 3 main sections. On top a callout/searchbar superimposed upon a background image; in the middle an icon grid to allow user links to products and services; and in the lower part a showreel. The lower, features, section is disproportionately larger due to the desire to advertise the full range of the business' services. As you can see as the viewport narrows the detail and number of features is reduced:
 
-<img src="https://github.com/davidjbuchanan/ML4/blob/master/media/Live_Strong_Index_page.png" alt="Live Strong index page views" width="100%">
+<img src="https://github.com/davidjbuchanan/ML4/blob/master/media/Index_pages.png" alt="Live Strong index pages on multiple viewports" width="100%">
 
 The page most populated with elements is for the products' page. This required a simple clear display that was responsive as the width of the viewport decreases; this was resolved by stacking the elements. 
 
-<img src="https://github.com/davidjbuchanan/ML4/blob/master/media/Live_Strong_Bag_page.png" alt="Live Strong bag views" width="100%">
+<img src="https://github.com/davidjbuchanan/ML4/blob/master/media/Blog.png" alt="Live Strong blog views" width="100%">
 
 The complete set of wireframes for this project can be found [here](https://github.com/davidjbuchanan/ML4/blob/master/media/mockups) in the *mockups* sub-directory.
 
