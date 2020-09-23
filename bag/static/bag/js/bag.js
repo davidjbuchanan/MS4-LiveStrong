@@ -1,13 +1,13 @@
 $(document).ready(function() {
-    $(".btn-black").mouseenter(function() {          
+    $(".btn-black").mouseenter(function() {
         this.style.setProperty("border", "thin solid red");
         this.style.setProperty("color", "red");
     });
-    $(".btn-black").mouseleave(function() {            
+    $(".btn-black").mouseleave(function() {
         this.style.setProperty( "border", "thin solid transparent");
         this.style.setProperty("color", "white");
     });
-    $("#submit_code").on("click",function() {      
+    $("#submit_code").on("click",function() {
         $("#submit_code").hide();
         $("#coupon_form").show();
     });

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(".btn-black").mouseenter(function() {       
+    $(".btn-black").mouseenter(function() {
         this.style.setProperty("border", "thin solid red");
         this.style.setProperty("color", "red");
     });

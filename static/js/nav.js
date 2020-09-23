@@ -1,18 +1,17 @@
 $(document).ready(function() {
-    $(".navbar").mouseenter(function() {               
+    $(".navbar").mouseenter(function() {
         this.style.setProperty( "border-bottom", "thin solid red", "important");
     });
-    $(".navbar").mouseleave(function() {               
+    $(".navbar").mouseleave(function() {
         this.style.setProperty( "border-bottom", "thin solid white", "important");
     });
-
-    $(".jumbotron").mouseenter(function() {               
+    $(".jumbotron").mouseenter(function() {
         this.style.setProperty( "border", "thin solid red", "important");
     });
-    $(".jumbotron").mouseleave(function() {               
+    $(".jumbotron").mouseleave(function() {
         this.style.setProperty( "border", "thin solid white", "important");
     });
-    $("#alpha").mouseenter(function() {               
+    $("#alpha").mouseenter(function() {
         $("#alpha").css("opacity", "1").css("background-color", "rgba(0,0,0,1)").css("border", "thin solid red");
         $("#one").css("background-color", "rgba(0,0,0,0.3)");
         $("#two").css("background-color", "rgba(0,0,0,0.3)");
