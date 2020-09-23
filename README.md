@@ -580,11 +580,9 @@ Responsiveness tested on landscape viewport for the following viewports
     From line 294, column 5; to line 294, column 95
     <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/bag/js/bag.js"></scri
 
-- 
 
 **CSS**
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) 
-- I am using `:root{}` variables in my CSS, which isn't recognized by the validator. This is causing several **Parsing Errors**, when in fact they are not errors, and work perfectly fine.
 - **Property Errors**
     -   *abbr[data-original-title], abbr[title]* - Property text-decoration-skip-ink doesn't exist : none
     -   *.toast* - Property backdrop-filter doesn't exist : blur(10px) 
@@ -592,25 +590,119 @@ Responsiveness tested on landscape viewport for the following viewports
 
 **JavaScript**
 - [JShint](https://jshint.com/)
-    - "There are **11** functions in this file.
+    - "There are **52** functions in this file.
     Function with the largest signature take **1** arguments, while the median is **0**.
-    Largest function has **21** statements in it, while the median is **2**.
-    The most complex function has a cyclomatic complexity value of **2** while the median is **1**."
-    One undefined variables:
-        - `$` (12 times - this is for jQuery)
-        - line 155	'validation' is defined but never used.
+    Largest function has **19** statements in it, while the median is **3**.
+    The most complex function has a cyclomatic complexity value of **3** while the median is **1**."
+
 - [JSesprima](http://esprima.org/demo/validate.html)
     - "Code is syntactically valid."
+
 - [Beautify Tools](http://beautifytools.com/javascript-validator.php)
-    - line 155	'validation' is defined but never used.
+    - 'e' is defined but never used in bag.js
+    - 'e' is defined but never used in stripe_elements.js
+    - 'Stripe' is not defined in stripe_elements.js
 
 **Python**
 - [PEP8 Online](http://pep8online.com/)
-    -  E402 errors (module level import not at top of file) did not impact the functionality of the app. They were left in place due to the app comprising a single py file and listing the imports at the top seemed tidy.  
-        -   line 4, from flask_pymongo import PyMongo
-        -   line 5, from bson.objectid import ObjectId
-        -   line 6, from datetime import datetime
-        -   line 7, from os import path
+    - bag app ok
+
+    - blog app
+        views.py
+            Code	Line	Column	Text
+            E501	64	80	line too long (91 > 79 characters)
+    
+    - checkout app
+        models.py
+            Code	Line	Column	Text
+            E501	18	    80	    line too long (82 > 79 characters)
+            E501	29	80	line too long (94 > 79 characters)
+            E501	30	80	line too long (93 > 79 characters)
+            E501	31	80	line too long (93 > 79 characters)
+            E501	33	80	line too long (86 > 79 characters)
+            E501	46	80	line too long (102 > 79 characters)
+            E501	48	80	line too long (95 > 79 characters)
+            E501	68	80	line too long (113 > 79 characters)
+            E501	69	80	line too long (91 > 79 characters)
+            E501	71	80	line too long (127 > 79 characters)
+            E501	72	80	line too long (113 > 79 characters)
+            E501	73	80	line too long (111 > 79 characters)
+            E501	74	80	line too long (147 > 79 characters)
+            E501	75	80	line too long (147 > 79 characters)
+            E501	84	80	line too long (117 > 79 characters)
+
+        urls.py
+            Code	Line	Column	Text
+            E501	7	80	line too long (93 > 79 characters)
+            E501	8	80	line too long (88 > 79 characters)
+
+        views.py
+            Code	Line	Column	Text
+            E501	1	80	line too long (87 > 79 characters)
+            E501	90	80	line too long (88 > 79 characters)
+            E501	96	80	line too long (83 > 79 characters)
+            E501	103	80	line too long (80 > 79 characters)
+            E501	117	80	line too long (87 > 79 characters)
+
+        webhook_handlers.py
+            Code	Line	Column	Text
+            E501	78	80	line too long (80 > 79 characters)
+            E501	79	80	line too long (80 > 79 characters)
+            E501	111	80	line too long (107 > 79 characters)
+            E501	141	80	line too long (81 > 79 characters)
+            E501	159	80	line too long (93 > 79 characters)
+
+        webhooks.py
+            Code	Line	Column	Text
+            E501	42	80	line too long (86 > 79 characters)
+
+    - coupons app ok
+
+    - home app ok
+
+    - ml4_djb app ok
+
+    - products app ok
+
+        models.py
+            Code	Line	Column	Text
+            E501	24	80	line too long (94 > 79 characters)
+            E501	29	80	line too long (87 > 79 characters)
+
+        urls.py
+            Code	Line	Column	Text
+            E501	9	80	line too long (82 > 79 characters)
+
+        views.py
+            Code	Line	Column	Text
+            E501	41	80	line too long (80 > 79 characters)
+            E501	44	80	line too long (80 > 79 characters)
+            E501	83	80	line too long (94 > 79 characters)
+            E501	109	80	line too long (97 > 79 characters)
+    
+    - profiles app ok
+        
+        forms.py
+            Code	Line	Column	Text
+            E501	33	80	line too long (98 > 79 characters)
+
+        models.py
+            Code	Line	Column	Text
+            E501	13	80	line too long (81 > 79 characters)
+            E501	14	80	line too long (84 > 79 characters)
+            E501	15	80	line too long (84 > 79 characters)
+            E501	16	80	line too long (81 > 79 characters)
+
+        urls.py
+            Code	Line	Column	Text
+            E501	6	80	line too long (84 > 79 characters)
+ 
+        views.py
+            Code	Line	Column	Text
+            E501	6	80	line too long (84 > 79 characters)
+
+
+
 Other than the list above the app.py file was PEP8 compliant
 
 ### Compatibility
