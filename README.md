@@ -440,8 +440,151 @@ Responsiveness tested on landscape viewport for the following viewports
 - [W3C HTML Validator](https://validator.w3.org) 
     - All code is perfectly validating. 
 
+- https://live-strong.herokuapp.com/
+
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources. (3)
+    
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 403, column 13; to line 403, column 102
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 404, column 13; to line 404, column 99
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 406, column 5; to line 406, column 103
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/home/js/icons_grid.js"></scri
+
+- https://live-strong.herokuapp.com/products/?category=yoga,bike,run_indoor,run_outdoor; https://live-strong.herokuapp.com/products/?category=yoga; https://live-strong.herokuapp.com/products/?category=bike; https://live-strong.herokuapp.com/products/?category=run_indoor; https://live-strong.herokuapp.com/products/?category=run_outdoor; https://live-strong.herokuapp.com/products/?category=essentials
+
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources. (2)
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 430, column 13; to line 430, column 102
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 431, column 13; to line 431, column 99
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
+
+- https://live-strong.herokuapp.com/blog/
+
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources. (2)
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 308, column 13; to line 308, column 102
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 309, column 13; to line 309, column 99
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
+
+- https://live-strong.herokuapp.com/blog/add_entry/
+
+    **Remove "True" from rendered page**
+    Errors (1) - Attribute placeholder not allowed on element select at this point.
+    
+    Error: Attribute placeholder not allowed on element select at this point.
+    From line 234, column 82; to line 234, column 187
+    class=""> <select name="author" placeholder="Author *" class="select form-control" required disabled id="id_author"> <opti
+    Attributes for element select:
+    Global attributes
+    autocomplete — Hint for form autofill feature
+    disabled — Whether the form control is disabled
+    form — Associates the element with a form element
+    multiple — Whether to allow multiple values
+    name — Name of the element to use for form submission and in the form.elements API
+    required — Whether the control is required for form submission
+    size — Size of the control
+
+    Warnings (3) - The type attribute is unnecessary for JavaScript resources. (3)
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 298, column 13; to line 298, column 102
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 299, column 13; to line 299, column 99
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 301, column 5; to line 301, column 97
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/blog/js/blog.js"></scri
+
+- https://live-strong.herokuapp.com/blog/drafts/
+
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 284, column 13; to line 284, column 102
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 285, column 13; to line 285, column 99
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
+
+- https://live-strong.herokuapp.com/products/add/
+
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources. (2)
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 310, column 13; to line 310, column 102
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 311, column 13; to line 311, column 99
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
+
+- https://live-strong.herokuapp.com/profile/
+    
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources. (2)
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 310, column 13; to line 310, column 102
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 311, column 13; to line 311, column 99
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
+
+- https://live-strong.herokuapp.com/accounts/logout/
+
+    Warnings (3) - The type attribute is unnecessary for JavaScript resources.
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 403, column 13; to line 403, column 102
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 404, column 13; to line 404, column 99
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 406, column 5; to line 406, column 103
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/home/js/icons_grid.js"></scri
+
+- https://live-strong.herokuapp.com/bag/
+
+    Warnings (3) - The type attribute is unnecessary for JavaScript resources.
+    
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 291, column 13; to line 291, column 102
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 292, column 13; to line 292, column 99
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
+
+    Warning: The type attribute is unnecessary for JavaScript resources.
+    From line 294, column 5; to line 294, column 95
+    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/bag/js/bag.js"></scri
+
+- 
+
 **CSS**
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - I am using `:root{}` variables in my CSS, which isn't recognized by the validator. This is causing several **Parsing Errors**, when in fact they are not errors, and work perfectly fine.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) 
+- I am using `:root{}` variables in my CSS, which isn't recognized by the validator. This is causing several **Parsing Errors**, when in fact they are not errors, and work perfectly fine.
 - **Property Errors**
     -   *abbr[data-original-title], abbr[title]* - Property text-decoration-skip-ink doesn't exist : none
     -   *.toast* - Property backdrop-filter doesn't exist : blur(10px) 
