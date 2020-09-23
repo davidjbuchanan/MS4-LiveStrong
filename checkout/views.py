@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpR
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -177,32 +176,26 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-
-
-
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
-    #  orderLineItem = get_object_or_404(OrderLineItem, order=order)  #
-    bag = request.session.get('bag', {})  #
-    current_bag = bag_contents(request)  #
-    discount_percentage = current_bag['discount_percentage']  #
-    code = current_bag['code']  #
+    #  bag = request.session.get('bag', {})
+    current_bag = bag_contents(request)
+    discount_percentage = current_bag['discount_percentage']
+    code = current_bag['code']
 
     if 'bag' in request.session:
         del request.session['bag']
 
-    if 'coupon_id' in request.session:  #
-        del request.session['coupon_id']  #
+    if 'coupon_id' in request.session:
+        del request.session['coupon_id']
 
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
-        'discount_percentage': discount_percentage,  #
-        'code': code,  #
-        #  'orderLineItem': orderLineItem,  #
-
+        'discount_percentage': discount_percentage,
+        'code': code,
     }
 
     return render(request, template, context)

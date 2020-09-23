@@ -11,24 +11,15 @@ from checkout.models import Order
 def profile(request):
     """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
-    print("a")
-    print(request.user)
-    print("b")
-    print("c")
-    print(profile)
-    print("d")
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
-        print("e")
-        print(form)
-        print("f")
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
             messages.error(request, 'Failed to update profile. Please ensure the form is valid.')
-    else: # it is a GET request
+    else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
@@ -44,12 +35,6 @@ def profile(request):
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
-    print("g")
-    print(order)
-    print("h")
-    print("i")
-    print(order_number)
-    print("j")
 
     messages.info(request, (
         f'This is a past confirmation for order number {order_number}. '

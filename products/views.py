@@ -16,7 +16,6 @@ def all_products(request):
     sort = None
     direction = None
 
-
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -82,7 +81,7 @@ def add_product(request):
             return redirect(reverse('add_product'))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
-    else: # it is a GET request
+    else:
         form = ProductForm()
 
     template = 'products/add_product.html'

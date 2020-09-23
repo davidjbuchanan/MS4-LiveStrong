@@ -8,4 +8,3 @@ $(document).ready(function() {
         this.style.setProperty("color", "white");
     });
 });
-

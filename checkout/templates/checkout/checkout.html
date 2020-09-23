@@ -1,19 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load bag_tools %}
-
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
-
-<!--{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}-->
-
 <h1>{{coupon_id}}</h1>
 {% block content %}
     <div class="overlay"></div>
@@ -139,7 +129,6 @@
         </div>
     </div>
 {% endblock %}
-
 {% block postloadjs %}
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}

@@ -17,6 +17,7 @@ class DraftManager(models.Manager):  # Generation of a custom manager.
                      self).get_queryset()\
                           .filter(status='draft')
 
+
 class Post(models.Model):
     STATUS_CHOICES = (
         ('draft', 'Draft'),
@@ -36,7 +37,7 @@ class Post(models.Model):
                               choices=STATUS_CHOICES,
                               default='draft')
 
-    def get_absolute_url(self):  # Generation of a canonical URL.
+    def get_absolute_url(self):
         return reverse('blog:post_detail',
                        args=[self.publish.year,
                              self.publish.month,
@@ -49,9 +50,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    objects = models.Manager()  # The default manager.
-    published = PublishedManager()  # The custom manager.
-    draft = DraftManager()  # The custom manager.
+    objects = models.Manager()
+    published = PublishedManager()
+    draft = DraftManager()
 
 
 class Comment(models.Model):

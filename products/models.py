@@ -2,10 +2,10 @@ from django.db import models
 
 
 class Category(models.Model):
-    
+
     class Meta:
         verbose_name_plural = 'Categories'
-        
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
@@ -13,7 +13,7 @@ class Category(models.Model):
         return self.name
         """The __str__() method displays an object in the Django admin site and
         as the value inserted into a template when it displays an object. Thus,
-        you should always return a nice, human-readable representation of 
+        you should always return a nice, human-readable representation of
         the model from the __str__() method."""
 
     def get_friendly_name(self):

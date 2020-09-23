@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
-from os import path  # added at tutor's request
-if path.exists('env.py'): # added at tutor's request
+from os import path
+if path.exists('env.py'):
     import env
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -207,8 +207,7 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-# DEVELOPMENT = os.getenv('DEVELOPMENT')   - didn't work
-DEVELOPMENT = os.environ.get('DEVELOPMENT') # added at tutors request
+DEVELOPMENT = os.environ.get('DEVELOPMENT')
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'livestrong@example.com'

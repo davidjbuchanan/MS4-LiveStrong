@@ -4,27 +4,24 @@ from products.models import Product
 from django.views.decorators.http import require_http_methods
 from coupons.models import Coupon
 from coupons.forms import CouponApplyForm
-#  from django.views.decorators.http import require_POST
-from django.utils import timezone  # updates
+from django.utils import timezone
 
 
-#  @require_POST
 @require_http_methods(["GET", "POST"])
 def coupon_apply(request):
-    now = timezone.now()  # updates
+    now = timezone.now()
     if request.method == 'POST':
         coupon_form = CouponApplyForm(request.POST)
         if coupon_form.is_valid():
             code = coupon_form.cleaned_data['code']
             try:
-                # updates   coupon = Coupon.objects.get(code=code, active=True)
-                coupon = Coupon.objects.get(code__iexact=code,  # updates
-                                            valid_from__lte=now,  # updates
-                                            valid_to__gte=now,  # updates
-                                            active=True)  # updates
+                coupon = Coupon.objects.get(code__iexact=code,
+                                            valid_from__lte=now,
+                                            valid_to__gte=now,
+                                            active=True)
                 request.session['coupon_id'] = coupon.id
-                request.session['discount'] = coupon.discount  #
-                request.session['code'] = coupon.code  #
+                request.session['discount'] = coupon.discount
+                request.session['code'] = coupon.code
                 messages.success(request, 'Coupon applied')
             except Coupon.DoesNotExist:
                 request.session['coupon_id'] = None
@@ -32,7 +29,7 @@ def coupon_apply(request):
                 return redirect('view_bag')
     else:
         coupon_form = CouponApplyForm()
-    
+
     template = 'bag/bag.html'
     context = {
         'code': code,
@@ -40,13 +37,12 @@ def coupon_apply(request):
         'coupon_discount': coupon.discount,
         'coupon_form': coupon_form
     }
-    #  return render(request, 'bag/bag.html', {'coupon_form': coupon_form})
     return render(request, template, context)
 
 
 def view_bag(request):
 
-    coupon_form = CouponApplyForm()  # added to view as you had noticed absence
+    coupon_form = CouponApplyForm()
 
     """ A view to return the bag contents page """
 

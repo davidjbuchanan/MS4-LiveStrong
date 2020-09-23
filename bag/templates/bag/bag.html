@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load bag_tools %}
-
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'bag/css/bag.css' %}">
 {% endblock %}
-
 {% block content %}
     <div class="container mb-2">
         <div class="row">
@@ -179,7 +177,6 @@
         
     </div>
 {% endblock %}
-
 {% block postloadjs %}
 {{ block.super }}
     <script type="text/javascript" src="{% static 'bag/js/bag.js' %}"></script>
