@@ -1,10 +1,16 @@
 # [Live Strong](https://live-strong.herokuapp.com/)
 
-<img src="https://github.com/davidjbuchanan/ML4/blob/master/media/mockups/multidevice_showcase.png" alt="lockdown multidevice views" width="100%">
+<img src="https://github.com/davidjbuchanan/ML4/blob/master/media/mockups/multidevice_showcase.png" alt="live strong multidevice views" width="100%">
 
-Whilst we are enduring Covid-10 let us look after ourselves and our loved ones with this helpful app! [Lockdown and Thrive](https://lockdown-data-centric.herokuapp.com/) is a place to find simple recipes; find ways to entertain younger ones and how to look after oneselves mental wellbeing. You can access the resources and contribute any number of resources to share with the world! 
+[Live Strong](https://live-strong.herokuapp.com/) is a 'one-stop-shop' for all your workout needs! A place to find live and pre-recorded classes that you can participate in from the comfort of your own home!. Find yoga, bike and running classes that ready to use from the moment you purchase. These classes are '0n-demand' from the user - to access all the user needs is the information in the credentials email. With a whole lot more on its way from Live Strong if our current offering doesn't meet your needs at the moment then check back soon as our range will be sure to grow.
 
-This website was produced to fulfill a coursework assignment for the [Code Institute's](https://codeinstitute.net/) **Full Stack Frameworks with Django Milestone Project**. The objective for this milestone project is to "*Create a full-stack site based around business logic used to control a centrally-owned dataset. It must consist of multiple apps including an authentication mechanism. Also it must provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.web application with multiple apps*".
+**How it works**: 
+1. Register for an account or visit as a guest user using the home.
+2. Browse and purchase products using the products, coupon, bag and checkout apps.
+3. Receive a confirmation email which is a prof of purchase
+4. Receive a credentials email which gives you instructions on how to access classes.
+
+This website was produced to fulfill a coursework assignment for the **[Code Institute's](https://codeinstitute.net/)** **Full Stack Frameworks with Django Milestone Project**. The objectives for this milestone project is to "*Create a full-stack site based around business logic used to control a centrally-owned dataset. It must consist of multiple apps including an authentication mechanism. Also it must provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.web application with multiple apps*".
 
 ---
 
@@ -46,20 +52,18 @@ This website was produced to fulfill a coursework assignment for the [Code Insti
 
 ## UX
 
-The website focuses on the workout-at-home market as it is an attractive approach to health and fitness whilst managing Covid-19 restrictions. The UX design is intended to draw users in using a well defined color scheme that is enjoyably interacive. On each page there is a navigation and search jumbotron placed to enable swift access around the site. Additional features applied include the use of javascript for mouseeneter and mouseleave events enabling users to gain feedback and indications of the site's products.
+The website focuses on the workout-at-home market as it is an attractive approach to health and fitness whilst managing Covid-19 restrictions but also for those with pre-existing conditions (e.g. supressed immune system); no access to local classes; and of course those who would prefer to workout-at-home. The UX design is intended to draw users in using a well defined color scheme that is enjoyably interacive. On each page there is a navigation and search jumbotron placed to enable swift access around the site. Additional features applied include the use of javascript for mouseeneter and mouseleave events enabling users to gain feedback and indications of the site's products.
 
-The overall theme of the design is clean straight edges with block elements in order to give a utilitarian vibe whilst the black and red color scheme is intended to make the site feel sporty and sexy. Remiscent of the inspirations for this design (see onepeleton and Les Mills) use of imagery is primarily for motivational and explannatory puposes whereby potential consumers understand that they are subscribing to an online service whereby they can login and access televised workout classes.
+The overall theme of the design is clean straight edges with block elements in order to give a utilitarian vibe whilst the black and red color scheme is intended to make the site feel sporty and sexy. Remiscent of the inspirations for this design (see [onepeleton](https://www.onepeloton.co.uk/) and [Les Mills](https://www.lesmills.com/uk/) use of imagery is primarily for motivational and explannatory puposes whereby potential consumers understand that they are purchasing an online service whereby they can login and access televised workout classes.
 
 The commercial potential for this idea is vast and so the up-to-purchase UX of this site's products has been refined to make the process as simple as possible. Users are able to browse, add to cart, apply coupons and finalise purchases all within an authenticated user. They can also make purchases as a guest. 
 
-minimal with a link to a 'store' (which is under construction) but has been included to indicate that the site could be used commercially. Similarly the home page's 'call-out' is primarily to enable users to subscribe to the site's **CRUD** operations, this could also be commercialised to enable a subscription fee to be collected.
-
-The vision for this site is to have three consummables (equipment, services and blog) The equipment and services are grouped together as products, that derive cash income, and can be managed and consumed using the products, bag and checkout apps. The blog is a loss-leader that derives no income it is used a s a 'hook' to entice users to register and create a profile thus allowing them access to the blog and, of course, paid for products.
+The vision for this site is to have three consummables (equipment, services and blog) The equipment and services are grouped together as products, that derive cash income, and can be managed and consumed using the products, bag and checkout apps. The blog is a loss-leader that derives no income it is used a s a 'hook' to entice users to register and create a profile thus allowing them access to the blog and, of course,paid for products.
 
 The products themselves are represented within a fully searchable products app, allowing the user rapid access to information. The tangible products, i.e. equipment, are deliverable and there is a shipping functionality that is self explannatory. For the services there is no demonstration of the product; nor access to the product; nor explannations as to how a consumer would access the product after purchase.
 There are several placeholder for undeveloped features. It was important to partition these topics clearly for ease of use. To acheive this the navbar displayed each of these topics in its own discrete, but essentially identical, dropdown menus. Likewise the homepage's body presents three uniform rows, one for each topic. 
 
-Each page displays an identical navbar, masthead (with search functionality) and footer this was deliberate to aid users' navigation of the site. The navbar is elaborated for smaller viewports. 
+Each page displays an identical navbar, masthead (with search functionality) and footer this was deliberate to aid users' navigation of the site. For users on smaller vieworts there has been an effort to aid navigation by installation of a bespoke hamburger/dropdown navbar: The user is presented with 4 selections. When selected. by the user, the selection slides to the top of the dropdown menu and any sub menu is displayed beneath it. This was incorporated to ensure the navbar did not expand beyond the page height and become disorientating for the user. 
 
 ### User Stories
 
@@ -75,7 +79,7 @@ Who is the user? Essentially this could be anyone wanting to participate in grou
     - :white_check_mark: *search products and services* by **product name**.
     - :white_check_mark: *search products and services* by by **partial product name**.
     - :white_check_mark: *search products and services* by by **product description**.
-- :white_check_mark: *add* a **discount coupon**.
+- :white_check_mark: *add* a **coupon** to receive a discount on their shopping.
 - :white_check_mark: *edit* a **bag content**.
 - :white_check_mark: *delete* a **bag content**.
 - :white_check_mark: *purchase* any **product(s) and service(s)**.
@@ -191,12 +195,10 @@ The complete set of wireframes for this project can be found [here](https://gith
 - From any filtered / unfiltered *Products" page or *Product Description* page there is a delete link. On-clicking this link the product will be immediately deleted.
 - only the authenticated superuser can access this app feature
 
-
 #### Checkout App
 - This is a C**R**UD and a **C**RUD feature:
 - Using the checkout app the user, if authenticated with a user profile, can review the database record for billing and shipping address and review prospective purchases. 
 - If no profile exists for the user then they can create a billing and shipping address whilst reviewing prospective purchases
-
 
 #### Profile App
 **Create a user's profile**
@@ -204,21 +206,15 @@ The complete set of wireframes for this project can be found [here](https://gith
 - A user can use a form to input or update their details; thus saving their shipping and billing details. This allows for a better UX during the checkout process.
 - only authenticated users can access this app feature
 
-
 **Read user's purchase history**
  This is a C**R**UD feature:
  - This allows a user to review their purchase history along side their saved (but editable) billing and shipping address.
  - only authenticated users can access this app feature
 
-
 #### Authentication App
 - This is a **C**RUD feature:
 - Uses the allauth https://django-allauth.readthedocs.io/en/latest/installation.html
 - Allows user's to register and access profile and blog services.
-
-
-
-
 
 #### Bag App
 **View all items in user's bag**
@@ -233,9 +229,6 @@ The complete set of wireframes for this project can be found [here](https://gith
 - This is a CR**U**D feature:
 - A coupon code can be added in the *bag page*. If valid (vaidated by time, date and status i.e. 'active') a discount is applied, this is reflected in the user's total. The coupon code (and resultant discount) is held within the contexts processor and any subsequent addition of products to the bag will have the validated discount applied. The navbar 'shopping bag' icon shows a running total beneath it. This reflects any discounts applied. The coupon code is discarded at the end of the session for security purposes. 
 - Although the model for the coupon system resides in the coupon app, it is the bag app and checkout app that utilise the actual model, i.e. it is in their views.py and contexts.py (Bag app only) that the coupon logic and coupon GUI is manifested.
-
-
-
 
 #### Blog App
 
@@ -258,8 +251,7 @@ The complete set of wireframes for this project can be found [here](https://gith
 - To maintane a positive UX the blog list is limited to xxxxxxxxxxxx blog posts per page.
 
 
-
-**Use of a hosting site**
+#### Use of a hosting site
 - The use of a 3rd party image hosting site (e.g. Cloudinary and Amazon S3) would allow users to upload their own images rather than relying existing web images.
 
 
@@ -482,22 +474,6 @@ Responsiveness tested on landscape viewport for the following viewports
 
 - https://live-strong.herokuapp.com/blog/add_entry/
 
-    **Remove "True" from rendered page**
-    Errors (1) - Attribute placeholder not allowed on element select at this point.
-    
-    Error: Attribute placeholder not allowed on element select at this point.
-    From line 234, column 82; to line 234, column 187
-    class=""> <select name="author" placeholder="Author *" class="select form-control" required disabled id="id_author"> <opti
-    Attributes for element select:
-    Global attributes
-    autocomplete — Hint for form autofill feature
-    disabled — Whether the form control is disabled
-    form — Associates the element with a form element
-    multiple — Whether to allow multiple values
-    name — Name of the element to use for form submission and in the form.elements API
-    required — Whether the control is required for form submission
-    size — Size of the control
-
     Warnings (3) - The type attribute is unnecessary for JavaScript resources. (3)
 
     Warning: The type attribute is unnecessary for JavaScript resources.
@@ -662,8 +638,7 @@ Responsiveness tested on landscape viewport for the following viewports
 
     - ml4_djb app ok
 
-    - products app ok
-
+    - products app
         models.py
             Code	Line	Column	Text
             E501	24	80	line too long (94 > 79 characters)
@@ -680,8 +655,7 @@ Responsiveness tested on landscape viewport for the following viewports
             E501	83	80	line too long (94 > 79 characters)
             E501	109	80	line too long (97 > 79 characters)
     
-    - profiles app ok
-        
+    - profiles app
         forms.py
             Code	Line	Column	Text
             E501	33	80	line too long (98 > 79 characters)
@@ -1062,7 +1036,7 @@ so to recap in the Heroku **Settings** tab, click on the *Reveal Config Vars* bu
 
 ### Content
 
-- **Recipe - description, ingredients and preparation** 
+- **Blog content** 
     - [Jamie Oliver - A cracking burger](https://www.jamieoliver.com/recipes/beef-recipes/a-cracking-burger/)
     
 
@@ -1070,15 +1044,17 @@ so to recap in the Heroku **Settings** tab, click on the *Reveal Config Vars* bu
 
 Sources of the images used on this site:
 
-- **Photographic Images** : [Pexels.com](https://www.pexels.com/)
-    - [Pixabay - page not found](https://www.pexels.com/photo/building-construction-site-work-38293/)
+- **Photographic Images** : 
+    - [Argos](https://www.argos.co.uk/)
+    - [onepeleton](https://www.onepeloton.co.uk/)
+    - [Les Mills](https://www.lesmills.com/uk/)
     
 - **mockup image in README** : [techsini](https://techsini.com/multi-mockup/)
 
 ### Code
 
 - **HTML template**
-    - [David T. Miller - Start Bootstrap](https://startbootstrap.com/templates/modern-business/)
+    - [David T. Miller - Landing Page](https://startbootstrap.com/themes/landing-page/)
 
 - **Java Script and Query**
     - Code Institute Tutors for fine tuning of code

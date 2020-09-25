@@ -23,7 +23,6 @@ def post_list(request):
 
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, slug=post,
-                             status='published',
                              publish__year=year,
                              publish__month=month,
                              publish__day=day)
@@ -36,7 +35,7 @@ def post_detail(request, year, month, day, post):
             new_comment.post = post
             new_comment.save()
     else:
-        comment_form = CommentForm()
+        comment_form = CommentForm() 
 
     template = 'blog/detail.html',
     context = {

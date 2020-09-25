@@ -12,7 +12,7 @@ class CommentForm(forms.ModelForm):
 class UserBlogForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ('publish', 'created', 'updated', 'slug', 'status')
+        exclude = ('publish', 'created', 'updated', 'slug', 'status', 'author')
 
     def __init__(self, *args, **kwargs):
         """
@@ -23,15 +23,13 @@ class UserBlogForm(forms.ModelForm):
         placeholders = {
             'title': 'Title',
             'body': 'Body',
-            'author': 'Author'
         }
 
         self.fields['title'].widget.attrs['autofocus'] = True
-        self.fields['author'].disabled = True
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].label = True
+            self.fields[field].label = False
