@@ -27,3 +27,27 @@ class CouponApplyForm(forms.Form):
 
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
+
+
+class CouponForm(forms.ModelForm):
+
+    class Meta:
+        model = Coupon
+        fields = '__all__'
+
+    """
+    def __init__(self, *args, **kwargs):
+
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            'code': 'Enter coupon code',
+            'valid_from': 'yyyy-mm-dd hh:mm:ss',
+            'valid_to': 'yyyy-mm-dd hh:mm:ss',
+            'discount': 'discount as a %'
+        }
+
+        self.fields['code'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            placeholder = f'{placeholders[field]}'
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+    """
