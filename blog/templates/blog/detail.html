@@ -12,31 +12,42 @@
                     Published {{ post.publish }} by {{ post.author }}
                     {{ post.body|linebreaks }}
                 </p>
-                {% with comments.count as total_comments %}
-                    <h2>
-                        {{ total_comments }} comment{{ total_comments|pluralize }}:
-                    </h2>
-                {% endwith %}
-                {% for comment in comments %}
-                    <div class="comment">
-                        <p class="info">
-                            Comment {{ forloop.counter }} by {{ comment.name }}
-                            {{ comment.created }}
-                        </p>
-                        {{ comment.body|linebreaks }}
-                    </div>
-                {% empty %}
-                    <p>There are no comments yet.</p>
-                {% endfor %}
-                {% if new_comment %}
-                    <h2>Your comment has been added.</h2>
-                    {% else %}
-                    <h2>Add a new comment</h2>
-                    <form method="post">
-                        {{ comment_form.as_p }}
-                        {% csrf_token %}
-                        <p id="add_comm"><input type="submit" class="btn-black" value="Add comment"></p>
-                    </form>
+                {% if post.status == 'published' %}
+                    {% with comments.count as total_comments %}
+                        <h2>
+                            {{ total_comments }} comment{{ total_comments|pluralize }}:
+                        </h2>
+                    {% endwith %}
+                    {% for comment in comments %}
+                        <div class="comment">
+                            <p class="info">
+                                Comment {{ forloop.counter }} by {{ comment.name }}
+                                {{ comment.created }}
+                            </p>
+                            {{ comment.body|linebreaks }}
+                        </div>
+                    {% empty %}
+                        <p>There are no comments yet.</p>
+                    {% endfor %}
+                    {% if new_comment %}
+                        <h2>Your comment has been added.</h2>
+                        {% else %}
+                        <h2>Add a new comment</h2>
+                        <form method="post">
+                            {{ comment_form.as_p }}
+                            {% csrf_token %}
+                            <p id="add_comm"><input type="submit" class="btn-black" value="Add comment"></p>
+                        </form>
+                    {% endif %}
+                {% endif %}
+                {% if post.status == 'draft' %}
+                    {% if request.user.is_superuser %}
+                        <form method="post">
+                            {{ edit_post.as_p }}
+                            {% csrf_token %}
+                            <p id="edit_publish"><input type="submit" class="btn-black" value="change"></p>
+                        </form>
+                    {% endif %}
                 {% endif %}
             </div>
         </div>

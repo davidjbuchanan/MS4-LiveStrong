@@ -8,5 +8,5 @@ urlpatterns = [
          views.post_detail,
          name='post_detail'),
     path('add_entry/', views.add_blog_entry, name='add_blog_entry'),
-    path('drafts/', views.draft_list, name='draft_list'),
+    path('drafts/', views.draft_list, name='draft_list')
 ]

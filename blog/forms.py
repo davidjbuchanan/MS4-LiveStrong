@@ -12,7 +12,7 @@ class CommentForm(forms.ModelForm):
 class UserBlogForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ('publish', 'created', 'updated', 'slug', 'status', 'author')
+        exclude = ('publish', 'created', 'updated', 'status', 'author')
 
     def __init__(self, *args, **kwargs):
         """
@@ -23,6 +23,7 @@ class UserBlogForm(forms.ModelForm):
         placeholders = {
             'title': 'Title',
             'body': 'Body',
+            'slug': 'Slug'
         }
 
         self.fields['title'].widget.attrs['autofocus'] = True
@@ -33,3 +34,9 @@ class UserBlogForm(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
+
+
+class EditPost(forms.ModelForm):
+    class Meta:
+        model = Post
+        exclude = ('publish', 'created', 'updated', 'author', 'title', 'body', 'slug')

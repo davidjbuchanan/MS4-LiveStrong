@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post
-from .forms import CommentForm, UserBlogForm
+from .forms import CommentForm, UserBlogForm, EditPost
 
 
 def post_list(request):
@@ -35,14 +35,23 @@ def post_detail(request, year, month, day, post):
             new_comment.post = post
             new_comment.save()
     else:
-        comment_form = CommentForm() 
+        comment_form = CommentForm()
+    if request.method == 'POST':
+        edit_post = EditPost(data=request.POST)
+        if edit_post.is_valid():
+            edit_post = edit_post.save(commit=False)
+            edit_post.post = post
+            edit_post.save()
+    else:
+        edit_post = EditPost()
 
     template = 'blog/detail.html',
     context = {
         'post': post,
         'comments': comments,
         'new_comment': new_comment,
-        'comment_form': comment_form
+        'comment_form': comment_form,
+        'edit_post': edit_post
         }
 
     return render(request, template, context)
@@ -87,4 +96,4 @@ def draft_list(request):
         'page': page,
         'posts': posts
     }
-    return render(request, template, context)
+    return render(request, template, context)  
