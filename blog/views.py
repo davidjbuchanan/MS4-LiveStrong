@@ -58,7 +58,6 @@ def post_detail(request, year, month, day, post):
 
 
 def post_detail(request, year, month, day, post):
-    print ('aaaaaaaaaaa')
     post = get_object_or_404(Post, status='published', slug=post, publish__year=year, publish__month=month, publish__day=day)
     comments = post.comments.filter(active=True)
     new_comment = None
@@ -70,27 +69,27 @@ def post_detail(request, year, month, day, post):
             new_comment.save()
     else:
         comment_form = CommentForm()
-    edit_post = EditPost()  # xxx
+    # edit_post = EditPost()  
     template = 'blog/detail.html',
     context = {
         'post': post,
         'comments': comments,
         'new_comment': new_comment,
         'comment_form': comment_form,
-        'edit_post': edit_post,
+        # 'edit_post': edit_post,
         }
     return render(request, template, context)
 
 
 def post_publish(request, year, month, day, post):
-    print('bbbbbbbbbbbbbbb')
     post = get_object_or_404(Post, status='draft', slug=post, publish__year=year, publish__month=month, publish__day=day)
+    # import pdb; pdb.set_trace()
     if request.method == 'POST':
+
         edit_post = EditPost(data=request.POST)
         if edit_post.is_valid():
-            edit_post = edit_post.save(commit=False)
-            edit_post.post = post
-            edit_post.save()
+            post.status = request.POST.get("status")
+            post.save()
     else:
         edit_post = EditPost()
 
@@ -128,7 +127,6 @@ def add_blog_entry(request):
 
 
 def draft_list(request):
-    print("woman")
     object_list = Post.draft.all()
     paginator = Paginator(object_list, 6)
     page = request.GET.get('page')

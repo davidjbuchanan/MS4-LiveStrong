@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
 {% block content %}
-    <p>bbbbbbbbbbbbbbbbbbbb</p>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -15,7 +14,7 @@
                 </p>
                 {% if post.status == 'draft' %}
                     {% if request.user.is_superuser %}
-                        <form method="post" action="{% url 'post_publish' post.publish.year post.publish.month post.publish.day post.slug %}">
+                        <form method="post" action="{% url 'blog:post_publish' post.publish.year post.publish.month post.publish.day post.slug %}">
                             {{ edit_post.as_p }}
                             {% csrf_token %}
                             <p id="edit_publish"><input type="submit" class="btn-black" value="change"></p>
