@@ -35,7 +35,6 @@ class CouponForm(forms.ModelForm):
         model = Coupon
         fields = '__all__'
 
-    """
     def __init__(self, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
@@ -43,11 +42,11 @@ class CouponForm(forms.ModelForm):
             'code': 'Enter coupon code',
             'valid_from': 'yyyy-mm-dd hh:mm:ss',
             'valid_to': 'yyyy-mm-dd hh:mm:ss',
-            'discount': 'discount as a %'
+            'discount': 'discount as a %',
+            'active': ''
         }
 
         self.fields['code'].widget.attrs['autofocus'] = True
         for field in self.fields:
             placeholder = f'{placeholders[field]}'
             self.fields[field].widget.attrs['placeholder'] = placeholder
-    """
