@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+{% block content %}
+    <p>bbbbbbbbbbbbbbbbbbbb</p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="post_title_detail">{{ post.title }}</h1>
+                <p class="date">
+                    Published {{ post.publish }} by {{ post.author }}
+                    {{ post.body|linebreaks }}
+                </p>
+                {% if post.status == 'draft' %}
+                    {% if request.user.is_superuser %}
+                        <form method="post" action="{% url 'post_publish' post.publish.year post.publish.month post.publish.day post.slug %}">
+                            {{ edit_post.as_p }}
+                            {% csrf_token %}
+                            <p id="edit_publish"><input type="submit" class="btn-black" value="change"></p>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block  postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'blog/js/blog.js' %}"></script>
+{% endblock %}

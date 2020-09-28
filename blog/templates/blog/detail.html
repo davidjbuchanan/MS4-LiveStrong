@@ -33,22 +33,22 @@
                         <h2>Your comment has been added.</h2>
                         {% else %}
                         <h2>Add a new comment</h2>
-                        <form method="post">
+                        <form method="post" action="{% url 'blog:post_detail' post.publish.year post.publish.month post.publish.day post.slug  %}">
                             {{ comment_form.as_p }}
                             {% csrf_token %}
                             <p id="add_comm"><input type="submit" class="btn-black" value="Add comment"></p>
                         </form>
                     {% endif %}
                 {% endif %}
-                {% if post.status == 'draft' %}
+                <!--{% if post.status == 'draft' %}
                     {% if request.user.is_superuser %}
-                        <form method="post">
+                        <form method="post" action="{% url 'blog:post_publish' post.publish.year post.publish.month post.publish.day post.slug %}">
                             {{ edit_post.as_p }}
                             {% csrf_token %}
                             <p id="edit_publish"><input type="submit" class="btn-black" value="change"></p>
                         </form>
                     {% endif %}
-                {% endif %}
+                {% endif %}-->
             </div>
         </div>
     </div>
