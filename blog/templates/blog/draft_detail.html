@@ -15,8 +15,9 @@
                 {% if post.status == 'draft' %}
                     {% if request.user.is_superuser %}
                         <form method="post" action="{% url 'blog:post_publish' post.publish.year post.publish.month post.publish.day post.slug %}">
-                            {{ edit_post.as_p }}
+                            
                             {% csrf_token %}
+                            {{ edit_post|crispy }}
                             <p id="edit_publish"><input type="submit" class="btn-black" value="change"></p>
                         </form>
                     {% endif %}
