@@ -2,15 +2,14 @@
 
 <img src="https://github.com/davidjbuchanan/ML4/blob/master/media/mockups/multidevice_showcase.png" alt="live strong multidevice views" width="100%">
 
-[Live Strong](https://live-strong.herokuapp.com/) is a 'one-stop-shop' for all your workout needs! A place to find live and pre-recorded classes that you can participate in from the comfort of your own home!. Find yoga, bike and running classes that ready to use from the moment you purchase. These classes are '0n-demand' from the user - to access all the user needs is the information in the credentials email. With a whole lot more on its way from Live Strong if our current offering doesn't meet your needs at the moment then check back soon as our range will be sure to grow.
-
+[Live Strong](https://live-strong.herokuapp.com/) is a 'one-stop-shop' for those who want to exercise at home! A place to find live and pre-recorded classes that you can participate without having to got ot gym or sports centre. Find yoga, bike and running classes that are ready to be use from the moment you purchase. These classes are essentially 'on-demand' for the user:
 **How it works**: 
 1. Register for an account or visit as a guest user using the home.
 2. Browse and purchase products using the products, coupon, bag and checkout apps.
-3. Receive a confirmation email which is a prof of purchase
-4. Receive a credentials email which gives you instructions on how to access classes.
+3. Receive a confirmation email which is a proof of purchase.
+4. Receive a seond email containing your credentials and instructions. From there you can access the classes.
 
-This website was produced to fulfill a coursework assignment for the **[Code Institute's](https://codeinstitute.net/)** **Full Stack Frameworks with Django Milestone Project**. The objectives for this milestone project is to "*Create a full-stack site based around business logic used to control a centrally-owned dataset. It must consist of multiple apps including an authentication mechanism. Also it must provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.web application with multiple apps*".
+This website was produced to fulfill a coursework assignment for the **[Code Institute's](https://codeinstitute.net/)** **Full Stack Frameworks with Django Milestone Project**. The objectives for this milestone project is to "Create a full-stack site based around business logic used to control a centrally-owned dataset. It must consist of multiple apps including an authentication mechanism. Also it must provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.web application with multiple apps".
 
 ---
 
@@ -46,19 +45,20 @@ This website was produced to fulfill a coursework assignment for the **[Code Ins
     - [**Content**](#content)
     - [**Media**](#media)
     - [**Code**](#code)
+    - [**README**](#readme)
     - [**Acknowledgements**](#acknowledgements)
 
 ---
 
 ## UX
 
-The website focuses on the workout-at-home market as it is an attractive approach to health and fitness whilst managing Covid-19 restrictions but also for those with pre-existing conditions (e.g. supressed immune system); no access to local classes; and of course those who would prefer to workout-at-home. The UX design is intended to draw users in using a well defined color scheme that is enjoyably interacive. On each page there is a navigation and search jumbotron placed to enable swift access around the site. Additional features applied include the use of javascript for mouseeneter and mouseleave events enabling users to gain feedback and indications of the site's products.
+The website focuses on the workout-at-home market as it is an attractive approach to health and fitness whilst managing Covid-19 restrictions but also for those with pre-existing conditions (e.g. supressed immune system); no access to local classes; and of course those who would prefer to just workout-at-home. The UX design is intended to draw users in using a well defined color scheme with enjoyably interacive elements. On each page there is a navigation and search jumbotron placed to enable swift access around the site. 
 
-The overall theme of the design is clean straight edges with block elements in order to give a utilitarian vibe whilst the black and red color scheme is intended to make the site feel sporty and sexy. Remiscent of the inspirations for this design (see [onepeleton](https://www.onepeloton.co.uk/) and [Les Mills](https://www.lesmills.com/uk/) use of imagery is primarily for motivational and explannatory puposes whereby potential consumers understand that they are purchasing an online service whereby they can login and access televised workout classes.
+The overall theme of the design is clean straight edges with block elements in order to give a utilitarian vibe whilst the black and red color scheme is intended to make the site feel sporty and sexy. Remiscent of the inspirations for this design (see [onepeleton](https://www.onepeloton.co.uk/) and [Les Mills](https://www.lesmills.com/uk/)) the use of imagery is primarily for motivational and explannatory puposes whereby potential consumers understand that they are purchasing an online service where they can login and access televised workout classes.
 
 The commercial potential for this idea is vast and so the up-to-purchase UX of this site's products has been refined to make the process as simple as possible. Users are able to browse, add to cart, apply coupons and finalise purchases all within an authenticated user. They can also make purchases as a guest. 
 
-The vision for this site is to have three consummables (equipment, services and blog) The equipment and services are grouped together as products, that derive cash income, and can be managed and consumed using the products, bag and checkout apps. The blog is a loss-leader that derives no income it is used a s a 'hook' to entice users to register and create a profile thus allowing them access to the blog and, of course,paid for products.
+The vision for this site is to have three consummables (equipment, services and blog) The equipment and services are grouped together as products, that derive cash income, and can be managed and consumed using the products, bag and checkout apps. The blog is a loss-leader that derives no income it is used as a 'hook' to entice users to register and create a profile thus allowing them access to the blog and, of course,paid for products.
 
 The products themselves are represented within a fully searchable products app, allowing the user rapid access to information. The tangible products, i.e. equipment, are deliverable and there is a shipping functionality that is self explannatory. For the services there is no demonstration of the product; nor access to the product; nor explannations as to how a consumer would access the product after purchase.
 There are several placeholder for undeveloped features. It was important to partition these topics clearly for ease of use. To acheive this the navbar displayed each of these topics in its own discrete, but essentially identical, dropdown menus. Likewise the homepage's body presents three uniform rows, one for each topic. 
@@ -80,7 +80,7 @@ Who is the user? Essentially this could be anyone wanting to participate in grou
     - :white_check_mark: *search products and services* by by **partial product name**.
     - :white_check_mark: *search products and services* by by **product description**.
 - :white_check_mark: *add* a **coupon** to receive a discount on their shopping.
-- :white_check_mark: *edit* a **bag content**.
+- :white_check_mark: *update* a **bag content**.
 - :white_check_mark: *delete* a **bag content**.
 - :white_check_mark: *purchase* any **product(s) and service(s)**.
 
@@ -91,21 +91,32 @@ Who is the user? Essentially this could be anyone wanting to participate in grou
 
 - :white_check_mark: *generate* a **user profile**.
 - :white_check_mark: *view* all **published blogs**
-- :white_check_mark: *post comments* on **published blogs**
+- :white_check_mark: *create comments* on **published blogs**
 
 
 "**_As a staff user, I would like the additional priviledge to_** _____________________________"
 
 :white_check_mark: *denotes items that have been successfully implemented*
 
-- :white_check_mark: *author* a **draft blog entry**
+- :white_check_mark: *create* a **draft blog entry**
+
+
+"**_As a superuser, I would like the additional priviledge to_** _____________________________"
+
+:white_check_mark: *denotes items that have been successfully implemented*
+
+- :white_check_mark: *update* a **draft blog entry** by promoting it to *published* status
+- :white_check_mark: *create* a **product**
+- :white_check_mark: *update* a **product**
+- :white_check_mark: *delete* a **product**
+- :white_check_mark: *create* a **coupon**
 
 
 ### Design
 
 A modern Bootstrap landing page design (https://startbootstrap.com/themes/landing-page/)  was chosen for this site that had a contemporary navbar and masthead that persisted on all web pages. The masthead contained a jumbotron with product/service searchbar for the user's convenience. 
 
-Inspired by the Boutique Ado, Les Mills and One Peleton websites the use of full viewport width imagery was employed for visual impact. For the landing, products and purchasing pages the rendered pages were split into three vertical sections : 1) A uniform navbar and masthead with search facility; 2) the body / page specific content; and 3) a uniform footer.  
+Inspired by the Boutique Ado, [onepeleton](https://www.onepeloton.co.uk/) and [Les Mills](https://www.lesmills.com/uk/) websites the use of full viewport width imagery was employed for visual impact. For the landing, products and purchasing pages the rendered pages were split into three vertical sections : 1) A uniform navbar and masthead with search facility; 2) the body / page specific content; and 3) a uniform footer.  
 
 
 #### Framework
@@ -116,6 +127,8 @@ Inspired by the Boutique Ado, Les Mills and One Peleton websites the use of full
     - To keep the JavaScript minimal, I have decided to use jQuery as foundation to my scripts framework.
 - [Django 3.0.8](https://www.djangoproject.com/download/)
     - Django is a free and open-source web framework that I've used to render the back-end Python with the front-end Bootstrap. 
+
+
 #### Color Scheme
 
 In keeping with the overall *simple/clean* theme, I have opted for a muted color scheme. 
@@ -130,10 +143,12 @@ In keeping with the overall *simple/clean* theme, I have opted for a muted color
 
 - **Social Links, Navbar Links, Icons Grid Links** : [Font Awesome Icons](https://fontawesome.com/icons?d=gallery)
 
+
 #### Typography
 
 - [Google Fonts](https://fonts.google.com/)
 - [Lato](https://fonts.google.com/specimen/Lato)
+
 
 ### Wireframes
 
@@ -158,12 +173,11 @@ The complete set of wireframes for this project can be found [here](https://gith
 ### Existing Features
 
 #### Home App
-
 **Dashboard page**
 - Page presents a full overview of the site's content enabling rapid movement around site by use of the ample links and a search bar.
 
-#### Products App
 
+#### Products App and Search functionality
 **Search the database**
 - If a user would like to search for a particular category of class or item of equipment they can use the search bar (on the Masthead of each page) to search by name, category or by word in the products description. This results in the display of a refinned 'Products' page to the user.
 -Alternatively users can use the built-in filters on the navbar's product dropdown menu to access equipment or classes as categorised by exercise tupe e.g. yoga, running etc.
@@ -175,14 +189,11 @@ The complete set of wireframes for this project can be found [here](https://gith
 
 **View all classes**
 - This is a C**R**UD feature:
-- on the filtered *classes* page, all equipment are displayed with a photo, name and price. These products can be explored further on clicking their image or name; the user is taken to a details page where they can add the item to their e-commerce basket.
-
-**Search the database**
-- If a user would like to search for a particular category of class or item of equipment they can use the search bar (on the Masthead of each page) to search by name, category or by word in the products description. This results in the display of a filtered 'Products' page to the user.
+- on the filtered *classes* page, all classes are displayed with a photo, name and price. These products can be explored further on clicking their image or name; the user is taken to a details page where they can add the item to their e-commerce basket.
 
 **Add a product to the database**
 - This is a **C**RUD feature:
-- From the navbar option *Product Management* there is a form to complete that allows the addition of a product with category, rating, image, price and description.
+- From the navbar option *Product Addition* renders a form. Completion of that form allows the addition of a product with category, rating, image, price and description.
 - only the authenticated superuser can access this app feature
 
 **Update a product from the database**
@@ -195,10 +206,12 @@ The complete set of wireframes for this project can be found [here](https://gith
 - From any filtered / unfiltered *Products" page or *Product Description* page there is a delete link. On-clicking this link the product will be immediately deleted.
 - only the authenticated superuser can access this app feature
 
+
 #### Checkout App
 - This is a C**R**UD and a **C**RUD feature:
 - Using the checkout app the user, if authenticated with a user profile, can review the database record for billing and shipping address and review prospective purchases. 
 - If no profile exists for the user then they can create a billing and shipping address whilst reviewing prospective purchases
+
 
 #### Profile App
 **Create a user's profile**
@@ -211,10 +224,12 @@ The complete set of wireframes for this project can be found [here](https://gith
  - This allows a user to review their purchase history along side their saved (but editable) billing and shipping address.
  - only authenticated users can access this app feature
 
+
 #### Authentication App
 - This is a **C**RUD feature:
 - Uses the allauth https://django-allauth.readthedocs.io/en/latest/installation.html
 - Allows user's to register and access profile and blog services.
+
 
 #### Bag App
 **View all items in user's bag**
@@ -225,13 +240,20 @@ The complete set of wireframes for this project can be found [here](https://gith
 - This is a CR**U**D and CRU**D** feature:
 - The no. of units can be edited in three ways: increment, decrement and delete. All other dependent fields will update automatically
 
+
 #### Coupon App
+**Add a coupon to a bag**
 - This is a CR**U**D feature:
 - A coupon code can be added in the *bag page*. If valid (vaidated by time, date and status i.e. 'active') a discount is applied, this is reflected in the user's total. The coupon code (and resultant discount) is held within the contexts processor and any subsequent addition of products to the bag will have the validated discount applied. The navbar 'shopping bag' icon shows a running total beneath it. This reflects any discounts applied. The coupon code is discarded at the end of the session for security purposes. 
 - Although the model for the coupon system resides in the coupon app, it is the bag app and checkout app that utilise the actual model, i.e. it is in their views.py and contexts.py (Bag app only) that the coupon logic and coupon GUI is manifested.
 
-#### Blog App
+**Add a coupon to the database**
+- This is a **C**RUD feature:
+- From the navbar option *coupon Addition* renders a form. Completion of that form allows the addition of a coupon with name, validity and value.
+- only the authenticated superuser can access this app feature
 
+
+#### Blog App
 **View the blog list**
 - This is a C**R**UD feature:
 - on the *blog list* page, all blog entries are displayed with a heading, datestamp, author and partial text. The full text can be accessed and read on the *blog detail* page once clicking the blog title.
@@ -244,11 +266,16 @@ The complete set of wireframes for this project can be found [here](https://gith
 
 **Draft a blog post**
 - This is a **C**RUD feature:
-- Using the navbar a user can navigate to an *add blog* page, which is a form, there they can author a post which will be held in draft until published by a superuser.
+- Using the navbar a user can navigate to an *add post* page, which is a form, there they can author a post which will be held in draft until published by a superuser.
+- only the authenticated superuser can access this app feature
+
+**View and publish a blog post**
+- This is a **C**R**U**D feature:
+- Using the navbar a user can navigate to a *draft post* page, where a list of all draft posts are rendered for review by the superuser. Each post is displayed in its entirety. Thus allowing quick review prior to selection of an individual post which is a form, there they can author a post which will be held in draft until published by a superuser.
 - only the authenticated superuser can access this app feature
 
 **Pagination**
-- To maintane a positive UX the blog list is limited to xxxxxxxxxxxx blog posts per page.
+- To maintane a positive UX the blog list is limited to 6 blog posts per page.
 
 
 #### Use of a hosting site
@@ -256,18 +283,25 @@ The complete set of wireframes for this project can be found [here](https://gith
 
 
 ### Features Left to Implement
-
-
-
 **Content Elaboration**
 - Of the other two other main topics (Play & Learn and Rest & Relax) and the store page to add a commercial element.
 
 **Confirmation modals**
-- An essential addition for inadvertant deletion of records
-
+- Addition of confirmation models allows the user the opportunity to review seletions and choices. This would be a valuable addition for the prevention of inadvertant deletion of records.
 
 **Elaboration of search facility**
-- User feedback in the event of 'no results found' required and more sophisticated Python code required to deal remove case sensitivity in user's input.
+- This could be extended to include a search of the blog app's content. At the moment it is limited to just commecial products and services.
+
+**Elaborate management of coupons**
+- Introduce views capable of rendering active and inactive coupons in the user's GUI; allowing the editing of existing coupons; and allowing the deletion of coupons.
+- For the 'Coupon Addition' page: currently the *discount* input field allows numbers to be either positive or negative as well as exceed 100%. The introduction of JQuery would limit this to more appropriate numbers. Note: form validation is in place to disallow the submission of negative percentages or numbers greater than 100%.
+- For the 'Coupon Addition' page: currently the valid from and valid to dates and times need to be entered using a specific format. A date/time picker would be for more contemporary and less likely to fail form validation thus enhancing UX.
+
+**Elaborate UX of blog posts**
+- Introduce blog post tags and subject streams for posts of similar content/theme.
+- Elaborate the 'draft post list' and 'publish post' views to include an *update* or *feedback* feature. Thus allowing the reviewer to constructively criticise if the post is not suitable for publication.
+- At the moment only staff and superusers can author a post; and they must be authenticated to do so. Similarly users are unable to *comment* on a post unless they have performed registration and authentication. The reason for this is to protect the content of the comments section i.e. to avoid spam. A more sophisticated method could involve making the blog totally open to guest users and making the comments section reviewable prior to publication of the comment. Thus the blog posts would be a 'draw' for new customers whilst the content protected.
+
 
 ##### back to [top](#table-of-contents)
 
@@ -288,9 +322,9 @@ The complete set of wireframes for this project can be found [here](https://gith
 
 - **Django**
     - [Django 3.0.8](https://www.djangoproject.com/download/) - .
-    - [django-allauth 0.42.0]() - .
-    - [requests-oauthlib 1.3.0]() - .
-    - [django-crispy-forms 1.9.2]() - .
+    - [django-allauth 0.42.0](https://pypi.org/project/django-allauth/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication..
+    - [requests-oauthlib 1.3.0](https://pypi.org/project/requests-oauthlib/0.3.1/) - This project provides first-class OAuth library support for Requests.
+    - [django-crispy-forms 1.9.2](https://django-crispy-forms.readthedocs.io/en/latest/) - django-crispy-forms provides you with a |crispy filter and {% crispy %} tag that will let you control the rendering behavior of your Django forms in a very elegant and DRY way. Have full control without writing custom form templates. All this without breaking the standard way of doing things in Django, so it plays nice with any other form application..
     
 
 - **AWS**
@@ -321,7 +355,7 @@ The complete set of wireframes for this project can be found [here](https://gith
 ##### back to [top](#table-of-contents)
 ---
 
-# Testing
+## Testing
 
 :white_check_mark: *denotes items that have been successfully implemented*
 
@@ -330,23 +364,27 @@ The complete set of wireframes for this project can be found [here](https://gith
 - :white_check_mark: Footer's Social icons openning to link in a new webpage
 - :white_check_mark: Links tested on icons grid
 - :white_check_mark: Links tested on 'under construction page'
-- :white_check_mark: Alert dismiss
+- :white_check_mark: Alert dismiss on toasts
 - :white_check_mark: Blog post links navigate to blog post detail page
 - :white_check_mark: Blog post list page pagination links toggle back and forth between pages
-
+- :white_check_mark: Draft blog post links navigate to draft blog post detail page
+- :white_check_mark: Draft blog post list page pagination links toggle back and forth between pages
+- :white_check_mark: Draft blog post update to publish status occurs
+- :white_check_mark: Product links navigate to product detail page
+- :white_check_mark: Update product links navigate to product detail page and update occurs
+- :white_check_mark: Delete product links navigate to product detail page and deletion occurs
 
 **Search page / functionality:**
 - :white_check_mark: Search bar tested on Masthead (product name, product category, product detail content)
-    
 
 **Responsiveness** 
 Tested on portrait and landscape viewport for the following viewports
 - :white_check_mark: Apple iPad pro
 - :white_check_mark: Apple iPad
 - :white_check_mark: Apple iPhone 5/SE/6/7/8/X/6 plus/7 plus/8 plus
-    
+ 
 Note: when tested on actual iPhone 6 the background-attachment: fixed was not compatible with iOS - browsers. On Chrome and Safari in iOS, the background photos appeared zoomed-in and blurry. To fix this, the .background-attachment: scroll property - value was added in a media query.
-    
+
 - :white_check_mark:Samsung Galaxy S5
 - :white_check_mark:Pixel 2/2 XL
 
@@ -358,83 +396,78 @@ Responsiveness tested on landscape viewport for the following viewports
 
 **Registration form validation**
 - **Required input fields include:**
-    - :white_check_mark: Full name
-    - :white_check_mark: Occupation
-    - :white_check_mark: Phone number
-    - :white_check_mark: Email address: input field requires an '@' character
-- **:white_check_mark: On successful completion of the form the user is presented by a 'flash' feedback banner**
+    - :white_check_mark: email address: input field requires an '@' character
+    - :white_check_mark: username
+    - :white_check_mark: password
+- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
 
 **Login form validation**
 - **Required input fields include:**
-    - :white_check_mark: Full name
-    - :white_check_mark: Occupation
-    - :white_check_mark: Phone number
-    - :white_check_mark: Email address: input field requires an '@' character
-- **:white_check_mark: On successful completion of the form the user is presented by a 'flash' feedback banner**
-
-**Logout form validation**
-- **Required input fields include:**
-    - :white_check_mark: Full name
-    - :white_check_mark: Occupation
-    - :white_check_mark: Phone number
-    - :white_check_mark: Email address: input field requires an '@' character
-- **:white_check_mark: On successful completion of the form the user is presented by a 'flash' feedback banner**
+    - :white_check_mark: email address: input field requires an '@' character
+    - :white_check_mark: username
+    - :white_check_mark: password
+- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
 
 **Password Reset form validation**
 - **Required input fields include:**
-    - :white_check_mark: Full name
-    - :white_check_mark: Occupation
-    - :white_check_mark: Phone number
-    - :white_check_mark: Email address: input field requires an '@' character
-- **:white_check_mark: On successful completion of the form the user is presented by a 'flash' feedback banner**
+    - :white_check_mark: email address: input field requires an '@' character
+- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
 
-**Add draft blog form validation**
+**Add draft blog post form validation**
 - **Required input fields include:**
-    - :white_check_mark: Full name
-    - :white_check_mark: Occupation
-    - :white_check_mark: Phone number
-    - :white_check_mark: Email address: input field requires an '@' character
-- **:white_check_mark: On successful completion of the form the user is presented by a 'flash' feedback banner**
+    - :white_check_mark: Post title
+    - :white_check_mark: Post content
+- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
 
 **Add comment (to blog post) form validation**
 - **Required input fields include:**
-    - :white_check_mark: Full name
-    - :white_check_mark: Occupation
-    - :white_check_mark: Phone number
-    - :white_check_mark: Email address: input field requires an '@' character
-- **:white_check_mark: On successful completion of the form the user is presented by a 'flash' feedback banner**
+    - :white_check_mark: name
+    - :white_check_mark: email address: input field requires an '@' character
+    - :white_check_mark: message
+- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
 
+**Update draft blog post form validation**
+- **Required input fields include:**
+    - :white_check_mark: status
+- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
 
 **Add product form validation**
 - **Required input fields include:**
-    - :white_check_mark: Full name
-    - :white_check_mark: Occupation
-    - :white_check_mark: Phone number
-    - :white_check_mark: Email address: input field requires an '@' character
-- **:white_check_mark: On successful completion of the form the user is presented by a 'flash' feedback banner**
+    - :white_check_mark: category
+    - :white_check_mark: product name
+    - :white_check_mark: product description
+    - :white_check_mark: price
+- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
 
-**edit product form validation**
+**Edit product form validation**
 - **Required input fields include:**
-    - :white_check_mark: Full name
-    - :white_check_mark: Occupation
-    - :white_check_mark: Phone number
-    - :white_check_mark: Email address: input field requires an '@' character
-- **:white_check_mark: On successful completion of the form the user is presented by a 'flash' feedback banner**
+    - :white_check_mark: category
+    - :white_check_mark: product name
+    - :white_check_mark: product description
+    - :white_check_mark: price
+- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
 
-
-**Add category page / functionality:**
-    - :white_check_mark: add categories and render to 'all categories' page
+**Checkout form validation**
+- **Required input fields include:**
+    - :white_check_mark: full name
+    - :white_check_mark: email address: input field requires an '@' character
+    - :white_check_mark: phone number
+    - :white_check_mark: country
+    - :white_check_mark: town of city
+    - :white_check_mark: street address
+    - :white_check_mark: card details
+- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
 
 
 ### Validators
 
 **HTML**
 - [W3C HTML Validator](https://validator.w3.org) 
-    - All code is perfectly validating. 
+    - All code is perfectly validating without errors. 
 
 - https://live-strong.herokuapp.com/
 
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources. (3)
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources.
     
     Warning: The type attribute is unnecessary for JavaScript resources.
     From line 403, column 13; to line 403, column 102
@@ -450,7 +483,7 @@ Responsiveness tested on landscape viewport for the following viewports
 
 - https://live-strong.herokuapp.com/products/?category=yoga,bike,run_indoor,run_outdoor; https://live-strong.herokuapp.com/products/?category=yoga; https://live-strong.herokuapp.com/products/?category=bike; https://live-strong.herokuapp.com/products/?category=run_indoor; https://live-strong.herokuapp.com/products/?category=run_outdoor; https://live-strong.herokuapp.com/products/?category=essentials
 
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources. (2)
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources.
 
     Warning: The type attribute is unnecessary for JavaScript resources.
     From line 430, column 13; to line 430, column 102
@@ -462,7 +495,7 @@ Responsiveness tested on landscape viewport for the following viewports
 
 - https://live-strong.herokuapp.com/blog/
 
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources. (2)
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources.
 
     Warning: The type attribute is unnecessary for JavaScript resources.
     From line 308, column 13; to line 308, column 102
@@ -474,7 +507,7 @@ Responsiveness tested on landscape viewport for the following viewports
 
 - https://live-strong.herokuapp.com/blog/add_entry/
 
-    Warnings (3) - The type attribute is unnecessary for JavaScript resources. (3)
+    Warnings (3) - The type attribute is unnecessary for JavaScript resources.
 
     Warning: The type attribute is unnecessary for JavaScript resources.
     From line 298, column 13; to line 298, column 102
@@ -502,7 +535,7 @@ Responsiveness tested on landscape viewport for the following viewports
 
 - https://live-strong.herokuapp.com/products/add/
 
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources. (2)
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources.
 
     Warning: The type attribute is unnecessary for JavaScript resources.
     From line 310, column 13; to line 310, column 102
@@ -514,7 +547,7 @@ Responsiveness tested on landscape viewport for the following viewports
 
 - https://live-strong.herokuapp.com/profile/
     
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources. (2)
+    Warnings (2) - The type attribute is unnecessary for JavaScript resources.
 
     Warning: The type attribute is unnecessary for JavaScript resources.
     From line 310, column 13; to line 310, column 102
