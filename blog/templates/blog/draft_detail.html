@@ -10,12 +10,11 @@
                 <h1 class="post_title_detail">{{ post.title }}</h1>
                 <p class="date">
                     Published {{ post.publish }} by {{ post.author }}
-                    {{ post.body|linebreaks }}
                 </p>
+                {{ post.body|linebreaks }}
                 {% if post.status == 'draft' %}
                     {% if request.user.is_superuser %}
-                        <form method="post" action="{% url 'blog:post_publish' post.publish.year post.publish.month post.publish.day post.slug %}">
-                            
+                        <form method="post" action="{% url 'blog:post_publish' post.publish.year post.publish.month post.publish.day post.slug %}">      
                             {% csrf_token %}
                             {{ edit_post|crispy }}
                             <p id="edit_publish"><input type="submit" class="btn-black" value="change"></p>
