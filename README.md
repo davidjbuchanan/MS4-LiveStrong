@@ -359,104 +359,107 @@ The complete set of wireframes for this project can be found [here](https://gith
 
 :white_check_mark: *denotes items that have been successfully implemented*
 
-**Basic navigation**
-- :white_check_mark: Links tested on navbar (& navbar toggle button) and footer
-- :white_check_mark: Footer's Social icons openning to link in a new webpage
-- :white_check_mark: Links tested on icons grid
-- :white_check_mark: Links tested on 'under construction page'
-- :white_check_mark: Alert dismiss on toasts
-- :white_check_mark: Blog post links navigate to blog post detail page
-- :white_check_mark: Blog post list page pagination links toggle back and forth between pages
-- :white_check_mark: Draft blog post links navigate to draft blog post detail page
-- :white_check_mark: Draft blog post list page pagination links toggle back and forth between pages
-- :white_check_mark: Draft blog post update to publish status occurs
-- :white_check_mark: Product links navigate to product detail page
-- :white_check_mark: Update product links navigate to product detail page and update occurs
-- :white_check_mark: Delete product links navigate to product detail page and deletion occurs
+**Basic navigation** (Tested on Lenovo ThinkVision L2250p 22" Widescreen LCD Monitor, iPhone X and iPad)
+done    - :white_check_mark: Links tested on navbar (& navbar toggle button) and footer
+done    - :white_check_mark: Footer's Social icons openning to link in a new webpage
+done    - :white_check_mark: Links tested on icons grid
+done    - :white_check_mark: Links tested on 'under construction page'
+done    - :white_check_mark: Alert dismiss on toasts
+done    - :white_check_mark: Product links navigate to product detail page
+done    - :white_check_mark: Update product links navigate to product detail page and update occurs
+done    - :white_check_mark: Delete product links navigate to product detail page and deletion occurs
+done    - :white_check_mark: Blog post links navigate to blog post detail page
+done    - :white_check_mark: Blog post list page pagination links toggle back and forth between pages
+done    - :white_check_mark: Draft blog post links navigate to draft blog post detail page
+done    - :white_check_mark: Draft blog post list page pagination links toggle back and forth between pages
+done    - :white_check_mark: Draft blog post update to publish status ocurrs
 
 **Search page / functionality:**
-- :white_check_mark: Search bar tested on Masthead (product name, product category, product detail content)
+- :white_check_mark: Search bar tested on Masthead (product name and product detail content)
 
 **Responsiveness** 
 Tested on portrait and landscape viewport for the following viewports
-- :white_check_mark: Apple iPad pro
-- :white_check_mark: Apple iPad
-- :white_check_mark: Apple iPhone 5/SE/6/7/8/X/6 plus/7 plus/8 plus
+todo    - :white_check_mark: Apple iPad pro
+todo    - :white_check_mark: Apple iPad pro
+todo    - :white_check_mark: Apple iPad
+todo    - :white_check_mark: Apple iPhone 5/SE/6/7/8/X/6 plus/7 plus/8 plus
  
-Note: when tested on actual iPhone 6 the background-attachment: fixed was not compatible with iOS - browsers. On Chrome and Safari in iOS, the background photos appeared zoomed-in and blurry. To fix this, the .background-attachment: scroll property - value was added in a media query.
+todo    Note: when tested on actual iPhone X the background-attachment: fixed was not compatible with iOS - browsers. On Chrome and Safari in           iOS, the background photos appeared zoomed-in and blurry. To fix this, the .background-attachment: scroll property - value was added in         a media query.
 
-- :white_check_mark:Samsung Galaxy S5
-- :white_check_mark:Pixel 2/2 XL
+todo    - :white_check_mark:Samsung Galaxy S5
+todo    - :white_check_mark:Pixel 2/2 XL
 
 Responsiveness tested on landscape viewport for the following viewports
-- :white_check_mark: Microsoft Surface 2 laptop  (1504 x 892 px)
-- :white_check_mark: Dell XPS laptop (13.4 inch, 1920 x 1080 px)
-- :white_check_mark: Desktop (1680 x 939 px)
-- :white_check_mark: iMac 27 inch (5120 X 2880 px)
+todo    - :white_check_mark: Lenovo ThinkVision L2250p 22" Widescreen LCD Monitor
+todo    - :white_check_mark: Microsoft Surface 2 laptop  (1504 x 892 px)
+todo    - :white_check_mark: Dell XPS laptop (13.4 inch, 1920 x 1080 px)
+todo    - :white_check_mark: Desktop (1680 x 939 px)
+todo    - :white_check_mark: iMac 27 inch (5120 X 2880 px)
 
-**Registration form validation**
-- **Required input fields include:**
-    - :white_check_mark: email address: input field requires an '@' character
-    - :white_check_mark: username
-    - :white_check_mark: password
-- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
+**Form validation**
+- **Registration form.** Required input fields include:
+done    - :white_check_mark: email address: input field requires an '@' character
+done    - :white_check_mark: username
+done    - :white_check_mark: password
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-**Login form validation**
-- **Required input fields include:**
-    - :white_check_mark: email address: input field requires an '@' character
-    - :white_check_mark: username
-    - :white_check_mark: password
-- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
+- **Login form.** Required input fields include:
+done    - :white_check_mark: email address: input field requires an '@' character
+done    - :white_check_mark: username
+done    - :white_check_mark: password
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-**Password Reset form validation**
-- **Required input fields include:**
-    - :white_check_mark: email address: input field requires an '@' character
-- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
+- **Password Reset form.** Required input fields include:
+done    - :white_check_mark: email address: input field requires an '@' character
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-**Add draft blog post form validation**
-- **Required input fields include:**
-    - :white_check_mark: Post title
-    - :white_check_mark: Post content
-- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
+- **Add draft blog post form.** Required input fields include:
+done    - :white_check_mark: Post title
+done    - :white_check_mark: Post slug
+done    - :white_check_mark: Post content
+done    - *:white_check_mark: Requires staff user status to access page*
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-**Add comment (to blog post) form validation**
-- **Required input fields include:**
-    - :white_check_mark: name
-    - :white_check_mark: email address: input field requires an '@' character
-    - :white_check_mark: message
-- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
+- **Update/publish draft blog post form.** Required input fields include:
+done    - :white_check_mark: status
+done    - *:white_check_mark: Requires superuser status to access page*
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-**Update draft blog post form validation**
-- **Required input fields include:**
-    - :white_check_mark: status
-- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
+- **Add comment (to blog post) form.** Required input fields include:
+done    - :white_check_mark: name
+done    - :white_check_mark: email address: input field requires an '@' character
+done    - :white_check_mark: message
+done    - *:white_check_mark: Requires authenticated user status to access comments form*
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-**Add product form validation**
-- **Required input fields include:**
-    - :white_check_mark: category
-    - :white_check_mark: product name
-    - :white_check_mark: product description
-    - :white_check_mark: price
-- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
+- **Add product form.** Required input fields include:
+done    - :white_check_mark: category
+done    - :white_check_mark: product name
+done    - :white_check_mark: product description
+done    - :white_check_mark: price
+done    - *:white_check_mark: Requires superuser status to access page*
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-**Edit product form validation**
-- **Required input fields include:**
-    - :white_check_mark: category
-    - :white_check_mark: product name
-    - :white_check_mark: product description
-    - :white_check_mark: price
-- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
+- **Update product form.** Required input fields include:
+done    - :white_check_mark: category
+done    - :white_check_mark: product name
+done    - :white_check_mark: product description
+done    - :white_check_mark: price
+done    - *:white_check_mark: Requires superuser status to access page*
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-**Checkout form validation**
-- **Required input fields include:**
-    - :white_check_mark: full name
-    - :white_check_mark: email address: input field requires an '@' character
-    - :white_check_mark: phone number
-    - :white_check_mark: country
-    - :white_check_mark: town of city
-    - :white_check_mark: street address
-    - :white_check_mark: card details
-- **:white_check_mark: On successful completion of the form the user is presented with a toast notification**
+- **Checkout form.** Required input fields include:
+done    - :white_check_mark: full name
+done    - :white_check_mark: email address: input field requires an '@' character
+done    - :white_check_mark: phone number
+done    - :white_check_mark: country
+done    - :white_check_mark: town of city
+done    - :white_check_mark: street address
+done    - :white_check_mark: card details
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+
+**Stripe Payments**
+
 
 
 ### Validators
@@ -464,131 +467,6 @@ Responsiveness tested on landscape viewport for the following viewports
 **HTML**
 - [W3C HTML Validator](https://validator.w3.org) 
     - All code is perfectly validating without errors. 
-
-- https://live-strong.herokuapp.com/
-
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources.
-    
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 403, column 13; to line 403, column 102
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 404, column 13; to line 404, column 99
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 406, column 5; to line 406, column 103
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/home/js/icons_grid.js"></scri
-
-- https://live-strong.herokuapp.com/products/?category=yoga,bike,run_indoor,run_outdoor; https://live-strong.herokuapp.com/products/?category=yoga; https://live-strong.herokuapp.com/products/?category=bike; https://live-strong.herokuapp.com/products/?category=run_indoor; https://live-strong.herokuapp.com/products/?category=run_outdoor; https://live-strong.herokuapp.com/products/?category=essentials
-
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources.
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 430, column 13; to line 430, column 102
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 431, column 13; to line 431, column 99
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
-
-- https://live-strong.herokuapp.com/blog/
-
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources.
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 308, column 13; to line 308, column 102
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 309, column 13; to line 309, column 99
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
-
-- https://live-strong.herokuapp.com/blog/add_entry/
-
-    Warnings (3) - The type attribute is unnecessary for JavaScript resources.
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 298, column 13; to line 298, column 102
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 299, column 13; to line 299, column 99
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 301, column 5; to line 301, column 97
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/blog/js/blog.js"></scri
-
-- https://live-strong.herokuapp.com/blog/drafts/
-
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 284, column 13; to line 284, column 102
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 285, column 13; to line 285, column 99
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
-
-- https://live-strong.herokuapp.com/products/add/
-
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources.
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 310, column 13; to line 310, column 102
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 311, column 13; to line 311, column 99
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
-
-- https://live-strong.herokuapp.com/profile/
-    
-    Warnings (2) - The type attribute is unnecessary for JavaScript resources.
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 310, column 13; to line 310, column 102
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 311, column 13; to line 311, column 99
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
-
-- https://live-strong.herokuapp.com/accounts/logout/
-
-    Warnings (3) - The type attribute is unnecessary for JavaScript resources.
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 403, column 13; to line 403, column 102
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 404, column 13; to line 404, column 99
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 406, column 5; to line 406, column 103
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/home/js/icons_grid.js"></scri
-
-- https://live-strong.herokuapp.com/bag/
-
-    Warnings (3) - The type attribute is unnecessary for JavaScript resources.
-    
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 291, column 13; to line 291, column 102
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/toasts.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 292, column 13; to line 292, column 99
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/js/nav.js"></scri
-
-    Warning: The type attribute is unnecessary for JavaScript resources.
-    From line 294, column 5; to line 294, column 95
-    <script type="text/javascript" src="https://ml4-djb.s3.amazonaws.com/static/bag/js/bag.js"></scri
-
 
 **CSS**
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) 
@@ -614,110 +492,35 @@ Responsiveness tested on landscape viewport for the following viewports
 
 **Python**
 - [PEP8 Online](http://pep8online.com/)
-    - bag app ok
+    The Python files were PEP8 compliant apart from the falure to adhere to the E501 (line too long) requirement in the following apps and files:
 
     - blog app
-        views.py
-            Code	Line	Column	Text
-            E501	64	80	line too long (91 > 79 characters)
-    
+        views.py    Line:89
     - checkout app
-        models.py
-            Code	Line	Column	Text
-            E501	18	    80	    line too long (82 > 79 characters)
-            E501	29	80	line too long (94 > 79 characters)
-            E501	30	80	line too long (93 > 79 characters)
-            E501	31	80	line too long (93 > 79 characters)
-            E501	33	80	line too long (86 > 79 characters)
-            E501	46	80	line too long (102 > 79 characters)
-            E501	48	80	line too long (95 > 79 characters)
-            E501	68	80	line too long (113 > 79 characters)
-            E501	69	80	line too long (91 > 79 characters)
-            E501	71	80	line too long (127 > 79 characters)
-            E501	72	80	line too long (113 > 79 characters)
-            E501	73	80	line too long (111 > 79 characters)
-            E501	74	80	line too long (147 > 79 characters)
-            E501	75	80	line too long (147 > 79 characters)
-            E501	84	80	line too long (117 > 79 characters)
-
-        urls.py
-            Code	Line	Column	Text
-            E501	7	80	line too long (93 > 79 characters)
-            E501	8	80	line too long (88 > 79 characters)
-
-        views.py
-            Code	Line	Column	Text
-            E501	1	80	line too long (87 > 79 characters)
-            E501	90	80	line too long (88 > 79 characters)
-            E501	96	80	line too long (83 > 79 characters)
-            E501	103	80	line too long (80 > 79 characters)
-            E501	117	80	line too long (87 > 79 characters)
-
-        webhook_handlers.py
-            Code	Line	Column	Text
-            E501	78	80	line too long (80 > 79 characters)
-            E501	79	80	line too long (80 > 79 characters)
-            E501	111	80	line too long (107 > 79 characters)
-            E501	141	80	line too long (81 > 79 characters)
-            E501	159	80	line too long (93 > 79 characters)
-
-        webhooks.py
-            Code	Line	Column	Text
-            E501	42	80	line too long (86 > 79 characters)
-
-    - coupons app ok
-
-    - home app ok
-
-    - ml4_djb app ok
-
+        models.py   Lines: 18, 29, 30, 31, 33, 46, 48, 68, 69, 71, 72, 73, 74, 75 and 84.   
+        urls.py     Lines: 7 and 8.
+        views.py    Lines: 1, 90, 96, 103 and 117.
+        w'k_h's.py  Lines: 78,	79,	111, 141 and 159.
+        w'hooks.py  Line: 42.
+    - coupons app
+        views.py    Line: 20.
     - products app
-        models.py
-            Code	Line	Column	Text
-            E501	24	80	line too long (94 > 79 characters)
-            E501	29	80	line too long (87 > 79 characters)
-
-        urls.py
-            Code	Line	Column	Text
-            E501	9	80	line too long (82 > 79 characters)
-
-        views.py
-            Code	Line	Column	Text
-            E501	41	80	line too long (80 > 79 characters)
-            E501	44	80	line too long (80 > 79 characters)
-            E501	83	80	line too long (94 > 79 characters)
-            E501	109	80	line too long (97 > 79 characters)
-    
+        models.py   Lines: 24 and 29.
+        urls.py     Line: 9.
+        views.py    Lines: 41, 44, 83 and 109. 
     - profiles app
-        forms.py
-            Code	Line	Column	Text
-            E501	33	80	line too long (98 > 79 characters)
+        forms.py    Line: 33.
+        models.py   Lines: 13, 14, 15 and 16.  
+        urls.py     Line: 6.
+        views.py    Line: 6.
 
-        models.py
-            Code	Line	Column	Text
-            E501	13	80	line too long (81 > 79 characters)
-            E501	14	80	line too long (84 > 79 characters)
-            E501	15	80	line too long (84 > 79 characters)
-            E501	16	80	line too long (81 > 79 characters)
-
-        urls.py
-            Code	Line	Column	Text
-            E501	6	80	line too long (84 > 79 characters)
- 
-        views.py
-            Code	Line	Column	Text
-            E501	6	80	line too long (84 > 79 characters)
-
-
-
-Other than the list above the app.py file was PEP8 compliant
 
 ### Compatibility
-- :white_check_mark: Microsoft Edge (version ):  Images within cards were found to be distorted on initial tsting, i.e. not in width but in height, where the height reverted to that of the original image. To rectify the distortion a .d-block class was added to the parent div i.e. div class="card d-block h-100 shadow". Credit jeroendesloovere @ https://github.com/twbs/bootstrap/issues/21885. 
-- :white_check_mark: Mozilla (Version xxxxxxxxxxxxxxx76.0.1):
-- :white_check_mark: Safari (Version xxxxxxxxxxxxxxxx14):
-- :white_check_mark: Microsoft Edge (Version xxxxxxxxxxxxxxxx44.18362.449.0):
-- :white_check_mark: Google Chrome (Version xxxxxxxxxxxxxxx81.0.4044.138):
+todo - :white_check_mark: Microsoft Edge (version ):  Images within cards were found to be distorted on initial tsting, i.e. not in width but in height, where the height reverted to that of the original image. To rectify the distortion a .d-block class was added to the parent div i.e. div class="card d-block h-100 shadow". Credit jeroendesloovere @ https://github.com/twbs/bootstrap/issues/21885. 
+todo - :white_check_mark: Mozilla (Version 81.0.1 (64-bit)).
+todo - :white_check_mark: Safari (Version 14.0.1).
+todo - :white_check_mark: Microsoft Edge (Version 85.0.564.68 (Official build) (64-bit)).
+todo - :white_check_mark: Google Chrome (Version 85.0.4183.121 (Official Build) (64-bit)).
 
 ### Known Issues
 
@@ -725,7 +528,6 @@ During development, I discovered two issues after committing to GitHub.
 
 - **Flaw with cross-site resources for images and icons**
     - http://fontawesome.com cookie is set with sameSite attribute.
-    - Images from http://itv.com and http://bbcgoodfood.com have cookies set with sameSite attribute.
 - **404 error**
     - DevTools failed to load SourceMap: Could not load content for chrome-extension://dodmmooeoklaejobgleioelladacbeki/dist/gitpodify.bundle.js.map.
 
@@ -735,7 +537,6 @@ During development, I discovered two issues after committing to GitHub.
     -   The 'subsrcibe' link on the navbar was identified as potentially premature and that a "give away" should be offered to the user prior promotion of a subscription servive.
     -   Images uploaded by user's should be hamdled ny a third party in order to give the user greater autonomy over the image used and not reliant on web available images.
     - Edit buttons allowing addition and deletion of fields in the 'add recipe' and 'edit recipe' should be "more available" to the user i.e. at the bottom or side of a growing list.
-    - The footer is not at the bottom of the page which some test users highlighted but did not seem bothered about.
 
 
 ##### back to [top](#table-of-contents)
@@ -1044,6 +845,7 @@ If a user makes a purchase there order is created in the django admin. And if th
 
 Once all that is done you need to run a commit on your IDE and force a build on Heroku; then the updated app will be able to send real emails. 
 
+11. To personalise the emails sent from the remotely deploued site you will need to login to admin as a asuperuser. Go to *Sites* and update the domain name to suit your app.
         
 so to recap in the Heroku **Settings** tab, click on the *Reveal Config Vars* button to configure environmental variables as follows:
 - **AWS_ACCESS_KEY_ID** : `<capitalised alphanumeric>`
@@ -1058,7 +860,7 @@ so to recap in the Heroku **Settings** tab, click on the *Reveal Config Vars* bu
 - **USE_AWS** : `true`
 
 
-11. Your app should be successfully deployed to Heroku at this point.
+Your app should be successfully deployed to Heroku at this point.
 
 ##### back to [top](#table-of-contents)
 
