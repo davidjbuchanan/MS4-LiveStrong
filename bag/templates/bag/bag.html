@@ -16,6 +16,7 @@
         <div class="row">
             <div class="col">
                 {% if bag_items %}
+                    <!-- Bag summary for medium sized viewports or larger -->
                     <div class="table-responsive rounded d-none d-md-block">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
@@ -75,6 +76,7 @@
                             </tr>
                         </table>
                     </div>
+                    <!-- Bag summary for small sized viewports -->
                     <div class="table-responsive rounded d-md-none">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black underline">
@@ -121,7 +123,7 @@
                                 </td>
                             </tr>
                         </table>
-                    </div>                    
+                    </div>                  
                     <hr>
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-right">
@@ -180,4 +182,21 @@
 {% block postloadjs %}
 {{ block.super }}
     <script type="text/javascript" src="{% static 'bag/js/bag.js' %}"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $(".remove-item").click(function(e) {
+                var csrfToken = "{{ csrf_token }}";
+                var itemId = $(this).attr('id').split('remove_')[1];
+                var url = `/bag/remove/${itemId}/`;
+                var data = {'csrfmiddlewaretoken': csrfToken};
+                
+                $.post(url, data)
+                .done(function() {
+                    location.reload();
+                });
+            });
+        });
+    </script>
+
 {% endblock %}
