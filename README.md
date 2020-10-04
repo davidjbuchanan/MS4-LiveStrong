@@ -35,7 +35,8 @@ This website was produced to fulfill a coursework assignment for the **[Code Ins
     - [**Validators**](#validators)
     - [**Compatibility**](#compatibility)
     - [**Known Issues**](#known-issues)
-    - [**User Testing**](#User-testing)
+    - [**User Testing**](#user-testing)
+    - [**Defensive Design**](#defensive-design)
 
 5. [**Deployment**](#deployment)
     - [**Local Deployment**](#local-deployment)
@@ -122,7 +123,7 @@ Inspired by the Boutique Ado, [onepeleton](https://www.onepeloton.co.uk/) and [L
 #### Framework
 
 - [Bootstrap Grid v4.4.1](https://getbootstrap.com/)
-    - 
+    -
 - [jQuery 3.5.1](https://code.jquery.com/jquery/)
     - To keep the JavaScript minimal, I have decided to use jQuery as foundation to my scripts framework.
 - [Django 3.0.8](https://www.djangoproject.com/download/)
@@ -396,6 +397,22 @@ todo    - :white_check_mark: Dell XPS laptop (13.4 inch, 1920 x 1080 px)
 todo    - :white_check_mark: Desktop (1680 x 939 px)
 todo    - :white_check_mark: iMac 27 inch (5120 X 2880 px)
 
+**Shopping**
+done    - :white_check_mark: Add any quantity of an item to bag
+done    - :white_check_mark: Add any quantity of multiple items to the bag
+done    - :white_check_mark: Update the bag by reducing or increasing the quantity of any item in bag
+done    - :white_check_mark: Remove any item in the bag
+            - Note: there was an error raised during developmant of this feature: 
+                "POST /bag/remove/195/ HTTP/1.1" 403 2513
+                Forbidden (CSRF token missing or incorrect.): /bag/remove/195/ 
+                - The JQuery function for this feature was moved into the bag template HTML to prevent recurrence.
+done    - :white_check_mark: add coupon codes to bag contents and have the costs updated
+
+**Stripe Payments and Transaction Data**
+done    - :white_check_mark: Transactions are recorded in the Postgress db and can be accessed and selectively edited
+done    - :white_check_mark: Payments are recorded on Stripe
+done    - :white_check_mark: Stripe webhooks 
+
 **Form validation**
 - **Registration form.** Required input fields include:
 done    - :white_check_mark: email address: input field requires an '@' character
@@ -432,20 +449,8 @@ done    - :white_check_mark: message
 done    - *:white_check_mark: Requires authenticated user status to access comments form*
 - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Add product form.** Required input fields include:
-done    - :white_check_mark: category
-done    - :white_check_mark: product name
-done    - :white_check_mark: product description
-done    - :white_check_mark: price
-done    - *:white_check_mark: Requires superuser status to access page*
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
-
-- **Update product form.** Required input fields include:
-done    - :white_check_mark: category
-done    - :white_check_mark: product name
-done    - :white_check_mark: product description
-done    - :white_check_mark: price
-done    - *:white_check_mark: Requires superuser status to access page*
+- **Add item to bag form.** Required input fields include:
+done    - :white_check_mark: quantity (1 min., 99 max.)
 - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
 - **Checkout form.** Required input fields include:
@@ -458,9 +463,21 @@ done    - :white_check_mark: street address
 done    - :white_check_mark: card details
 - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-**Stripe Payments**
+- **Add product form.** Required input fields include:
+done    - :white_check_mark: category
+done    - :white_check_mark: product name
+done    - :white_check_mark: product description
+done    - :white_check_mark: price ($9999.9 max.)
+done    - *:white_check_mark: Requires superuser status to access page*
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-
+- **Update product form.** Required input fields include:
+done    - :white_check_mark: category
+done    - :white_check_mark: product name
+done    - :white_check_mark: product description
+done    - :white_check_mark: price
+done    - *:white_check_mark: Requires superuser status to access page*
+- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
 ### Validators
 
@@ -526,17 +543,39 @@ todo - :white_check_mark: Google Chrome (Version 85.0.4183.121 (Official Build) 
 
 During development, I discovered two issues after committing to GitHub. 
 
+- **Flaw with bag apps JQuery 'remove' function**
+    - as described in the testing section, above, the function that allows for the removal of items from the bag (a.k.a. cart) does not function unless the function is appended to the bottom of the bag.html template. This is due to its reference of csrf token. 
 - **Flaw with cross-site resources for images and icons**
     - http://fontawesome.com cookie is set with sameSite attribute.
-- **404 error**
-    - DevTools failed to load SourceMap: Could not load content for chrome-extension://dodmmooeoklaejobgleioelladacbeki/dist/gitpodify.bundle.js.map.
+
 
 ### User-testing
 - Testing to select group of targeted users and a development professional highlighted these 5 points:
-    -   Alert text was not vertically centered. This was rectified
+    -   Toasts are not uniform across the site and often contain extraneous information; e.g. the bag's contents always shows even when the toast is for something as unrelated as a coupon management task. 
     -   The 'subsrcibe' link on the navbar was identified as potentially premature and that a "give away" should be offered to the user prior promotion of a subscription servive.
     -   Images uploaded by user's should be hamdled ny a third party in order to give the user greater autonomy over the image used and not reliant on web available images.
     - Edit buttons allowing addition and deletion of fields in the 'add recipe' and 'edit recipe' should be "more available" to the user i.e. at the bottom or side of a growing list.
+
+
+### Defensive Design
+- It was important to ensure that the apps run correctly and continue to run no matter what actions a user takes. That is why rigorous testing, for all possibilities, was undertaken focusing on the 5 following areas:
+
+Defensive design encompasses three areas:
+- **Validation**
+    - Form validation using *crispy forms* and *required* fields in the apps' models ensured that users only input acceptable data.
+    - No significant security or bug issues have been presented.
+- **Sanitisation**
+    - The code has been hidden in files (e.g. env.py) or indeed IDE settings to prevent access to vulnerable secret keys, URLs and passwords. In addition a tiered level of access from users, authenticated users, staff users and superusers has been employed thus allowing different users different levels of access to the sites' content. Examples of this are most noticable in the **coupons app**, **products app** and **blog app** views.py files where an authenticated login is required to access the CRUD functionalties of these apps. 
+    - No significant security or bug issues have been presented.
+- **Authentication**
+    - this is all handled with the allauth authentication system.
+    - No significant security or bug issues have been presented.
+- **Maintenance**
+    - The filing system is uniform and standard throught the numerous apps. All apps have been tested against the standard validators for code.
+    - No significant security or bug issues have been presented.
+- **Testing**
+    - Rigorous user testing has been performed to ensure the functionality of the site on multiple browsers and viewpost sizes.
+    - No significant security or bug issues have been presented.
 
 
 ##### back to [top](#table-of-contents)
