@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post
 from .forms import CommentForm, UserBlogForm, EditPost
+from django.contrib.auth.decorators import login_required
 
 
 def post_list(request):
@@ -50,11 +51,15 @@ def post_detail(request, year, month, day, post):
     return render(request, template, context)
 
 
+@login_required
 def post_publish(request, year, month, day, post):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
     post = get_object_or_404(Post, status='draft', slug=post,
-                             publish__year=year,
-                             publish__month=month,
-                             publish__day=day)
+                                 publish__year=year,
+                                 publish__month=month,
+                                 publish__day=day)
     if request.method == 'POST':
 
         edit_post = EditPost(data=request.POST)
@@ -74,8 +79,12 @@ def post_publish(request, year, month, day, post):
     return render(request, template, context)
 
 
+@login_required
 def add_blog_entry(request):
     """ Add a blog  """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
     if request.method == 'POST':
         form = UserBlogForm(request.POST)
 
@@ -98,7 +107,11 @@ def add_blog_entry(request):
     return render(request, template, context)
 
 
+@login_required
 def draft_list(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
     object_list = Post.draft.all()
     paginator = Paginator(object_list, 6)
     page = request.GET.get('page')
