@@ -174,35 +174,35 @@ The complete set of wireframes for this project can be found [here](https://gith
 ### Existing Features
 
 #### Home App
-**Dashboard page**
+Dashboard page
 - Page presents a full overview of the site's content enabling rapid movement around site by use of the ample links and a search bar.
 
 
 #### Products App and Search functionality
-**Search the database**
+Search the database
 - If a user would like to search for a particular category of class or item of equipment they can use the search bar (on the Masthead of each page) to search by name, category or by word in the products description. This results in the display of a refinned 'Products' page to the user.
 -Alternatively users can use the built-in filters on the navbar's product dropdown menu to access equipment or classes as categorised by exercise tupe e.g. yoga, running etc.
 - A third option is found exclusively on the landing page's Icons Grid section where there are some interactive buttons to access the equipment, classes and blog.
 
-**View all essential equipment (also referred to as 'essentials')**         
+View all essential equipment (also referred to as 'essentials')         
 - This is a C**R**UD feature:
 - on the filtered *products* page, all equipment are displayed with a photo, name and price. These products can be explored further on clicking their image or name; the user is taken to a details page where they can add the item to their e-commerce basket.
 
-**View all classes**
+View all classes
 - This is a C**R**UD feature:
 - on the filtered *classes* page, all classes are displayed with a photo, name and price. These products can be explored further on clicking their image or name; the user is taken to a details page where they can add the item to their e-commerce basket.
 
-**Add a product to the database**
+Add a product to the database
 - This is a **C**RUD feature:
 - From the navbar option *Product Addition* renders a form. Completion of that form allows the addition of a product with category, rating, image, price and description.
 - only the authenticated superuser can access this app feature
 
-**Update a product from the database**
+Update a product from the database
 - This is a CR**U**D feature:
 - From any filtered / unfiltered *Products" page or *Product Description* page there is an edit link. From there a form is rendered allowing the user to update the product's category, rating, image, price and / or description.
 - only the authenticated superuser can access this app feature
 
-**Delete a product from the database**
+Delete a product from the database
 - This is a CRU**D** feature:
 - From any filtered / unfiltered *Products" page or *Product Description* page there is a delete link. On-clicking this link the product will be immediately deleted.
 - only the authenticated superuser can access this app feature
@@ -215,7 +215,7 @@ The complete set of wireframes for this project can be found [here](https://gith
 
 
 #### Profile App
-**Create a user's profile**
+Create a user's profile
 - This is a **C**RUD and CR**U**D feature:
 - A user can use a form to input or update their details; thus saving their shipping and billing details. This allows for a better UX during the checkout process.
 - only authenticated users can access this app feature
@@ -233,49 +233,49 @@ The complete set of wireframes for this project can be found [here](https://gith
 
 
 #### Bag App
-**View all items in user's bag**
+View all items in user's bag
 - This is a C**R**UD feature:
 - All discrete product items are described in rows: the no. of units, cost per unit and sub total per product item line is detailed. The grand total is calculated as the sum total of all sub totals. 
 
-**Edit the bag's contents**
+Edit the bag's contents
 - This is a CR**U**D and CRU**D** feature:
 - The no. of units can be edited in three ways: increment, decrement and delete. All other dependent fields will update automatically
 
 
 #### Coupon App
-**Add a coupon to a bag**
+Add a coupon to a bag
 - This is a CR**U**D feature:
 - A coupon code can be added in the *bag page*. If valid (vaidated by time, date and status i.e. 'active') a discount is applied, this is reflected in the user's total. The coupon code (and resultant discount) is held within the contexts processor and any subsequent addition of products to the bag will have the validated discount applied. The navbar 'shopping bag' icon shows a running total beneath it. This reflects any discounts applied. The coupon code is discarded at the end of the session for security purposes. 
 - Although the model for the coupon system resides in the coupon app, it is the bag app and checkout app that utilise the actual model, i.e. it is in their views.py and contexts.py (Bag app only) that the coupon logic and coupon GUI is manifested.
 
-**Add a coupon to the database**
+Add a coupon to the database
 - This is a **C**RUD feature:
 - From the navbar option *coupon Addition* renders a form. Completion of that form allows the addition of a coupon with name, validity and value.
 - only the authenticated superuser can access this app feature
 
 
 #### Blog App
-**View the blog list**
+View the blog list
 - This is a C**R**UD feature:
 - on the *blog list* page, all blog entries are displayed with a heading, datestamp, author and partial text. The full text can be accessed and read on the *blog detail* page once clicking the blog title.
 - only authenticated users can access this app feature
 
-**Comment on a blog post**
+Comment on a blog post
 - This is a **C**RUD feature:
 - on the *blog detail* page, a user can comment on a blog post leaving email namr and comment details. This will be appended beneath the blog post in the *blog detail* page.
 - only authenticated staff users can access this app feature
 
-**Draft a blog post**
+Draft a blog post
 - This is a **C**RUD feature:
 - Using the navbar a user can navigate to an *add post* page, which is a form, there they can author a post which will be held in draft until published by a superuser.
 - only the authenticated superuser can access this app feature
 
-**View and publish a blog post**
+View and publish a blog post
 - This is a **C**R**U**D feature:
 - Using the navbar a user can navigate to a *draft post* page, where a list of all draft posts are rendered for review by the superuser. Each post is displayed in its entirety. Thus allowing quick review prior to selection of an individual post which is a form, there they can author a post which will be held in draft until published by a superuser.
 - only the authenticated superuser can access this app feature
 
-**Pagination**
+Pagination
 - To maintane a positive UX the blog list is limited to 6 blog posts per page.
 
 
@@ -284,21 +284,21 @@ The complete set of wireframes for this project can be found [here](https://gith
 
 
 ### Features Left to Implement
-**Content Elaboration**
+Content Elaboration
 - Of the other two other main topics (Play & Learn and Rest & Relax) and the store page to add a commercial element.
 
-**Confirmation modals**
+Confirmation modals
 - Addition of confirmation models allows the user the opportunity to review seletions and choices. This would be a valuable addition for the prevention of inadvertant deletion of records.
 
-**Elaboration of search facility**
+Elaboration of search facility
 - This could be extended to include a search of the blog app's content. At the moment it is limited to just commecial products and services.
 
-**Elaborate management of coupons**
+Elaborate management of coupons
 - Introduce views capable of rendering active and inactive coupons in the user's GUI; allowing the editing of existing coupons; and allowing the deletion of coupons.
 - For the 'Coupon Addition' page: currently the *discount* input field allows numbers to be either positive or negative as well as exceed 100%. The introduction of JQuery would limit this to more appropriate numbers. Note: form validation is in place to disallow the submission of negative percentages or numbers greater than 100%.
 - For the 'Coupon Addition' page: currently the valid from and valid to dates and times need to be entered using a specific format. A date/time picker would be for more contemporary and less likely to fail form validation thus enhancing UX.
 
-**Elaborate UX of blog posts**
+Elaborate UX of blog posts
 - Introduce blog post tags and subject streams for posts of similar content/theme.
 - Elaborate the 'draft post list' and 'publish post' views to include an *update* or *feedback* feature. Thus allowing the reviewer to constructively criticise if the post is not suitable for publication.
 - At the moment only staff and superusers can author a post; and they must be authenticated to do so. Similarly users are unable to *comment* on a post unless they have performed registration and authentication. The reason for this is to protect the content of the comments section i.e. to avoid spam. A more sophisticated method could involve making the blog totally open to guest users and making the comments section reviewable prior to publication of the comment. Thus the blog posts would be a 'draw' for new customers whilst the content protected.
@@ -361,19 +361,19 @@ The complete set of wireframes for this project can be found [here](https://gith
 :white_check_mark: *denotes items that have been successfully implemented*
 
 **Basic navigation** (Tested on Lenovo ThinkVision L2250p 22" Widescreen LCD Monitor, iPhone X and iPad)
-done    - :white_check_mark: Links tested on navbar (& navbar toggle button) and footer
-done    - :white_check_mark: Footer's Social icons openning to link in a new webpage
-done    - :white_check_mark: Links tested on icons grid
-done    - :white_check_mark: Links tested on 'under construction page'
-done    - :white_check_mark: Alert dismiss on toasts
-done    - :white_check_mark: Product links navigate to product detail page
-done    - :white_check_mark: Update product links navigate to product detail page and update occurs
-done    - :white_check_mark: Delete product links navigate to product detail page and deletion occurs
-done    - :white_check_mark: Blog post links navigate to blog post detail page
-done    - :white_check_mark: Blog post list page pagination links toggle back and forth between pages
-done    - :white_check_mark: Draft blog post links navigate to draft blog post detail page
-done    - :white_check_mark: Draft blog post list page pagination links toggle back and forth between pages
-done    - :white_check_mark: Draft blog post update to publish status ocurrs
+    - :white_check_mark: Links tested on navbar (& navbar toggle button) and footer
+    - :white_check_mark: Footer's Social icons openning to link in a new webpage
+    - :white_check_mark: Links tested on icons grid
+    - :white_check_mark: Links tested on 'under construction page'
+    - :white_check_mark: Alert dismiss on toasts
+    - :white_check_mark: Product links navigate to product detail page
+    - :white_check_mark: Update product links navigate to product detail page and update occurs
+    - :white_check_mark: Delete product links navigate to product detail page and deletion occurs
+    - :white_check_mark: Blog post links navigate to blog post detail page
+    - :white_check_mark: Blog post list page pagination links toggle back and forth between pages
+    - :white_check_mark: Draft blog post links navigate to draft blog post detail page
+    - :white_check_mark: Draft blog post list page pagination links toggle back and forth between pages
+    - :white_check_mark: Draft blog post update to publish status ocurrs
 
 **Search page / functionality:**
 - :white_check_mark: Search bar tested on Masthead (product name and product detail content)
@@ -398,86 +398,84 @@ todo    - :white_check_mark: Desktop (1680 x 939 px)
 todo    - :white_check_mark: iMac 27 inch (5120 X 2880 px)
 
 **Shopping**
-done    - :white_check_mark: Add any quantity of an item to bag
-done    - :white_check_mark: Add any quantity of multiple items to the bag
-done    - :white_check_mark: Update the bag by reducing or increasing the quantity of any item in bag
-done    - :white_check_mark: Remove any item in the bag
+    - :white_check_mark: Add any quantity of an item to bag
+    - :white_check_mark: Add any quantity of multiple items to the bag
+    - :white_check_mark: Update the bag by reducing or increasing the quantity of any item in bag
+    - :white_check_mark: Remove any item in the bag
             - Note: there was an error raised during developmant of this feature: 
                 "POST /bag/remove/195/ HTTP/1.1" 403 2513
                 Forbidden (CSRF token missing or incorrect.): /bag/remove/195/ 
                 - The JQuery function for this feature was moved into the bag template HTML to prevent recurrence.
-done    - :white_check_mark: add coupon codes to bag contents and have the costs updated
+    - :white_check_mark: add coupon codes to bag contents and have the costs updated
 
 **Stripe Payments and Transaction Data**
-done    - :white_check_mark: Transactions are recorded in the Postgress db and can be accessed and selectively edited
-done    - :white_check_mark: Payments are recorded on Stripe
-done    - :white_check_mark: Stripe webhooks 
+    - :white_check_mark: Transactions are recorded in the Postgress db and can be accessed and selectively edited
+    - :white_check_mark: Payments are recorded on Stripe
+    - :white_check_mark: Stripe webhooks 
 
 **Form validation**
 - **Registration form.** Required input fields include:
-done    - :white_check_mark: email address: input field requires an '@' character
-done    - :white_check_mark: username
-done    - :white_check_mark: password
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+    - :white_check_mark: email address: input field requires an '@' character
+    - :white_check_mark: username
+    - :white_check_mark: password
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
 - **Login form.** Required input fields include:
-done    - :white_check_mark: email address: input field requires an '@' character
-done    - :white_check_mark: username
-done    - :white_check_mark: password
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+    - :white_check_mark: email address: input field requires an '@' character
+    - :white_check_mark: username
+    - :white_check_mark: password
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
 - **Password Reset form.** Required input fields include:
-done    - :white_check_mark: email address: input field requires an '@' character
+    - :white_check_mark: email address: input field requires an '@' character
 - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Add draft blog post form.** Required input fields include:
-done    - :white_check_mark: Post title
-done    - :white_check_mark: Post slug
-done    - :white_check_mark: Post content
-done    - *:white_check_mark: Requires staff user status to access page*
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+- **Add draft blog post form.** has been verified using automated tests see `test_forms` in blog app. Required input fields include:
+    - :white_check_mark: Post title
+    - :white_check_mark: Post slug
+    - :white_check_mark: Post content
+    - *:white_check_mark: Requires staff user status to access page*
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Update/publish draft blog post form.** Required input fields include:
-done    - :white_check_mark: status
-done    - *:white_check_mark: Requires superuser status to access page*
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+- **Update/publish draft blog post form.** has been verified using automated tests see `test_forms` in blog app. Required input fields include:
+    - :white_check_mark: status
+    - *:white_check_mark: Requires superuser status to access page*
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Add comment (to blog post) form.** Required input fields include:
-done    - :white_check_mark: name
-done    - :white_check_mark: email address: input field requires an '@' character
-done    - :white_check_mark: message
-done    - *:white_check_mark: Requires authenticated user status to access comments form*
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+- **Add comment (to blog post) form.** has been verified using automated tests see `test_forms` in blog app. Required input fields include:
+    - :white_check_mark: name
+    - :white_check_mark: email address: input field requires an '@' character
+    - :white_check_mark: message
+    - *:white_check_mark: Requires authenticated user status to access comments form*
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
 - **Add item to bag form.** Required input fields include:
-done    - :white_check_mark: quantity (1 min., 99 max.)
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+    - :white_check_mark: quantity (1 min., 99 max.)
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Checkout form.** Required input fields include:
-done    - :white_check_mark: full name
-done    - :white_check_mark: email address: input field requires an '@' character
-done    - :white_check_mark: phone number
-done    - :white_check_mark: country
-done    - :white_check_mark: town of city
-done    - :white_check_mark: street address
-done    - :white_check_mark: card details
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+- **Checkout form.** has been verified using automated tests see `test_forms` in checkout app. Required input fields include:
+    - :white_check_mark: full name
+    - :white_check_mark: email address: input field requires an '@' character
+    - :white_check_mark: phone number
+    - :white_check_mark: country
+    - :white_check_mark: town of city
+    - :white_check_mark: street address
+    - :white_check_mark: card details
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Add product form.** Required input fields include:
-done    - :white_check_mark: category
-done    - :white_check_mark: product name
-done    - :white_check_mark: product description
-done    - :white_check_mark: price ($9999.9 max.)
-done    - *:white_check_mark: Requires superuser status to access page*
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+- **Add product form.** as been verified using automated tests see `test_forms` in products app. Required input fields include:
+    - :white_check_mark: product name
+    - :white_check_mark: product description
+    - :white_check_mark: price ($9999.9 max.)
+    - *:white_check_mark: Requires superuser status to access page*
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Update product form.** Required input fields include:
-done    - :white_check_mark: category
-done    - :white_check_mark: product name
-done    - :white_check_mark: product description
-done    - :white_check_mark: price
-done    - *:white_check_mark: Requires superuser status to access page*
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+- **Update product form.** as been verified using automated tests see `test_forms` in products app. Required input fields include:
+    - :white_check_mark: product name
+    - :white_check_mark: product description
+    - :white_check_mark: price
+    - *:white_check_mark: Requires superuser status to access page*
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
 ### Validators
 
@@ -512,24 +510,24 @@ done    - *:white_check_mark: Requires superuser status to access page*
     The Python files were PEP8 compliant apart from the falure to adhere to the E501 (line too long) requirement in the following apps and files:
 
     - blog app
-        views.py    Line:98
+        - views.py    Line:98
     - checkout app
-        models.py   Lines: 18, 29, 30, 31, 33, 46, 48, 68, 69, 71, 72, 73, 74, 75 and 84.   
-        urls.py     Lines: 7 and 8.
-        views.py    Lines: 1, 88, 94 and 101.
-        w'k_h's.py  Lines: 71, 72, 102, 131 and 148.
-        w'hooks.py  Line: 42.
+        - models.py   Lines: 18, 29, 30, 31, 33, 46, 48, 68, 69, 71, 72, 73, 74, 75 and 84.   
+        - urls.py     Lines: 7 and 8.
+        - views.py    Lines: 1, 88, 94 and 101.
+        - w'k_h's.py  Lines: 71, 72, 102, 131 and 148.
+        - w'hooks.py  Line: 42.
     - coupons app
-        views.py    Line: 20.
+        - views.py    Line: 20.
     - products app
-        models.py   Lines: 24 and 29.
-        urls.py     Line: 9.
-        views.py    Lines: 41, 44, 83 and 109. 
+        - models.py   Lines: 24 and 29.
+        - urls.py     Line: 9.
+        - views.py    Lines: 41, 44, 83 and 109. 
     - profiles app
-        forms.py    Line: 33.
-        models.py   Lines: 13, 14, 15 and 16.  
-        urls.py     Line: 6.
-        views.py    Line: 21.
+        - forms.py    Line: 33.
+        - models.py   Lines: 13, 14, 15 and 16.  
+        - urls.py     Line: 6.
+        - views.py    Line: 21.
 
 
 ### Compatibility
@@ -558,9 +556,8 @@ During development, I discovered two issues after committing to GitHub.
 
 
 ### Defensive Design
-- It was important to ensure that the apps run correctly and continue to run no matter what actions a user takes. That is why rigorous testing, for all possibilities, was undertaken focusing on the 5 following areas:
+It is important to ensure that the apps run correctly and continue to run no matter what actions a user takes. That is why rigorous testing, for all possibilities, was undertaken focusing on the 5 following areas:
 
-Defensive design encompasses three areas:
 - **Validation**
     - Form validation using *crispy forms* and *required* fields in the apps' models ensured that users only input acceptable data.
     - No significant security or bug issues have been presented.
@@ -694,7 +691,7 @@ To install these packages onto your IDE'S workspace you can enter the following 
 
 ### Remote Deployment
 
-This site is currently deployed on [Heroku](https://www.heroku.com/) using the **master** branch on GitHub. To implement this project on Heroku,the following steps were taken:
+This site is currently deployed on [Heroku](https://live-strong.herokuapp.com/) using the **master** branch on GitHub. To implement this project on Heroku,the following steps were taken:
 
 1. Perform the steps required, as described above, for local deployment.
 2. Sign up for a free Heroku account and create your project app.
@@ -953,10 +950,10 @@ Sources of the images used on this site:
         
 - **Coupons app**
     - Two influences for this app:
-        (1) Django 3 By Example: Build powerful and reliable Python web applications from scratch, 3rd Edition Paperback – 31 Mar. 2020
+        - (1) Django 3 By Example: Build powerful and reliable Python web applications from scratch, 3rd Edition Paperback – 31 Mar. 2020
             by Antonio Mele (Author); and published by [Packt](www.packtpub.com). The contents were used for the following:
             - the model, urls and view were adapted for purpose. 
-        (2) Donna's [aka skies09](https://github.com/skies09/omega-sk8-ds) repository was an influence:
+        - (2) Donna's [aka skies09](https://github.com/skies09/omega-sk8-ds) repository was an influence:
             - the placement of the coupon_apply view inside the bag apps' views file. 
         - HTML, CSS, JQuery and Python were developed to merge into the bag apps' templates, views, contexts and urls files.
     - the add_coupon views and forms files were developed independantly 
