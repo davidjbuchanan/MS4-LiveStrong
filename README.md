@@ -512,12 +512,12 @@ done    - *:white_check_mark: Requires superuser status to access page*
     The Python files were PEP8 compliant apart from the falure to adhere to the E501 (line too long) requirement in the following apps and files:
 
     - blog app
-        views.py    Line:89
+        views.py    Line:98
     - checkout app
         models.py   Lines: 18, 29, 30, 31, 33, 46, 48, 68, 69, 71, 72, 73, 74, 75 and 84.   
         urls.py     Lines: 7 and 8.
-        views.py    Lines: 1, 90, 96, 103 and 117.
-        w'k_h's.py  Lines: 78,	79,	111, 141 and 159.
+        views.py    Lines: 1, 88, 94 and 101.
+        w'k_h's.py  Lines: 71, 72, 102, 131 and 148.
         w'hooks.py  Line: 42.
     - coupons app
         views.py    Line: 20.
@@ -529,7 +529,7 @@ done    - *:white_check_mark: Requires superuser status to access page*
         forms.py    Line: 33.
         models.py   Lines: 13, 14, 15 and 16.  
         urls.py     Line: 6.
-        views.py    Line: 6.
+        views.py    Line: 21.
 
 
 ### Compatibility
@@ -911,8 +911,7 @@ Your app should be successfully deployed to Heroku at this point.
 ### Content
 
 - **Blog content** 
-    - [Jamie Oliver - A cracking burger](https://www.jamieoliver.com/recipes/beef-recipes/a-cracking-burger/)
-    
+    - [Les Mills](https://www.lesmills.com/uk/fit-planet/)
 
 ### Media
 
@@ -923,18 +922,50 @@ Sources of the images used on this site:
     - [onepeleton](https://www.onepeloton.co.uk/)
     - [Les Mills](https://www.lesmills.com/uk/)
     
-- **mockup image in README** : [techsini](https://techsini.com/multi-mockup/)
+- **mockup image in README** : 
+    - [techsini](https://techsini.com/multi-mockup/)
 
 ### Code
 
 - **HTML template**
-    - [David T. Miller - Landing Page](https://startbootstrap.com/themes/landing-page/)
+    - [David T. Miller - Landing Page](https://startbootstrap.com/themes/landing-page/)    
 
-- **Java Script and Query**
-    - Code Institute Tutors for fine tuning of code
+- **Bag app**
+    - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) was the template for the following areas:
+        - the file structure including the template, HTML and Python code
+        - the following views were all taken from Boutique Ado repo.: view_bag, add_to_bag, adjust_bag and remove_from_bag.
+        - the coupons app (see below) is merged with this app; specifically the template, contexts file and views file.
 
-- **Python**
-    - Code Institue course material was the basis for all Python code
+- **Blog app**
+    - Django 3 By Example: Build powerful and reliable Python web applications from scratch, 3rd Edition Paperback – 31 Mar. 2020
+      by Antonio Mele (Author); and published by [Packt](www.packtpub.com). The contents were used for the following:
+        - HTML, CSS and Python for the post_list view and its pagination.
+        - HTML, CSS and Python for the post_detail view and its comments section.
+        - the add_blog_entry view, draft_list view and post_publish view used the styling and several elements from the book but these views were not covered in the book nor was the concept of defensive design (i,e, authentication of users to access these views and the use of if/else template logic to control rendered pages to authenticated users). So although there are similarities with the book's content (especially for draft_list view), the urls, HTML and Python were developed to allow the the app to function.  
+        - the JQuery is bespoke and is used throughout the project.
+
+- **Checkout app**
+    - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) was the template for the following areas:
+        - the file structure including the template, HTML and Python code
+        - the following views were all taken from Boutique Ado repo.: cache_checkout_data, checkout and checkout_success.
+        - all Stripe payment systems, webhooks and associated JQuery were taken from this project. 
+        - the coupons app (see below) is merged with this app; see the template and views file.
+        
+- **Coupons app**
+    - Two influences for this app:
+        (1) Django 3 By Example: Build powerful and reliable Python web applications from scratch, 3rd Edition Paperback – 31 Mar. 2020
+            by Antonio Mele (Author); and published by [Packt](www.packtpub.com). The contents were used for the following:
+            - the model, urls and view were adapted for purpose. 
+        (2) Donna's [aka skies09](https://github.com/skies09/omega-sk8-ds) repository was an influence:
+            - the placement of the coupon_apply view inside the bag apps' views file. 
+        - HTML, CSS, JQuery and Python were developed to merge into the bag apps' templates, views, contexts and urls files.
+    - the add_coupon views and forms files were developed independantly 
+
+- **Home app**
+    - this is a standard home app with a 404 view and url. It is very similar to that of the Code Institute's [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) repo.
+
+- **Products app and Profiles app**
+    - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) apps were used in its entirety aside from styling.
 
 ### README
 - **Template and content**
@@ -944,6 +975,7 @@ Sources of the images used on this site:
 - Victor Miclovich 
     - My Code Institute mentor.
 - Code Institute Tutors
+    - Fine tuning of code
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 
 ##### back to [top](#table-of-contents)
