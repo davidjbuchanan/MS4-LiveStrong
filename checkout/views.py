@@ -38,7 +38,6 @@ def checkout(request):
     if request.method == 'POST':
         bag = request.session.get('bag', {})
         current_bag = bag_contents(request)
-        print(current_bag)
         discount_percentage = current_bag['discount_percentage']
         code = current_bag['code']
         try:
@@ -69,7 +68,6 @@ def checkout(request):
                 try:
                     product = Product.objects.get(id=item_id)
                     if code is not None:
-                        print(code)
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -97,7 +95,7 @@ def checkout(request):
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
-    else:  # it's a GET
+    else:
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
@@ -112,9 +110,6 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        #  print(intent)
-
-        # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -157,11 +152,9 @@ def checkout_success(request, order_number):
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
 
-        # Save the user's info
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
@@ -180,7 +173,6 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
-    #  bag = request.session.get('bag', {})
     current_bag = bag_contents(request)
     discount_percentage = current_bag['discount_percentage']
     code = current_bag['code']

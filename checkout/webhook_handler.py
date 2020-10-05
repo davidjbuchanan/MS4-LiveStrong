@@ -63,13 +63,6 @@ class StripeWH_Handler:
         username = intent.metadata.username
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
-            print("a")
-            print(profile)
-            print("b")
-            print(username)
-            print("c")
-            print(UserProfile)
-            print("d")
             if save_info:
                 profile.default_phone_number = shipping_details.phone
                 profile.default_country = shipping_details.address.country
@@ -99,13 +92,11 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 order_exists = True
-                print("aaaa")
                 break
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            print("bbbb")
             self._send_confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
@@ -135,7 +126,6 @@ class StripeWH_Handler:
                             product=product,
                             quantity=item_data,
                         )
-                        print("cccc")
                         order_line_item.save()
                     else:
                         for size, quantity in item_data['items_by_size'].items():
@@ -145,7 +135,6 @@ class StripeWH_Handler:
                                 quantity=quantity,
                                 product_size=size,
                             )
-                            print("dddd")
                             order_line_item.save()
             except Exception as e:
                 if order:

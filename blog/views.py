@@ -57,9 +57,9 @@ def post_publish(request, year, month, day, post):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
     post = get_object_or_404(Post, status='draft', slug=post,
-                                 publish__year=year,
-                                 publish__month=month,
-                                 publish__day=day)
+                             publish__year=year,
+                             publish__month=month,
+                             publish__day=day)
     if request.method == 'POST':
 
         edit_post = EditPost(data=request.POST)

@@ -4,8 +4,6 @@ from .models import UserProfile
 
 class ProfileAdmin(admin.ModelAdmin):
 
-    # readonly_fields = ('')
-
     fields = ('user', 'default_phone_number', 'default_street_address1',
               'default_street_address2', 'default_town_or_city',
               'default_county', 'default_postcode', 'default_country',)

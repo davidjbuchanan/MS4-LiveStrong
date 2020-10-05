@@ -183,7 +183,6 @@
 {{ block.super }}
     <script type="text/javascript" src="{% static 'bag/js/bag.js' %}"></script>
     <script type="text/javascript">
-
         $(document).ready(function() {
             $(".remove-item").click(function(e) {
                 var csrfToken = "{{ csrf_token }}";
@@ -198,5 +197,4 @@
             });
         });
     </script>
-
 {% endblock %}
