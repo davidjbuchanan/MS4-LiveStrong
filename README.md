@@ -62,17 +62,18 @@ The commercial potential for this idea is vast and so the up-to-purchase UX of t
 The vision for this site is to have three consummables (equipment, services and blog) The equipment and services are grouped together as products, that derive cash income, and can be managed and consumed using the products, bag and checkout apps. The blog is a loss-leader that derives no income it is used as a 'hook' to entice users to register and create a profile thus allowing them access to the blog and, of course,paid for products.
 
 The products themselves are represented within a fully searchable products app, allowing the user rapid access to information. The tangible products, i.e. equipment, are deliverable and there is a shipping functionality that is self explannatory. For the services there is no demonstration of the product; nor access to the product; nor explannations as to how a consumer would access the product after purchase.
-There are several placeholder for undeveloped features. It was important to partition these topics clearly for ease of use. To acheive this the navbar displayed each of these topics in its own discrete, but essentially identical, dropdown menus. Likewise the homepage's body presents three uniform rows, one for each topic. 
+It was important to partition these topics clearly for ease of use. To acheive this the navbar displayed each of these topics in its own discrete, but essentially identical, dropdown menus. Likewise the homepage's body presents three uniform rows, one for each topic. 
 
 Each page displays an identical navbar, masthead (with search functionality) and footer this was deliberate to aid users' navigation of the site. For users on smaller vieworts there has been an effort to aid navigation by installation of a bespoke hamburger/dropdown navbar: The user is presented with 4 selections. When selected. by the user, the selection slides to the top of the dropdown menu and any sub menu is displayed beneath it. This was incorporated to ensure the navbar did not expand beyond the page height and become disorientating for the user. 
+
+There are several placeholder for undeveloped features each links to under construction page. 
 
 ### User Stories
 
 Who is the user? Essentially this could be anyone wanting to participate in group exercise at home, via the internet. 
+:white_check_mark: *denotes items that have been successfully implemented*
 
 "**_As a guest / non authenticated user, I would like to_** _____________________________"
-
-:white_check_mark: *denotes items that have been successfully implemented*
 
 - :white_check_mark: *view the site* from **any device** *(mobile, tablet, desktop)*.
 - :white_check_mark: *register* to become an **authenticated user**.
@@ -84,27 +85,21 @@ Who is the user? Essentially this could be anyone wanting to participate in grou
 - :white_check_mark: *update* a **bag content**.
 - :white_check_mark: *delete* a **bag content**.
 - :white_check_mark: *purchase* any **product(s) and service(s)**.
+- :white_check_mark: *view* all **published blogs**
 
 
 "**_As an authenticated user, I would like the additional priviledge to_** _____________________________"
 
-:white_check_mark: *denotes items that have been successfully implemented*
-
 - :white_check_mark: *generate* a **user profile**.
-- :white_check_mark: *view* all **published blogs**
 - :white_check_mark: *create comments* on **published blogs**
 
 
 "**_As a staff user, I would like the additional priviledge to_** _____________________________"
 
-:white_check_mark: *denotes items that have been successfully implemented*
-
 - :white_check_mark: *create* a **draft blog entry**
 
 
 "**_As a superuser, I would like the additional priviledge to_** _____________________________"
-
-:white_check_mark: *denotes items that have been successfully implemented*
 
 - :white_check_mark: *update* a **draft blog entry** by promoting it to *published* status
 - :white_check_mark: *create* a **product**
@@ -115,15 +110,15 @@ Who is the user? Essentially this could be anyone wanting to participate in grou
 
 ### Design
 
-A modern Bootstrap landing page design (https://startbootstrap.com/themes/landing-page/)  was chosen for this site that had a contemporary navbar and masthead that persisted on all web pages. The masthead contained a jumbotron with product/service searchbar for the user's convenience. 
+A modern Bootstrap [Startbootrap](https://startbootstrap.com/themes/landing-page/) landing page design was chosen for this site that had a contemporary navbar and masthead that persisted on all web pages. The masthead contained a jumbotron with product/service searchbar for the user's convenience. 
 
-Inspired by the Boutique Ado, [onepeleton](https://www.onepeloton.co.uk/) and [Les Mills](https://www.lesmills.com/uk/) websites the use of full viewport width imagery was employed for visual impact. For the landing, products and purchasing pages the rendered pages were split into three vertical sections : 1) A uniform navbar and masthead with search facility; 2) the body / page specific content; and 3) a uniform footer.  
+Inspired by the [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1), [onepeleton](https://www.onepeloton.co.uk/) and [Les Mills](https://www.lesmills.com/uk/) websites the use of full viewport width imagery was employed for visual impact. For the landing, products and purchasing pages the rendered pages were split into three vertical sections : 1) A uniform navbar and masthead with search facility; 2) the body / page specific content; and 3) a uniform footer.  
 
 
 #### Framework
 
 - [Bootstrap Grid v4.4.1](https://getbootstrap.com/)
-    -
+    - Customisable responsive mobile-first HTML.  
 - [jQuery 3.5.1](https://code.jquery.com/jquery/)
     - To keep the JavaScript minimal, I have decided to use jQuery as foundation to my scripts framework.
 - [Django 3.0.8](https://www.djangoproject.com/download/)
@@ -159,7 +154,7 @@ The index page was designed to show 3 main sections. On top a callout/searchbar 
 
 <img src="https://github.com/davidjbuchanan/ML4/blob/master/media/mockups/Index_pages.png" alt="Live Strong index pages on multiple viewports" width="100%">
 
-The page most populated with elements is for the products' page. This required a simple clear display that was responsive as the width of the viewport decreases; this was resolved by stacking the elements. 
+The page most populated with elements is for the Blog pages. This required a simple clear display that was responsive as the width of the viewport decreases; this was resolved by stacking the elements. 
 
 <img src="https://github.com/davidjbuchanan/ML4/blob/master/media/mockups/Blog.png" alt="Live Strong blog views" width="100%">
 
@@ -181,7 +176,7 @@ Dashboard page
 #### Products App and Search functionality
 Search the database
 - If a user would like to search for a particular category of class or item of equipment they can use the search bar (on the Masthead of each page) to search by name, category or by word in the products description. This results in the display of a refinned 'Products' page to the user.
--Alternatively users can use the built-in filters on the navbar's product dropdown menu to access equipment or classes as categorised by exercise tupe e.g. yoga, running etc.
+- Alternatively users can use the built-in filters on the navbar's product dropdown menu to access equipment or classes as categorised by exercise type e.g. yoga, running etc.
 - A third option is found exclusively on the landing page's Icons Grid section where there are some interactive buttons to access the equipment, classes and blog.
 
 View all essential equipment (also referred to as 'essentials')         
@@ -228,7 +223,7 @@ Create a user's profile
 
 #### Authentication App
 - This is a **C**RUD feature:
-- Uses the allauth https://django-allauth.readthedocs.io/en/latest/installation.html
+- Uses [allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
 - Allows user's to register and access profile and blog services.
 
 
@@ -270,7 +265,7 @@ Draft a blog post
 - only the authenticated staff can access this app feature
 
 View and publish a blog post
-- This is a **C**R**U**D feature:
+- This is a C**RU**D feature:
 - Using the navbar a user can navigate to a *draft post* page, where a list of all draft posts are rendered for review by the superuser. Each post is displayed in its entirety. Thus allowing quick review prior to selection of an individual post which is a form, there they can author a post which will be held in draft until published by a superuser.
 - only the authenticated superuser can access this app feature
 
@@ -283,11 +278,6 @@ Pagination
 
 
 ### Features Left to Implement
-Content Elaboration
-- Of the other two other main topics (Play & Learn and Rest & Relax) and the store page to add a commercial element.
-
-Confirmation modals
-- Addition of confirmation models allows the user the opportunity to review seletions and choices. This would be a valuable addition for the prevention of inadvertant deletion of records.
 
 Elaboration of search facility
 - This could be extended to include a search of the blog app's content. At the moment it is limited to just commecial products and services.
@@ -323,7 +313,7 @@ Automated testing
 ### Back-End Technologies
 
 - **Django**
-    - [Django 3.0.8](https://www.djangoproject.com/download/) - .
+    - [Django 3.0.8](https://www.djangoproject.com/download/) - Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design..
     - [django-allauth 0.42.0](https://pypi.org/project/django-allauth/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication..
     - [requests-oauthlib 1.3.0](https://pypi.org/project/requests-oauthlib/0.3.1/) - This project provides first-class OAuth library support for Requests.
     - [django-crispy-forms 1.9.2](https://django-crispy-forms.readthedocs.io/en/latest/) - django-crispy-forms provides you with a |crispy filter and {% crispy %} tag that will let you control the rendering behavior of your Django forms in a very elegant and DRY way. Have full control without writing custom form templates. All this without breaking the standard way of doing things in Django, so it plays nice with any other form application..
@@ -346,8 +336,8 @@ Automated testing
 
 - **Python**    
     - [Python 3.8.3](https://www.python.org/) - Used as the back-end programming language.
-    - [pytz 2020.1]() - Brings the Olson tz database into Python.
-    - [sqlparse 0.3.1]() - Non-validating SQL parser.
+    - [pytz 2020.1](https://pypi.org/project/pytz/) - Brings the Olson tz database into Python.
+    - [sqlparse 0.3.1](https://pypi.org/project/sqlparse/) - Non-validating SQL parser.
     - [Pillow 7.2.0](https://pillow.readthedocs.io/en/5.1.x/handbook/index.html) - Adds support for opening, manipulating, and saving many different image file formats.
     - [oauthlib 3.1.0](https://github.com/oauthlib/oauthlib/blob/master/README.rst) - OAuthLib is a framework which implements the logic of OAuth1 or OAuth2 without assuming a specific HTTP request object or web framework.
     - [python3-openid 3.2.0](https://pypi.org/project/python3-openid/) - his is a set of Python packages to support use of the OpenID decentralized identity system in an application.
@@ -359,7 +349,9 @@ Automated testing
 
 ## Testing
 
-:white_check_mark: *denotes items that have been successfully implemented*
+Notes on testing:
+- All testing performed on Google Chrome (Version 85.0.4183.121 (Official Build) (64-bit))
+- :white_check_mark: *denotes items that have been successfully implemented*
 
 **Basic navigation** (Tested on Lenovo ThinkVision L2250p 22" Widescreen LCD Monitor, iPhone X and iPad)
 - :white_check_mark: Links tested on navbar (& navbar toggle button) and footer
@@ -379,28 +371,27 @@ Automated testing
 - :white_check_mark: Draft blog post update to publish status ocurrs
 - :white_check_mark: View bag contents
     - This has been confirmed using automated testing; see `test_views` in bag app.
+- :white_check_mark: allow access to views **only** when sufficient authenticated presented by user. 
+    - :white_check_mark: tiered access for guests, authenticated users, staff and superuser 
 
 **Search page / functionality:**
 - :white_check_mark: Search bar tested on Masthead (product name and product detail content)
 
 **Responsiveness** 
-Tested on portrait and landscape viewport for the following viewports
-todo    - :white_check_mark: Apple iPad pro
-todo    - :white_check_mark: Apple iPad pro
-todo    - :white_check_mark: Apple iPad
-todo    - :white_check_mark: Apple iPhone 5/SE/6/7/8/X/6 plus/7 plus/8 plus
- 
-todo    Note: when tested on actual iPhone X the background-attachment: fixed was not compatible with iOS - browsers. On Chrome and Safari in           iOS, the background photos appeared zoomed-in and blurry. To fix this, the .background-attachment: scroll property - value was added in         a media query.
+Tested on portrait and landscape viewport for the following viewports:
+- :white_check_mark: Apple iPad pro
+- :white_check_mark: Apple iPad pro
+- :white_check_mark: Apple iPad
+- :white_check_mark: Apple iPhone 5/SE/6/7/8/X/6 plus/7 plus/8 plus
+- :white_check_mark:Samsung Galaxy S5
+- :white_check_mark:Pixel 2/2 XL
 
-todo    - :white_check_mark:Samsung Galaxy S5
-todo    - :white_check_mark:Pixel 2/2 XL
-
-Responsiveness tested on landscape viewport for the following viewports
-todo    - :white_check_mark: Lenovo ThinkVision L2250p 22" Widescreen LCD Monitor
-todo    - :white_check_mark: Microsoft Surface 2 laptop  (1504 x 892 px)
-todo    - :white_check_mark: Dell XPS laptop (13.4 inch, 1920 x 1080 px)
-todo    - :white_check_mark: Desktop (1680 x 939 px)
-todo    - :white_check_mark: iMac 27 inch (5120 X 2880 px)
+Responsiveness tested on landscape viewport for the following viewports:
+- :white_check_mark: Lenovo ThinkVision L2250p 22" Widescreen LCD Monitor
+- :white_check_mark: Microsoft Surface 2 laptop  (1504 x 892 px)
+- :white_check_mark: Dell XPS laptop (13.4 inch, 1920 x 1080 px)
+- :white_check_mark: Desktop (1680 x 939 px)
+- :white_check_mark: iMac 27 inch (5120 X 2880 px)
 
 **Shopping**
 - :white_check_mark: Add any quantity of an item to bag
@@ -412,14 +403,24 @@ todo    - :white_check_mark: iMac 27 inch (5120 X 2880 px)
     `Forbidden (CSRF token missing or incorrect.): /bag/remove/195/`
     - To prevent recurrence the JQuery for this function was moved into the bag template HTML; once did the function worked as expected.
 - :white_check_mark: add coupon codes to bag contents and have the costs updated
+    - :white_check_mark: prevent multiple coupons to be appended in order to get fraudalent discount
+- :white_check_mark: email responses to purchases (local and remote deployment)
 
 **Stripe Payments and Transaction Data**
 - :white_check_mark: Transactions are recorded in the Postgress db and can be accessed and selectively edited
 - :white_check_mark: Payments are recorded on Stripe
+    - Note: all payments made using test credit card number 4242 4242 4242 4242.
 - :white_check_mark: Stripe webhooks 
 
-**Form validation**
+**Authentication**
+- :white_check_mark: Links to login/registration on checkut page
+- :white_check_mark: Links within allauth app e.g. password reset etc.
+- :white_check_mark: email responses to authentication (local and remote deployment)
 
+**Toasts and messages**
+- :white_check_mark: confirmations in place and working on demand (see below for form relevant examples)
+
+**Form validation**
 Form validation testing was performed using a mix of manual testing for non-Django forms and both manual and automated testing for Django forms.
 
 - **Authentication: Registration form.** Required input fields include:
@@ -516,7 +517,7 @@ Form validation testing was performed using a mix of manual testing for non-Djan
 
 - **Product: Update product form.**
     - aka ProductForm.
-    - Required input fields confirmed to be:as been verified using automated tests see `test_forms` in products app. Required input fields include:
+    - Required input fields confirmed to be:
         - :white_check_mark: product name
         - :white_check_mark: product description
         - :white_check_mark: price
@@ -576,14 +577,24 @@ Form validation testing was performed using a mix of manual testing for non-Djan
         - models.py   Lines: 13, 14, 15 and 16.  
         - urls.py     Line: 6.
         - views.py    Line: 21.
+    - test_views and test_forms not reviewed
 
 
-### Compatibility
-todo - :white_check_mark: Microsoft Edge (version ):  Images within cards were found to be distorted on initial tsting, i.e. not in width but in height, where the height reverted to that of the original image. To rectify the distortion a .d-block class was added to the parent div i.e. div class="card d-block h-100 shadow". Credit jeroendesloovere @ https://github.com/twbs/bootstrap/issues/21885. 
-todo - :white_check_mark: Mozilla (Version 81.0.1 (64-bit)).
-todo - :white_check_mark: Safari (Version 14.0.1).
-todo - :white_check_mark: Microsoft Edge (Version 85.0.564.68 (Official build) (64-bit)).
-todo - :white_check_mark: Google Chrome (Version 85.0.4183.121 (Official Build) (64-bit)).
+### Compatibility 
+- :white_check_mark: Mozilla (Version 81.0.1 (64-bit)).
+    - Tested on desktop monitor: Performed tasks such as purchases, login, superuser manipulation of coupons, products and blogs.
+    - No testing on registration or profile set-up.
+    - no issues identified.
+- :white_check_mark: Safari (Version 14.0.1).
+    - Tested on desktop monitor: Performed tasks such as purchases, login, superuser manipulation of coupons, products and blogs.
+    - No testing on registration or profile set-up
+    - no issues identified.
+- :white_check_mark: Microsoft Edge (Version 85.0.564.68 (Official build) (64-bit)).
+    - Tested on desktop monitor: Performed tasks such as purchases, login, superuser manipulation of coupons, products and blogs.
+    - No testing on registration or profile set-up
+    - no issues identified.
+- :white_check_mark: Google Chrome (Version 85.0.4183.121 (Official Build) (64-bit)).
+    - Browser was used as the principle form of testing; see section above.
 
 ### Known Issues
 
@@ -1010,7 +1021,7 @@ Sources of the images used on this site:
     - this is a standard home app with a 404 view and url. The toasts and message section was taken from Code Institute's [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) repo. 
 
 - **Products app and Profiles app**
-    - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) apps were used in its entirety aside from styling.
+    - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) apps were used in its entirety aside from styling and the adition of an admin.py for the profiles app.
 
 ### README
 - **Template and content**
@@ -1020,7 +1031,9 @@ Sources of the images used on this site:
 - Victor Miclovich 
     - My Code Institute mentor.
 - Code Institute Tutors
-    - Fine tuning of code
+    - Fine tuning of code.
+- Code Institute Instructors
+    - The course content is ubiquitous, in some form or another, within this repository. Many thanks to all who contributed to such an enjoyable course. 
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 
 ##### back to [top](#table-of-contents)
