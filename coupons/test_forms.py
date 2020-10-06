@@ -1,7 +1,7 @@
 from django.test import TestCase
 from .forms import CouponApplyForm, CouponForm
 
-class TestItemForm(TestCase):
+class TestCouponApplyForm(TestCase):
 
     def test_code_is_required(self):
         form = CouponApplyForm({'code': ''})
@@ -16,6 +16,8 @@ class TestItemForm(TestCase):
     def test_CouponApplyForm_fields_are_explicit_in_form_metaclass(self):
         form = CouponApplyForm()
         self.assertEqual(form.Meta.fields, ('code',))
+
+class TestCouponForm(TestCase):
 
     def test_CouponForm_code_is_required(self):
         form = CouponForm({'code': ''})

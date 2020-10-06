@@ -1,7 +1,7 @@
 from django.test import TestCase
 from .forms import ProductForm
 
-class TestItemForm(TestCase):
+class TestProductForm(TestCase):
 
     def test_name_is_required(self):
         form = ProductForm({'name': ''})

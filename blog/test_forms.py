@@ -1,7 +1,7 @@
 from django.test import TestCase
 from .forms import CommentForm, UserBlogForm, EditPost
 
-class TestItemForm(TestCase):
+class TestCommentForm(TestCase):
 
     def test_comment_name_is_required(self):
         form = CommentForm({'name': ''})
@@ -29,6 +29,8 @@ class TestItemForm(TestCase):
         form = CommentForm()
         self.assertEqual(form.Meta.fields, ('name', 'email', 'body'))
 
+class TestUserBlogForm(TestCase):
+
     def test_add_post_title_is_required(self):
         form = UserBlogForm({'title': ''})
         self.assertFalse(form.is_valid())
@@ -54,6 +56,8 @@ class TestItemForm(TestCase):
     def test_add_post_excludes_are_explicit_in_form_metaclass(self):
         form = UserBlogForm()
         self.assertEqual(form.Meta.exclude, ('publish', 'created', 'updated', 'status', 'author'))
+
+class TestEditPost(TestCase):
 
     def test_publish_status_is_required(self):
         form = EditPost({'status': ''})
