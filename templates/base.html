@@ -127,42 +127,26 @@
                         </li>
                     </ul>
                     <!-- small viewport dropdown styling-->            
-                    <ul class="navbar-nav d-block d-lg-none nav-fill w-100"  id="testytest">
+                    <ul class="navbar-nav d-block d-lg-none nav-fill w-100" id="testytest">
                         <li id="one_prime" class="dropdown nav-item">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser or request.user.is_staff %}
-                                    <a class="text-black nav-link" href="#" id="blog-options_small_su_s" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <div class="text-center">
-                                            <div><i id="blog-options_1_small_su_s" class="fas fa-blog fa-lg"></i></div>
-                                            <p id="blog-options_2_small_su_s" class="my-0"><strong>Blog</strong></p>
-                                        </div>
-                                    </a>
-                                    <div class="dropdown-menu rounded-0 border border-danger text-center" aria-labelledby="user-options">
-                                        {% if request.user.is_superuser %}
-                                            <a href="{% url 'blog:post_list' %}" class="dropdown-item">Read Blog Posts</a>
-                                            <a href="{% url 'blog:draft_list' %}" class="dropdown-item">Review Post Drafts</a>
-                                            <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Post</a>
-                                        {% else %}
-                                            <a href="{% url 'blog:post_list' %}" class="dropdown-item">Read Blog Posts</a>
-                                            <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Post</a>
-                                        {% endif %}
-                                    </div>
+                            <a class="text-black nav-link" href="#" id="blog-options_small_su_s" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div><i id="blog-options_1_small_su_s" class="fas fa-blog fa-lg"></i></div>
+                                    <p id="blog-options_2_small_su_s" class="my-0"><strong>Blog</strong></p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu rounded-0 border border-danger text-center" aria-labelledby="user-options">
+                                {% if request.user.is_superuser %}
+                                    <a href="{% url 'blog:post_list' %}" class="dropdown-item">Read Blog Posts</a>
+                                    <a href="{% url 'blog:draft_list' %}" class="dropdown-item">Review Post Drafts</a>
+                                    <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Post</a>
+                                {% elif request.user.is_staff %}
+                                    <a href="{% url 'blog:post_list' %}" class="dropdown-item">Read Blog Posts</a>
+                                    <a href="{% url 'blog:add_blog_entry' %}" class="dropdown-item">Submit a Post</a>
                                 {% else %}
-                                    <a class="text-black nav-link" href="{% url 'blog:post_list' %}" id="blog-options_small_au">
-                                        <div class="text-center">
-                                            <div><i id="blog-options_1_small_au" class="fas fa-blog fa-lg"></i></div>
-                                            <p id="blog-options_2_small_au" class="my-0"><strong>Read Blog Posts</strong></p>
-                                        </div>
-                                    </a>
+                                    <a href="{% url 'blog:post_list' %}" class="dropdown-item">Read Blog Posts</a>
                                 {% endif %}
-                            {% else %}
-                                <a class="text-black nav-link" href="{% url 'account_login' %}" id="blog-options_small_u">
-                                    <div class="text-center">
-                                        <div><i id="blog-options_1_small_u" class="fas fa-blog fa-lg"></i></div>
-                                        <p id="blog-options_2_small_u" class="my-0"><strong>Read Blog</strong></p>
-                                    </div>
-                                </a>
-                            {% endif %}
+                            </div>
                         </li>
                         <li id="two_prime" class="dropdown nav-item">
                             <a class="text-black nav-link" href="#" id="user-options_prime" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
