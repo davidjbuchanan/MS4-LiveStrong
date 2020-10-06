@@ -258,17 +258,16 @@ Add a coupon to the database
 View the blog list
 - This is a C**R**UD feature:
 - on the *blog list* page, all blog entries are displayed with a heading, datestamp, author and partial text. The full text can be accessed and read on the *blog detail* page once clicking the blog title.
-- only authenticated users can access this app feature
 
 Comment on a blog post
 - This is a **C**RUD feature:
 - on the *blog detail* page, a user can comment on a blog post leaving email namr and comment details. This will be appended beneath the blog post in the *blog detail* page.
-- only authenticated staff users can access this app feature
+- only authenticated users can access this app feature
 
 Draft a blog post
 - This is a **C**RUD feature:
 - Using the navbar a user can navigate to an *add post* page, which is a form, there they can author a post which will be held in draft until published by a superuser.
-- only the authenticated superuser can access this app feature
+- only the authenticated staff can access this app feature
 
 View and publish a blog post
 - This is a **C**R**U**D feature:
@@ -303,6 +302,8 @@ Elaborate UX of blog posts
 - Elaborate the 'draft post list' and 'publish post' views to include an *update* or *feedback* feature. Thus allowing the reviewer to constructively criticise if the post is not suitable for publication.
 - At the moment only staff and superusers can author a post; and they must be authenticated to do so. Similarly users are unable to *comment* on a post unless they have performed registration and authentication. The reason for this is to protect the content of the comments section i.e. to avoid spam. A more sophisticated method could involve making the blog totally open to guest users and making the comments section reviewable prior to publication of the comment. Thus the blog posts would be a 'draw' for new customers whilst the content protected.
 
+Automated testing
+- The automated testing of all views and all models would compliment the manual and automated testing performed to date. 
 
 ##### back to [top](#table-of-contents)
 
@@ -369,11 +370,15 @@ Elaborate UX of blog posts
 - :white_check_mark: Product links navigate to product detail page
 - :white_check_mark: Update product links navigate to product detail page and update occurs
 - :white_check_mark: Delete product links navigate to product detail page and deletion occurs
+- :white_check_mark: Blog post list page pagination links toggle back and forth between pages 
+    - This has been confirmed using automated testing; see `test_views` in blog app.
 - :white_check_mark: Blog post links navigate to blog post detail page
-- :white_check_mark: Blog post list page pagination links toggle back and forth between pages
 - :white_check_mark: Draft blog post links navigate to draft blog post detail page
+    - This has been semi-confirmed using automated testing; see `test_views` in blog app: The issue with this is that the test does not incorporate the authentication code within the *draft_list* view. Note: If the authentication code is removed the test passes.
 - :white_check_mark: Draft blog post list page pagination links toggle back and forth between pages
 - :white_check_mark: Draft blog post update to publish status ocurrs
+- :white_check_mark: View bag contents
+    - This has been confirmed using automated testing; see `test_views` in bag app.
 
 **Search page / functionality:**
 - :white_check_mark: Search bar tested on Masthead (product name and product detail content)
@@ -417,68 +422,108 @@ todo    - :white_check_mark: iMac 27 inch (5120 X 2880 px)
 
 Form validation testing was performed using a mix of manual testing for non-Django forms and both manual and automated testing for Django forms.
 
-- **Registration form.** Required input fields include:
+- **Authentication: Registration form.** Required input fields include:
     - :white_check_mark: email address: input field requires an '@' character
     - :white_check_mark: username
     - :white_check_mark: password
     - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Login form.** Required input fields include:
+- **Authentication: Login form.** Required input fields include:
     - :white_check_mark: email address: input field requires an '@' character
     - :white_check_mark: username
     - :white_check_mark: password
     - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Password Reset form.** Required input fields include:
+- **Authentication: Password Reset form.** Required input fields include:
     - :white_check_mark: email address: input field requires an '@' character
     - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Add draft blog post form.** has been verified using automated tests see `test_forms` in blog app. Required input fields include:
-    - :white_check_mark: Post title
-    - :white_check_mark: Post slug
-    - :white_check_mark: Post content
+- **Blog: Add draft blog post form.** 
+    - aka UserBlogForm.
+    - Required input fields confirmed to be:
+        - :white_check_mark: Post title
+        - :white_check_mark: Post slug
+        - :white_check_mark: Post content
+        - This has been confirmed using automated testing; see `test_forms` in blog app.
     - *:white_check_mark: Requires staff user status to access page*
     - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Update/publish draft blog post form.** has been verified using automated tests see `test_forms` in blog app. Required input fields include:
-    - :white_check_mark: status
+- **Blog: Update/publish draft blog post form.**
+    - aka EditPost.
+    - Required input fields confirmed to be:
+        - :white_check_mark: status
+        - This has been confirmed using automated testing; see `test_forms` in blog app.
     - *:white_check_mark: Requires superuser status to access page*
     - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Add comment (to blog post) form.** has been verified using automated tests see `test_forms` in blog app. Required input fields include:
-    - :white_check_mark: name
-    - :white_check_mark: email address: input field requires an '@' character
-    - :white_check_mark: message
+- **Blog: Add comment (to blog post) form.**
+    - aka CommentForm.
+    - Required input fields confirmed to be:
+        - :white_check_mark: name
+        - :white_check_mark: email address: input field requires an '@' character
+        - :white_check_mark: message
+        - This has been confirmed using automated testing; see `test_forms` in blog app.
     - *:white_check_mark: Requires authenticated user status to access comments form*
     - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Add item to bag form.** Required input fields include:
-    - :white_check_mark: quantity (1 min., 99 max.)
+- **Bag: Add item to bag form.** 
+    -  Required input fields include:
+        - :white_check_mark: quantity (1 min., 99 max.)
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+    - *Django forms was not used for this form*
+
+- **Coupon: Add coupon to bag form.**
+    - aka CouponApplyForm.
+    - Required input fields confirmed to be:
+        - :white_check_mark: code
+        - This has been confirmed using automated testing; see `test_forms` in coupons app.
     - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Checkout form.** has been verified using automated tests see `test_forms` in checkout app. Required input fields include:
-    - :white_check_mark: full name
-    - :white_check_mark: email address: input field requires an '@' character
-    - :white_check_mark: phone number
-    - :white_check_mark: country
-    - :white_check_mark: town of city
-    - :white_check_mark: street address
-    - :white_check_mark: card details
+- **Coupon: Add coupon form.** 
+    - aka CouponForm.
+    - Required input fields confirmed to be:
+        - :white_check_mark: code name
+        - :white_check_mark: valid from
+        - :white_check_mark: valid to
+        - :white_check_mark: discount value e.g. 50 (i.e. 50%)
+        - This has been confirmed using automated testing; see `test_forms` in coupons app.
+    - *:white_check_mark: Requires superuser status to access page*
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+    - The *coupon_apply* view was tested using automated testing and passed; see `test_views` in coupon app.
+
+- **Checkout: Checkout form.** 
+    - aka OrderForm.
+    - Required input fields confirmed to be:
+        - :white_check_mark: full name
+        - :white_check_mark: email address: input field requires an '@' character
+        - :white_check_mark: phone number
+        - :white_check_mark: country
+        - :white_check_mark: town of city
+        - :white_check_mark: street address
+        - :white_check_mark: card details
+        - This has been confirmed using automated testing; see `test_forms` in checkout app.
     - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Add product form.** as been verified using automated tests see `test_forms` in products app. Required input fields include:
-    - :white_check_mark: product name
-    - :white_check_mark: product description
-    - :white_check_mark: price ($9999.9 max.)
+- **Product: Add product form.** 
+    - aka ProductForm.
+    - Required input fields confirmed to be:
+        - :white_check_mark: product name
+        - :white_check_mark: product description
+        - :white_check_mark: price ($9999.9 max.)
+        - This has been confirmed using automated testing; see `test_forms` in product app.
     - *:white_check_mark: Requires superuser status to access page*
     - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
-- **Update product form.** as been verified using automated tests see `test_forms` in products app. Required input fields include:
-    - :white_check_mark: product name
-    - :white_check_mark: product description
-    - :white_check_mark: price
+- **Product: Update product form.**
+    - aka ProductForm.
+    - Required input fields confirmed to be:as been verified using automated tests see `test_forms` in products app. Required input fields include:
+        - :white_check_mark: product name
+        - :white_check_mark: product description
+        - :white_check_mark: price
+        - This has been confirmed using automated testing; see `test_forms` in product app.
     - *:white_check_mark: Requires superuser status to access page*
     - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+
 
 ### Validators
 
@@ -962,7 +1007,7 @@ Sources of the images used on this site:
     - the add_coupon views and forms files were developed independantly 
 
 - **Home app**
-    - this is a standard home app with a 404 view and url. It is very similar to that of the Code Institute's [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) repo.
+    - this is a standard home app with a 404 view and url. The toasts and message section was taken from Code Institute's [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) repo. 
 
 - **Products app and Profiles app**
     - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) apps were used in its entirety aside from styling.
