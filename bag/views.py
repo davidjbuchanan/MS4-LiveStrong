@@ -10,8 +10,10 @@ from django.utils import timezone
 @require_http_methods(["GET", "POST"])
 def coupon_apply(request):
     now = timezone.now()
+    coupon_form = CouponApplyForm(request.POST)
+    code = coupon_form
+    coupon = Coupon
     if request.method == 'POST':
-        coupon_form = CouponApplyForm(request.POST)
         if coupon_form.is_valid():
             code = coupon_form.cleaned_data['code']
             try:

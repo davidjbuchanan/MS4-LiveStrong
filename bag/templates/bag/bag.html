@@ -140,8 +140,8 @@
                         <table class="table table-sm table-borderless">
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <h6><strong>Discount Coupon id: {% if code %} {{ code }} {% else %} Nill {% endif %}</strong></h6>
-                                    <h6><strong>Discount Applied: {% if code %} ({{ discount_percentage }}%) / ${{ discount_total|floatformat:2 }} {% else %} Nill {% endif %}</strong></h6>
+                                    <h6><strong>Discount Coupon id: {% if code %} {{ code }} {% else %} Not Added {% endif %}</strong></h6>
+                                    <h6><strong>Discount Applied: {% if code %} ({{ discount_percentage }}%) / ${{ discount_total|floatformat:2 }} {% else %} Zero {% endif %}</strong></h6>
                                     <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
                                     
                                     <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>

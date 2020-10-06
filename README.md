@@ -361,19 +361,19 @@ Elaborate UX of blog posts
 :white_check_mark: *denotes items that have been successfully implemented*
 
 **Basic navigation** (Tested on Lenovo ThinkVision L2250p 22" Widescreen LCD Monitor, iPhone X and iPad)
-    - :white_check_mark: Links tested on navbar (& navbar toggle button) and footer
-    - :white_check_mark: Footer's Social icons openning to link in a new webpage
-    - :white_check_mark: Links tested on icons grid
-    - :white_check_mark: Links tested on 'under construction page'
-    - :white_check_mark: Alert dismiss on toasts
-    - :white_check_mark: Product links navigate to product detail page
-    - :white_check_mark: Update product links navigate to product detail page and update occurs
-    - :white_check_mark: Delete product links navigate to product detail page and deletion occurs
-    - :white_check_mark: Blog post links navigate to blog post detail page
-    - :white_check_mark: Blog post list page pagination links toggle back and forth between pages
-    - :white_check_mark: Draft blog post links navigate to draft blog post detail page
-    - :white_check_mark: Draft blog post list page pagination links toggle back and forth between pages
-    - :white_check_mark: Draft blog post update to publish status ocurrs
+- :white_check_mark: Links tested on navbar (& navbar toggle button) and footer
+- :white_check_mark: Footer's Social icons openning to link in a new webpage
+- :white_check_mark: Links tested on icons grid
+- :white_check_mark: Links tested on 'under construction page'
+- :white_check_mark: Alert dismiss on toasts
+- :white_check_mark: Product links navigate to product detail page
+- :white_check_mark: Update product links navigate to product detail page and update occurs
+- :white_check_mark: Delete product links navigate to product detail page and deletion occurs
+- :white_check_mark: Blog post links navigate to blog post detail page
+- :white_check_mark: Blog post list page pagination links toggle back and forth between pages
+- :white_check_mark: Draft blog post links navigate to draft blog post detail page
+- :white_check_mark: Draft blog post list page pagination links toggle back and forth between pages
+- :white_check_mark: Draft blog post update to publish status ocurrs
 
 **Search page / functionality:**
 - :white_check_mark: Search bar tested on Masthead (product name and product detail content)
@@ -398,22 +398,25 @@ todo    - :white_check_mark: Desktop (1680 x 939 px)
 todo    - :white_check_mark: iMac 27 inch (5120 X 2880 px)
 
 **Shopping**
-    - :white_check_mark: Add any quantity of an item to bag
-    - :white_check_mark: Add any quantity of multiple items to the bag
-    - :white_check_mark: Update the bag by reducing or increasing the quantity of any item in bag
-    - :white_check_mark: Remove any item in the bag
-            - Note: there was an error raised during developmant of this feature: 
-                "POST /bag/remove/195/ HTTP/1.1" 403 2513
-                Forbidden (CSRF token missing or incorrect.): /bag/remove/195/ 
-                - The JQuery function for this feature was moved into the bag template HTML to prevent recurrence.
-    - :white_check_mark: add coupon codes to bag contents and have the costs updated
+- :white_check_mark: Add any quantity of an item to bag
+- :white_check_mark: Add any quantity of multiple items to the bag
+- :white_check_mark: Update the bag by reducing or increasing the quantity of any item in bag
+- :white_check_mark: Remove any item in the bag
+    - Note: there was an error raised during developmant of this feature: 
+    `"POST /bag/remove/195/ HTTP/1.1" 403 2513`
+    `Forbidden (CSRF token missing or incorrect.): /bag/remove/195/`
+    - To prevent recurrence the JQuery for this function was moved into the bag template HTML; once did the function worked as expected.
+- :white_check_mark: add coupon codes to bag contents and have the costs updated
 
 **Stripe Payments and Transaction Data**
-    - :white_check_mark: Transactions are recorded in the Postgress db and can be accessed and selectively edited
-    - :white_check_mark: Payments are recorded on Stripe
-    - :white_check_mark: Stripe webhooks 
+- :white_check_mark: Transactions are recorded in the Postgress db and can be accessed and selectively edited
+- :white_check_mark: Payments are recorded on Stripe
+- :white_check_mark: Stripe webhooks 
 
 **Form validation**
+
+Form validation testing was performed using a mix of manual testing for non-Django forms and both manual and automated testing for Django forms.
+
 - **Registration form.** Required input fields include:
     - :white_check_mark: email address: input field requires an '@' character
     - :white_check_mark: username
@@ -428,7 +431,7 @@ todo    - :white_check_mark: iMac 27 inch (5120 X 2880 px)
 
 - **Password Reset form.** Required input fields include:
     - :white_check_mark: email address: input field requires an '@' character
-- *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
+    - *:white_check_mark: On successful completion of the form the user is presented with a toast notification*
 
 - **Add draft blog post form.** has been verified using automated tests see `test_forms` in blog app. Required input fields include:
     - :white_check_mark: Post title
