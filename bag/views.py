@@ -12,7 +12,7 @@ def coupon_apply(request):
     now = timezone.now()
     coupon_form = CouponApplyForm(request.POST)
     code = coupon_form
-    coupon = Coupon
+    context = {}
     if request.method == 'POST':
         if coupon_form.is_valid():
             code = coupon_form.cleaned_data['code']
@@ -25,6 +25,12 @@ def coupon_apply(request):
                 request.session['discount'] = coupon.discount
                 request.session['code'] = coupon.code
                 messages.success(request, 'Coupon applied')
+                context = {
+                    'code': code,
+                    'coupon_id': coupon.id,
+                    'coupon_discount': coupon.discount,
+                    'coupon_form': coupon_form
+                }
             except Coupon.DoesNotExist:
                 request.session['coupon_id'] = None
                 messages.warning(request, 'Coupon not accepted')
@@ -33,12 +39,6 @@ def coupon_apply(request):
         coupon_form = CouponApplyForm()
 
     template = 'bag/bag.html'
-    context = {
-        'code': code,
-        'coupon_id': coupon.id,
-        'coupon_discount': coupon.discount,
-        'coupon_form': coupon_form
-    }
     return render(request, template, context)
 
 
