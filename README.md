@@ -2,12 +2,13 @@
 
 <img src="https://github.com/davidjbuchanan/ML4/blob/master/media/mockups/multidevice_showcase.png" alt="live strong multidevice views" width="100%">
 
-[Live Strong](https://live-strong.herokuapp.com/) is a 'one-stop-shop' for those who want to exercise at home! A place to find live and pre-recorded classes that you can participate without having to got ot gym or sports centre. Find yoga, bike and running classes that are ready to be use from the moment you purchase. These classes are essentially 'on-demand' for the user:
+[Live Strong](https://live-strong.herokuapp.com/) is a 'one-stop-shop' for those who want to exercise at home! A place to find live and pre-recorded classes that you can participate in without having to got to a gym. Find yoga, bike and running classes that are ready to be use from the moment you purchase. These classes are essentially 'on-demand' for the user:
 **How it works**: 
 1. Register for an account or visit as a guest user using the home.
 2. Browse and purchase products using the products, coupon, bag and checkout apps.
 3. Receive a confirmation email which is a proof of purchase.
-4. Receive a seond email containing your credentials and instructions. From there you can access the classes.
+4. Receive a second email containing your credentials and instructions. From there you can access the classes.
+    - Note: this feature has not yet been developed and is thus not included within this repository.
 
 This website was produced to fulfill a coursework assignment for the **[Code Institute's](https://codeinstitute.net/)** **Full Stack Frameworks with Django Milestone Project**. The objectives for this milestone project is to "Create a full-stack site based around business logic used to control a centrally-owned dataset. It must consist of multiple apps including an authentication mechanism. Also it must provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.web application with multiple apps".
 
@@ -204,13 +205,13 @@ Delete a product from the database
 
 
 #### Checkout App
-- This is a C**R**UD and a **C**RUD feature:
+- This is a **C**RUD, C**R**UD and a CR**U**D feature:
 - Using the checkout app the user, if authenticated with a user profile, can review the database record for billing and shipping address and review prospective purchases. 
 - If no profile exists for the user then they can create a billing and shipping address whilst reviewing prospective purchases
 
 
 #### Profile App
-Create a user's profile
+**Create a user's profile**
 - This is a **C**RUD and CR**U**D feature:
 - A user can use a form to input or update their details; thus saving their shipping and billing details. This allows for a better UX during the checkout process.
 - only authenticated users can access this app feature
@@ -318,13 +319,10 @@ Automated testing
     - [requests-oauthlib 1.3.0](https://pypi.org/project/requests-oauthlib/0.3.1/) - This project provides first-class OAuth library support for Requests.
     - [django-crispy-forms 1.9.2](https://django-crispy-forms.readthedocs.io/en/latest/) - django-crispy-forms provides you with a |crispy filter and {% crispy %} tag that will let you control the rendering behavior of your Django forms in a very elegant and DRY way. Have full control without writing custom form templates. All this without breaking the standard way of doing things in Django, so it plays nice with any other form application..
     
-
 - **AWS**
     - [boto3 1.14.58](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - Boto is the Amazon Web Services (AWS) SDK for Python. It enables Python developers to create, configure, and manage AWS services, such as EC2 and S3. Boto provides an easy to use, object-oriented API, as well as low-level access to AWS services.
     - [django-storages 1.10](https://django-storages.readthedocs.io/en/latest/) - django-storages is a collection of custom storage backends for Django.
     
-
-
 - **Heroku**
     - [Heroku](https://www.heroku.com) - Used for app hosting.
     - [Heroku Postgress](https://www.heroku.com/postgres) - Used as relational SQL database plugin via Heroku.
@@ -332,7 +330,6 @@ Automated testing
     - [Green Unicorn (gunicorn) 20.0.4](): A web browser for deployed browsing.
     - [psycopg2-binary 2.8.6](https://pypi.org/project/psycopg2-binary/) - Python-PostgreSQL Database Adapter. Postgres is a server-based database that runs remotely from the Django app.
         - Note: Django's db.sqlite3 is fine for local development but is not robust for long term storage of data as it is ephemeral.
-
 
 - **Python**    
     - [Python 3.8.3](https://www.python.org/) - Used as the back-end programming language.
@@ -559,7 +556,7 @@ Form validation testing was performed using a mix of manual testing for non-Djan
     The Python files were PEP8 compliant apart from the falure to adhere to the E501 (line too long) requirement in the following apps and files:
 
     - blog app
-        - views.py    Line:98
+        - views.py    Line: 107
     - checkout app
         - models.py   Lines: 18, 29, 30, 31, 33, 46, 48, 68, 69, 71, 72, 73, 74, 75 and 84.   
         - urls.py     Lines: 7 and 8.
@@ -609,9 +606,8 @@ During development, I discovered two issues after committing to GitHub.
 ### User-testing
 - Testing to select group of targeted users and a development professional highlighted these 5 points:
     -   Toasts are not uniform across the site and often contain extraneous information; e.g. the bag's contents always shows even when the toast is for something as unrelated as a coupon management task. 
-    -   The 'subsrcibe' link on the navbar was identified as potentially premature and that a "give away" should be offered to the user prior promotion of a subscription servive.
-    -   Images uploaded by user's should be hamdled ny a third party in order to give the user greater autonomy over the image used and not reliant on web available images.
-    - Edit buttons allowing addition and deletion of fields in the 'add recipe' and 'edit recipe' should be "more available" to the user i.e. at the bottom or side of a growing list.
+    -   Signing out is performed using the navbar links but also requires confirmation using a confirmation button at the mid section of the page. This was hard to find and not obvious to the user.
+    - On entering profile/billing/shipping details the use of a dropdown se;ector for country input would be better than manually entering country names; as they are not necessarily recognised by Stripe and render the checkout form invalid e.g. United Kingdom is not recognised but GB is.
 
 
 ### Defensive Design
@@ -619,13 +615,17 @@ It is important to ensure that the apps run correctly and continue to run no mat
 
 - **Validation**
     - Form validation using *crispy forms* and *required* fields in the apps' models ensured that users only input acceptable data.
-    - No significant security or bug issues have been presented.
+    - All forms intelligently handle empty or invalid input fields.
 - **Sanitisation**
-    - The code has been hidden in files (e.g. env.py) or indeed IDE settings to prevent access to vulnerable secret keys, URLs and passwords. In addition a tiered level of access from users, authenticated users, staff users and superusers has been employed thus allowing different users different levels of access to the sites' content. Examples of this are most noticable in the **coupons app**, **products app** and **blog app** views.py files where an authenticated login is required to access the CRUD functionalties of these apps. 
-    - No significant security or bug issues have been presented.
+    - Sensitive code has been hidden in files (e.g. env.py); IDE settings; or 3rd parties. 
+    - A tiered level of access from users, authenticated users, staff users and superusers has been employed thus allowing different users different levels of access to the sites' content. Examples of this are most noticable in the **coupons app**, **products app** and **blog app** views.py files where an authenticated login is required to access the CRUD functionalties of these apps. 
+    - Navigating between pages via the back/forward buttons can never break the site.
+        - This includes unexpected actions such as navigating back to the login page after already being logged in.
+        - Clear feedback to the user is given for any disallowed action.
 - **Authentication**
-    - this is all handled with the allauth authentication system.
-    - No significant security or bug issues have been presented.
+    - The allauth authentication system has been implemented.
+    - A customer is not be able to break the site by clicking buttons out of the expected order or by providing any unexpected inputs.
+    - All forms are autopopulated where appropriate once users are authenticated.
 - **Maintenance**
     - The filing system is uniform and standard throught the numerous apps. All apps have been tested against the standard validators for code.
     - No significant security or bug issues have been presented.
