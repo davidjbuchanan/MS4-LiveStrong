@@ -40,14 +40,16 @@ def post_detail(request, year, month, day, post):
             new_comment.post = post
             new_comment.save()
     else:
-        comment_form = CommentForm()
-        try:
-            profile = UserProfile.objects.get(user=request.user)
-            comment_form = CommentForm(initial={
-                'name': profile.user,
-                'email': profile.user.email,
-            })
-        except UserProfile.DoesNotExist:
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                comment_form = CommentForm(initial={
+                    'name': profile.user,
+                    'email': profile.user.email,
+                })
+            except UserProfile.DoesNotExist:
+                comment_form = CommentForm()
+        else:
             comment_form = CommentForm()
     template = 'blog/detail.html',
     context = {
