@@ -4,6 +4,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post
 from .forms import CommentForm, UserBlogForm, EditPost
 from django.contrib.auth.decorators import login_required
+from profiles.models import UserProfile
 
 
 def post_list(request):
@@ -40,6 +41,14 @@ def post_detail(request, year, month, day, post):
             new_comment.save()
     else:
         comment_form = CommentForm()
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            comment_form = CommentForm(initial={
+                'name': profile.user,
+                'email': profile.user.email,
+            })
+        except UserProfile.DoesNotExist:
+            comment_form = CommentForm()
     template = 'blog/detail.html',
     context = {
         'post': post,
