@@ -3,7 +3,7 @@
 <img src="https://github.com/davidjbuchanan/ML4/blob/master/media/mockups/multidevice_showcase.png" alt="live strong multidevice views" width="100%">
 
 [Live Strong](https://live-strong.herokuapp.com/) is a 'one-stop-shop' for those who want to exercise at home! A place to find live and pre-recorded classes that you can participate in without having to got to a gym. Find yoga, bike and running classes that are ready to be use from the moment you purchase. These classes are essentially 'on-demand' for the user:
-**How it works**: 
+- **How it works**: 
 1. Register for an account or visit as a guest user using the home.
 2. Browse and purchase products using the products, coupon, bag and checkout apps.
 3. Receive a confirmation email which is a proof of purchase.
@@ -56,9 +56,11 @@ This website was produced to fulfill a coursework assignment for the **[Code Ins
 
 The website focuses on the workout-at-home market as it is an attractive approach to health and fitness whilst managing Covid-19 restrictions but also for those with pre-existing conditions (e.g. supressed immune system); no access to local classes; and of course those who would prefer to just workout-at-home. The UX design is intended to draw users in using a well defined color scheme with enjoyably interacive elements. On each page there is a navigation and search jumbotron placed to enable swift access around the site. 
 
-The overall theme of the design is clean straight edges with block elements in order to give a utilitarian vibe whilst the black and red color scheme is intended to make the site feel sporty and sexy. Remiscent of the inspirations for this design (see [onepeleton](https://www.onepeloton.co.uk/) and [Les Mills](https://www.lesmills.com/uk/)) the use of imagery is primarily for motivational and explannatory puposes whereby potential consumers understand that they are purchasing an online service where they can login and access televised workout classes.
+The overall theme of the design is clean straight edges with block elements in order to give a utilitarian vibe whilst the black and red color scheme is intended to make the site feel sporty and sexy. The inspirations for this design were the [onepeleton](https://www.onepeloton.co.uk/) and [Les Mills](https://www.lesmills.com/uk/) websites; where the use of group exercise images inform potential consumers that they are purchasing an online service that they can login and access televised workout classes.
 
-The commercial potential for this idea is vast and so the up-to-purchase UX of this site's products has been refined to make the process as simple as possible. Users are able to browse, add to cart, apply coupons and finalise purchases all within an authenticated user. They can also make purchases as a guest. 
+The focus of this project was to produce envoke a positive UX for all processes leading upto and including the purchase of a product. There is no product to consume, there is no explannation of how to access products online and there is certainly no credentials, codes or supplementary apps/views for consumption of products. What is presented herein is purely an e-commerce activity.
+
+At its simplest this website allows users to browse, add to cart, apply coupons and finalise purchases. This has all been streamlined by using recognisable icons and text for users to follow. Mild distractions such as the blog app, profile setting and imagery are there to enhance and supplement this experience.
 
 The vision for this site is to have three consummables (equipment, services and blog) The equipment and services are grouped together as products, that derive cash income, and can be managed and consumed using the products, bag and checkout apps. The blog is a loss-leader that derives no income it is used as a 'hook' to entice users to register and create a profile thus allowing them access to the blog and, of course,paid for products.
 
@@ -72,7 +74,7 @@ There are several placeholder for undeveloped features each links to under const
 ### User Stories
 
 Who is the user? Essentially this could be anyone wanting to participate in group exercise at home, via the internet. 
-:white_check_mark: *denotes items that have been successfully implemented*
+- :white_check_mark: *denotes items that have been successfully implemented*
 
 "**_As a guest / non authenticated user, I would like to_** _____________________________"
 
@@ -113,8 +115,9 @@ Who is the user? Essentially this could be anyone wanting to participate in grou
 
 A modern Bootstrap [Startbootrap](https://startbootstrap.com/themes/landing-page/) landing page design was chosen for this site that had a contemporary navbar and masthead that persisted on all web pages. The masthead contained a jumbotron with product/service searchbar for the user's convenience. 
 
-Inspired by the [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1), [onepeleton](https://www.onepeloton.co.uk/) and [Les Mills](https://www.lesmills.com/uk/) websites the use of full viewport width imagery was employed for visual impact. For the landing, products and purchasing pages the rendered pages were split into three vertical sections : 1) A uniform navbar and masthead with search facility; 2) the body / page specific content; and 3) a uniform footer.  
+Inspired by the [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1), [onepeleton](https://www.onepeloton.co.uk/) and [Les Mills](https://www.lesmills.com/uk/) websites the use of full viewport width imagery was employed for visual impact. For the landing, products and purchasing pages the rendered pages were split into three vertical sections : 1) A uniform navbar and masthead with search facility; 2) the body / page specific content; and 3) a uniform footer.
 
+The [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) repository was the key starting point for the design, as much of the code was taken from this repo and then edited to fit: you will see that clean edges and highly contrasting colour choices have been used to make the rendered pages look sharp and engaging. Outlining of boxes with red borders when elements are highlighted has been the key divergence from the [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) repo in order to enhance the UX.
 
 #### Framework
 
@@ -144,7 +147,7 @@ In keeping with the overall *simple/clean* theme, I have opted for a muted color
 #### Typography
 
 - [Google Fonts](https://fonts.google.com/)
-- [Lato](https://fonts.google.com/specimen/Lato)
+    - [Lato](https://fonts.google.com/specimen/Lato)
 
 
 ### Wireframes
@@ -294,7 +297,10 @@ Elaborate UX of blog posts
 - At the moment only staff and superusers can author a post; and they must be authenticated to do so. Similarly users are unable to *comment* on a post unless they have performed registration and authentication. The reason for this is to protect the content of the comments section i.e. to avoid spam. A more sophisticated method could involve making the blog totally open to guest users and making the comments section reviewable prior to publication of the comment. Thus the blog posts would be a 'draw' for new customers whilst the content protected.
 
 Automated testing
-- The automated testing of all views and all models would compliment the manual and automated testing performed to date. 
+- The automated testing of all views and all models would compliment the manual and automated testing performed to date.
+
+Code refactoring
+- Much of the mouseEnter/ mouseLeave JQuery is repeated throughout the apps. This should be rolled into a central static file. 
 
 ##### back to [top](#table-of-contents)
 
@@ -604,7 +610,7 @@ During development, I discovered two issues after committing to GitHub.
 
 
 ### User-testing
-- Testing to select group of targeted users and a development professional highlighted these 5 points:
+- Testing to select group of targeted users and a development professional highlighted these 3 points:
     -   Toasts are not uniform across the site and often contain extraneous information; e.g. the bag's contents always shows even when the toast is for something as unrelated as a coupon management task. 
     -   Signing out is performed using the navbar links but also requires confirmation using a confirmation button at the mid section of the page. This was hard to find and not obvious to the user.
     - On entering profile/billing/shipping details the use of a dropdown se;ector for country input would be better than manually entering country names; as they are not necessarily recognised by Stripe and render the checkout form invalid e.g. United Kingdom is not recognised but GB is.
