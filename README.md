@@ -990,34 +990,40 @@ Sources of the images used on this site:
 ### Code
 
 - **HTML template**
-    - [David T. Miller - Landing Page](https://startbootstrap.com/themes/landing-page/)    
+    - [David T. Miller - Landing Page](https://startbootstrap.com/themes/landing-page/)
+        - used for Home page  
+
+- **base.html**
+    - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1)
+        - Use and positioning of Django template logic 
 
 - **Bag app**
-    - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) was the template for the following areas:
-        - the file structure including the template, HTML and Python code
-        - the following views were all taken from Boutique Ado repo.: view_bag, add_to_bag, adjust_bag and remove_from_bag.
-        - the coupons app (see below) is merged with this app; specifically the template, contexts file and views file.
+    - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1):
+        - the file structure and HTML were used as a template for this app.
+        - the contexts.py and urls.py were manipulated to handle the coupons feature. 
+        - the following views were all copied from Boutique Ado repo.: view_bag, add_to_bag, adjust_bag and remove_from_bag.
 
 - **Blog app**
     - Django 3 By Example: Build powerful and reliable Python web applications from scratch, 3rd Edition Paperback – 31 Mar. 2020
-      by Antonio Mele (Author); and published by [Packt](www.packtpub.com). The contents were used for the following:
+      by Antonio Mele (Author); and published by [Packt](www.packtpub.com). The book's contents were used for the following:
         - HTML, CSS and Python for the post_list view and its pagination.
         - HTML, CSS and Python for the post_detail view and its comments section.
-        - the add_blog_entry view, draft_list view and post_publish view used the styling and several elements from the book but these views were not covered in the book nor was the concept of defensive design (i,e, authentication of users to access these views and the use of if/else template logic to control rendered pages to authenticated users). So although there are similarities with the book's content (especially for draft_list view), the urls, HTML and Python were developed to allow the the app to function.  
-        - the JQuery is bespoke and is used throughout the project.
+            - the post_detail view was manipulated to accomodate the profile app feature for autofill of the CommentForm.
+    - the add_blog_entry view, draft_list view and post_publish view, used the styling and several elements from the book, but these views were not covered in the book nor was the concept of defensive design (i.e. authentication of users to access these views and the use of if/else template logic to control rendered pages to authenticated users). So although there are similarities with the book's content (especially for draft_list view), the urls, HTML and Python were developed to allow the the app to function.  
 
 - **Checkout app**
-    - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1) was the template for the following areas:
-        - the file structure including the template, HTML and Python code
-        - the following views were all taken from Boutique Ado repo.: cache_checkout_data, checkout and checkout_success.
-        - all Stripe payment systems, webhooks and associated JQuery were taken from this project. 
-        - the coupons app (see below) is merged with this app; see the template and views file.
+    - ckz8780 [Boutique Ado](https://github.com/ckz8780/boutique_ado_v1):
+        - the file structure, admin, urls, webhook_handler, webhooks, signals, forms, models, views and templates.
+            - the checkout template was used and merged with the coupon application.
+            - the OrderLineItem model was manipulated to handle the coupons feature.
+            - the checkout view was manipulated to handle the coupons feature.
+            - the admin was manipulated to handle the coupons feature.
         
 - **Coupons app**
-    - Two influences for this app:
+    - Two creditors for this app:
         - (1) Django 3 By Example: Build powerful and reliable Python web applications from scratch, 3rd Edition Paperback – 31 Mar. 2020
             by Antonio Mele (Author); and published by [Packt](www.packtpub.com). The contents were used for the following:
-            - the model, urls and view were adapted for purpose. 
+            - the model, urls (see unique use of 'namespace' urls for this app only) and view were adapted for purpose. 
         - (2) Donna's [aka skies09](https://github.com/skies09/omega-sk8-ds) repository was an influence:
             - the placement of the coupon_apply view inside the bag apps' views file. 
         - HTML, CSS, JQuery and Python were developed to merge into the bag apps' templates, views, contexts and urls files.
@@ -1038,7 +1044,7 @@ Sources of the images used on this site:
     - My Code Institute mentor.
 - Code Institute Tutors
     - Fine tuning of code.
-- Code Institute Instructors
+- Code Institute Instructors - especialy Chris Zielinski (czk8780)
     - The course content is ubiquitous, in some form or another, within this repository. Many thanks to all who contributed to such an enjoyable course. 
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 
