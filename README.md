@@ -695,13 +695,12 @@ To install these packages onto your IDE'S workspace you can enter the following 
     - **DEVELOPMENT** : `1`
     - Here are two options for storing these:
         - (1) Create an `env.py` file. It should look something like this:
-                ```
+```
                 import os
 
                 os.environ['SECRET_KEY'] = '<lower case alpha numeric with symbols>'
                 os.environ['DEVELOPMENT'] = '1'
-                
-                ```   
+```   
         - (2) Use Gitpod's IDE settings option from the drop-down menu. Place the config vars in **Settings**.
         - Note: It is important that these do not get uploaded during a Github commit/push and that they do not appear in your repository for security reasons
 
